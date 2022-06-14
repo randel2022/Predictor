@@ -1,0 +1,27 @@
+.btn-submit {
+  background-color: #6efb57;
+  padding: 10px;
+  /* border-radius: 10px; */
+  color: #333333;
+}
+
+.email {
+  padding: 10px !important;
+  width: 70%;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+input:focus {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.forms {
+  width: 100%;
+}
+
+.btn-submit {
+  width: 30%;
+}
