@@ -113,10 +113,16 @@ export default function Header({ links = [] }) {
     <Box
       color={'white'}
       // bg={useColorModeValue('222737', '222737')}
-      bg={'#051B07'}
+      backgroundColor="#051B07"
       px={4}
+      py={4}
     >
-      <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+      <Flex
+        h={16}
+        alignItems={'center'}
+        justifyContent={'space-between'}
+        px="20"
+      >
         <IconButton
           size={'md'}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -126,14 +132,11 @@ export default function Header({ links = [] }) {
         />
 
         <HStack spacing={8} alignItems={'center'} w="33%">
-          <Text
-            fontSize="1xl"
-            paddingStart="3"
-            paddingEnd="3"
-            colorScheme="blue"
-            fontWeight="bold"
-          >
-            PREDICTOR
+          <Text fontSize="2xl" paddingEnd="3" color="white" fontWeight="bold">
+            Predict{''}
+            <Box as="span" color="#22EF01">
+              or.
+            </Box>
           </Text>
         </HStack>
 
@@ -143,8 +146,9 @@ export default function Header({ links = [] }) {
             paddingStart="3"
             paddingEnd="3"
             colorScheme="blue"
+            href="/"
           >
-            MARKETPLACE
+            Marketplace
           </Link>
           <Link
             fontSize="1xl"
@@ -153,7 +157,7 @@ export default function Header({ links = [] }) {
             colorScheme="blue"
             href="/Portfolio"
           >
-            PORTFOLIO
+            Portfolio
           </Link>
         </Flex>
 
@@ -179,11 +183,10 @@ export default function Header({ links = [] }) {
                 </Link>
                 <Link
                   fontSize="1xl"
-                  paddingStart="5"
-                  paddingEnd="5"
+                  px="10"
                   paddingTop="2"
                   paddingBottom="2"
-                  borderRadius="10"
+                  borderRadius="15"
                   colorScheme="blue"
                   href="/Portfolio"
                   bgColor={'white'}

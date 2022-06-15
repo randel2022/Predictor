@@ -1,10 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Footer.css';
-
+import { FcNext } from 'react-icons/fc';
 import {
   Box,
   Flex,
+  Center,
   HStack,
   Container,
   IconButton,
@@ -40,7 +41,12 @@ import {
 export default function Footer() {
   return (
     <>
-      <Box color={useColorModeValue('white')} bg={'#051B07'} px={20}>
+      <Box
+        color={useColorModeValue('white')}
+        bg={'#051B07'}
+        px={20}
+        paddingBottom="7"
+      >
         <Flex padding={5} justifyContent={'center'}>
           <Link paddingStart="5" paddingEnd="5">
             Contact Us
@@ -67,6 +73,8 @@ export default function Footer() {
           paddingEnd="20"
           paddingBottom="10"
           paddingTop="18"
+          borderBottom="1px solid"
+          borderColor="gray"
         >
           <Box w="50%" paddingEnd="20">
             <Flex flexDirection="column">
@@ -95,11 +103,11 @@ export default function Footer() {
 
           <Box w="50%">
             <Box w="100%">
-              <Heading as="h4" size="md">
+              <Heading as="h4" size="sm">
                 Subcribe to our newsletter
               </Heading>
-              <Box paddingTop="3" w="100%">
-                <form>
+              <Box paddingTop="7" w="100%">
+                <form position="relative">
                   <label className="label">
                     <input
                       className="email"
@@ -112,12 +120,13 @@ export default function Footer() {
                     type="submit"
                     value="Subscribe"
                   />
+                  {/* <FcNext position="absolute" marginTop="-10" /> */}
                 </form>
               </Box>
             </Box>
 
             <Box paddingTop="8">
-              <Heading as="h3" size="lg" paddingBottom="3">
+              <Heading as="h4" size="sm" paddingBottom="3">
                 Bet on your beliefs
               </Heading>
               <Text fontSize="sm">
@@ -127,9 +136,8 @@ export default function Footer() {
               </Text>
             </Box>
           </Box>
-
-          <Box borderBottom="1px solid" borderColor="gray"></Box>
         </Flex>
+        <Center paddingTop="7">© 2022 Predictor. All rights reserved.</Center>
       </Box>
     </>
   );

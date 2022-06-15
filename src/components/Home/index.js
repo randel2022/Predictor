@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 import {
   Box,
   Container,
@@ -12,9 +13,16 @@ import {
   Heading,
   Image,
   Select,
+  Link,
+  Flex,
+  Button,
 } from '@chakra-ui/react';
 import PredictionContext from '../../helper/PredictionContext';
 import { useNavigate } from 'react-router-dom';
+import phoneImg from '../assets/phone.png';
+import { AiFillCheckCircle } from 'react-icons/ai';
+import { FaLongArrowAltRight } from 'react-icons/fa';
+import { HiOutlineArrowSmLeft, HiOutlineArrowSmRight } from 'react-icons/hi';
 
 export default function Home() {
   const { predictionsArray } = React.useContext(PredictionContext);
@@ -35,20 +43,117 @@ export default function Home() {
       width="auto"
       maxWidth="100vw"
       //   bgGradient="linear(to-l, #1B3318 20%, #0C4A02 20%)"
-      bgGradient="linear(to-r, #202b2f, #121b19)"
+      // bgGradient="linear(to-r, #202b2f, #121b19)"
       //   bgColor="#202b2f"
+      className="main-container"
       height="auto"
       maxHeight="1000vh"
-      paddingTop="10vh"
-      paddingStart="25vh"
-      paddingEnd="25vh"
+      // paddingTop="10vh"
       paddingBottom="15vh"
+      paddingStart="0"
+      paddingEnd="0"
     >
-      <Box display="flex" flexDirection="column" flexWrap="wrap">
-        {/* <Text color={'colors.text'}>
-          <b>Current Predictions </b>
-        </Text> */}
-        <Heading as="h3" fontWeight="semibold" margin="10px" size="lg">
+      <Box
+        display="flex"
+        bgGradient="linear(to-r, #202433, #181c27)"
+        width="100%"
+        paddingStart="25vh"
+        paddingEnd="25vh"
+        paddingTop="10vh"
+      >
+        <Box w="55%">
+          <Heading
+            className="mainfont"
+            as="h2"
+            fontWeight="semibold"
+            size="4xl"
+          >
+            Predict your Finances
+          </Heading>
+          <Text color="gray" marginTop="7">
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+          </Text>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            width="70%"
+            marginTop="7"
+          >
+            <Box display="flex" alignItems="center">
+              <AiFillCheckCircle color="#AEF8A2" fontSize="21" />
+              &nbsp;&nbsp;<p>100% Guarantee</p>
+            </Box>
+            <Box display="flex" alignItems="center">
+              <AiFillCheckCircle color="#AEF8A2" fontSize="21" />
+              &nbsp;&nbsp;<p>Safe Payment</p>
+            </Box>
+            <Box display="flex" alignItems="center">
+              <AiFillCheckCircle color="#AEF8A2" fontSize="21" />
+              &nbsp;&nbsp;<p>24/7 Support</p>
+            </Box>
+          </Box>
+          <Box marginTop="10" display="flex">
+            <Link
+              py="3"
+              px="10"
+              bgColor="#22EF01"
+              color="#343538"
+              borderRadius="15"
+            >
+              Get Started
+            </Link>
+            <Box display="flex" alignItems="center">
+              <Link py="3" paddingStart="10" paddingEnd="3">
+                Learn more
+              </Link>
+              <FaLongArrowAltRight fontSize="20" paddingTop="20" />
+            </Box>
+          </Box>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            width="70%"
+            marginTop="10"
+          >
+            <Box display="flex" flexDirection="column" alignItems="start">
+              <Heading as="h3" fontWeight="semibold" size="xl" color="#AEF8A2">
+                200+
+              </Heading>
+              <p>Markets</p>
+            </Box>
+            <Box display="flex" flexDirection="column" alignItems="start">
+              <Heading as="h3" fontWeight="semibold" size="xl" color="#AEF8A2">
+                9000+
+              </Heading>
+              <p>Active Users</p>
+            </Box>
+            <Box display="flex" flexDirection="column" alignItems="start">
+              <Heading as="h3" fontWeight="semibold" size="xl" color="#AEF8A2">
+                10M+
+              </Heading>
+              <p>Transactions</p>
+            </Box>
+          </Box>
+        </Box>
+        <Box w="45%">
+          <Image
+            boxSize="700px"
+            objectFit="cover"
+            marginTop="-100"
+            src={phoneImg}
+          />
+        </Box>
+      </Box>
+
+      <Box
+        display="flex"
+        flexDirection="column"
+        flexWrap="wrap"
+        paddingStart="25vh"
+        paddingEnd="25vh"
+        paddingTop="6vh"
+      >
+        <Heading as="h3" fontWeight="semibold" margin="0px" size="lg">
           FEATURED MARKETS
         </Heading>
 
@@ -92,7 +197,7 @@ export default function Home() {
                   <Box w="80%">
                     <Text
                       color={'#AEF8A2'}
-                      fontSize="xl"
+                      fontSize="lg"
                       fontWeight={'bold'}
                       paddingStart="2"
                     >
@@ -139,7 +244,7 @@ export default function Home() {
                   <Box w="80%">
                     <Text
                       color={'#AEF8A2'}
-                      fontSize="xl"
+                      fontSize="lg"
                       fontWeight={'bold'}
                       paddingStart="2"
                     >
@@ -186,7 +291,7 @@ export default function Home() {
                   <Box w="80%">
                     <Text
                       color={'#AEF8A2'}
-                      fontSize="xl"
+                      fontSize="lg"
                       fontWeight={'bold'}
                       paddingStart="2"
                     >
@@ -206,11 +311,18 @@ export default function Home() {
 
         <Box w="100%" display="flex" marginTop="20vh">
           <Box w="33.33%">
-            <Select placeholder="Search Markets" color="black" bgColor="white">
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </Select>
+            <div>
+              <div className="wrapper">
+                <div className="search">
+                  <input
+                    id="search"
+                    type="search"
+                    placeholder="Search markets"
+                  />
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+            </div>
           </Box>
           <Box w="33.33%" paddingStart="3" paddingEnd="3">
             <Select placeholder="CATEGORY" color="black" bgColor="white">
@@ -325,6 +437,44 @@ export default function Home() {
             );
           })}
         </Box>
+        <Flex justifyContent="center" alignItems="center" marginTop="6vh">
+          <Button
+            bgColor="#3B3A3A"
+            color="white"
+            px="4"
+            py="2"
+            borderColor="white"
+            border="1px solid"
+          >
+            <HiOutlineArrowSmLeft fontSize="22" />
+          </Button>
+
+          <Box display="flex" alignItems="center">
+            <Text px="3">Page</Text>
+            <Button
+              bgColor="#3B3A3A"
+              color="white"
+              px="4"
+              py="2"
+              borderColor="white"
+              border="1px solid"
+            >
+              64
+            </Button>
+            <Text px="3">of 835</Text>
+          </Box>
+
+          <Button
+            bgColor="#3B3A3A"
+            color="white"
+            px="4"
+            py="2"
+            borderColor="white"
+            border="1px solid"
+          >
+            <HiOutlineArrowSmRight fontSize="22" />
+          </Button>
+        </Flex>
       </Box>
     </Container>
   );

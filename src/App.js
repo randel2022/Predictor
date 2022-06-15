@@ -10,7 +10,7 @@ import { ContractProvider, CONTRACT_ADDRESS } from './helper/tezos';
 import PredictionContext from './helper/PredictionContext';
 import Loading from './helper/Loading';
 import MyPreds from './components/Mypreds';
-import Portfolio from './page/Portfolio/Portfolio'
+import Portfolio from './page/Portfolio/Portfolio';
 
 function App() {
   const [predictions, setPredictions] = React.useState(null);
@@ -66,6 +66,7 @@ function App() {
 
                   <Route path="/mypreds" element={<MyPreds />} />
                   <Route path="/Portfolio" element={<Portfolio />} />
+                  <Route path="/Privacy" element={<Portfolio />} />
                 </Routes>
               </BrowserRouter>
             </PredictionContext.Provider>
