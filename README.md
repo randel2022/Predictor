@@ -1,94 +1,70 @@
-# Predictor
+# Getting Started with Create React App
 
-Please read the license file before proceeding.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Prediction Markets
+## Available Scripts
 
-*Prediction markets* are markets created for the purpose of making predictions and/or benefiting from correct predictions. The primary purpose of these markets is to forecast future events, and the contracts are designed to facilitate extracting information used in forecasting. They have been used to accurately forecast the outcome of political contests, sporting events, and, occasionally, economic outcomes. 
+In the project directory, you can run:
 
-## About Predictor:
+### `yarn start`
 
-Predictor is a decentralized prediction market on Tezos with aim of becoming a trustless oracle for data that is not actively available like climate change, carbon prices, weather and the spread of infectious disease. The main aim of Predictor is to democratize and decentralize the true knowledge for actionable inputs. 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Mission:
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-1. To become Universal Forecasting Tool so that it is the preferred platform for any or all kinds of predictions
+### `yarn test`
 
-2. To provide a hedging market for all kinds of risks where information is publicly available such as flight delays,  weather etc.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-3. To enable all users to monetize knowledge and gain reputation 
+### `yarn build`
 
-4. To create awareness of Social and Environmental Issues such as climate changes incidents, temperatures, carbon prices, covid counts etc
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-5. To provide unbiased value discovery.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## Design:
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-* Prediction Market - Pari-mutuel Mechanism without any AMM.
+### `yarn eject`
 
-* Trustless Oracle – [Schelling Points](https://blog.ethereum.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed)
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-## Users:
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Predictor plans to benefit from the wisdom of the crowd. There are three sets of non mutually exclusive crowds in the Predictor Ecosystem. They are Creators, Predictors and Reporters.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-#### Creators:
-  Creators will be whitelisted. Creators will create the prediction contracts by entering the prediction statement, options, start and expiry date, There is also a fee for creating a prediction. Creators receive a share of Predictors' fee.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-#### Predictors:
-Predictors are the true clients of this platform. They browse through the predictions and 
-buy the prediction tokens of their desire. As prediction tokens are FA2 compliant, Predictors can trade them in any Tezos DEXes. Once the prediction results are out, they redeem their tokens for the winning amount in Tez.
+## Learn More
 
-#### Reporters:
-  Reporters mainly deal with the oracle. They are the ones who help in determining the result of the prediction. Whitelisted Reporters stake Tez as collateral and vote for the results for each prediction once the results are out. If the option, they choose, is declared as the final result of the prediction, they get a small reward and they lose 10% of the stake for each wrong reporting.  The option that gets a supermajority of 80% of the votes of reporters within 24 hours will be declared as the result of the corresponding prediction.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Process:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-Predictor follows the Parimutuel way of betting. So the odds for each option are not known in the beginning and can be deduced only after the prediction is closed. All events share have the same price 0.01 Tez. The workflow is as follows
+### Code Splitting
 
-#### Proposal Stage
-1. A Creator creates a prediction
-2. Admin can cancel a particular prediction if details are incomplete or misleading
-3. If there is no issue, prediction is opened for trading
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-#### Prediction Stage
-4. Predictors pick their favourite option for the given prediction by buying the corresponding tokens (by paying tez)
-5. All the tez get accumulated in the pool.
-6. After the scheduled the prediction is closed. The odds of each option are calculated. 
+### Analyzing the Bundle Size
 
-#### Trading Stage
-7.  The Predictor can trade their tokens in any DEX any time before or after the prediction is closed.
-8. Prediction event occurs and the results are known.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-#### Reporting Stage
-9. Reporters report the result by voting on the options in the Oracle. 
-10. The option with supermajority is declared the final result
+### Making a Progressive Web App
 
-#### Redemption Stage
-11. Predictors with the winning tokens redeem their tokens for tez.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
+### Advanced Configuration
 
-## Future Steps
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-The following steps are planned for future
+### Deployment
 
-1. Integrating with Stablecoin ( Plenty USD, USDtz, kUSD) - Tezos based stablecoins
-2. Integrating with oracle for market data. So any prediction on market data will be resolved by the oracle itself.
-3. Introduce the staking for Reporters.
-4. Option to create scalar predictions
-5. Add Reputation only Prediction Contracts. Here only non-tradable/ non - transferable tokens instead of tez will be provided to the winners which will represent their reputation.
-6. Closed group Predictions - an option for people and organisations to bet on an event only among their acquaintances or clients. The people outside the group are restricted from trading the same contract. It will enable the Prediction as a Service concept for existing offline bookmakers who want to move their work on blockchain. 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
+### `yarn build` fails to minify
 
-### Smart Contracts
-
-Current Smart contract : [KT19UD96tNFP8bq7u6Wk4x4R5sEyfXTu6ETx](https://smartpy.io/explorer.html?address=KT19UD96tNFP8bq7u6Wk4x4R5sEyfXTu6ETx)
-
-Current Token Contract : [KT1CFyf7vzF3EGT5UAvgNPtzkxoeLoQJf6qu](https://smartpy.io/explorer.html?address=KT1CFyf7vzF3EGT5UAvgNPtzkxoeLoQJf6qu)
-
-Older Smart Contract - [KT1Mn8ogydUu3NpB1tztJ2QpPC9ms4MbJi5m](https://smartpy.io/explorer.html?address=KT1Mn8ogydUu3NpB1tztJ2QpPC9ms4MbJi5m)
-
-Older Token Contract - [KT1Hi7QVB3zV7tG4hNHE36vC8LuMywvtUJA6](https://smartpy.io/explorer.html?address=KT1Hi7QVB3zV7tG4hNHE36vC8LuMywvtUJA6)
-
-
-
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
