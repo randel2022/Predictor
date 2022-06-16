@@ -42,7 +42,7 @@ export default function Home() {
           {' '}
           <b>telegram</b>
         </a>{' '}
-        for any queries.
+        for any query...
         <br />{' '}
       </Text>
       <Accordion allowToggle margin="6">
