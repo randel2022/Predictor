@@ -49,9 +49,9 @@ export default function Home() {
         <AccordionItem>
           <h2>
             <AccordionButton>
-              <Box flex="1">
+              {/* <Box flex="1">
                 Read this to get familiar with Predictor Platform.
-              </Box>
+              </Box> */}
             </AccordionButton>
           </h2>
           <AccordionPanel p="6">
