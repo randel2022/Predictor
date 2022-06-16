@@ -156,7 +156,7 @@ export default function Home() {
         flexDirection="column"
         flexWrap="wrap"
         paddingStart="25vh"
-        paddingEnd="25vh"
+        paddingEnd="26vh"
         paddingTop="6vh"
       >
         <Heading as="h3" fontWeight="semibold" margin="0px" size="lg">
