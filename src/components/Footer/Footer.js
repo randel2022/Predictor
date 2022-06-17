@@ -47,7 +47,11 @@ export default function Footer() {
         px={20}
         paddingBottom="7"
       >
-        <Flex padding={5} justifyContent={'center'}>
+        <Flex
+          padding={5}
+          justifyContent={'center'}
+          flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+        >
           <Link paddingStart="5" paddingEnd="5">
             Contact Us
           </Link>
@@ -75,6 +79,7 @@ export default function Footer() {
           paddingTop="18"
           borderBottom="1px solid"
           borderColor="gray"
+          flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
         >
           <Box w="50%" paddingEnd="20">
             <Flex flexDirection="column">

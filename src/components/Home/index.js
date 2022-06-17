@@ -460,8 +460,9 @@ export default function Home() {
             py="2"
             borderColor="white"
             border="1px solid"
+            className="h-btn"
           >
-            <HiOutlineArrowSmLeft fontSize="22" className="h-btn" />
+            <HiOutlineArrowSmLeft fontSize="22" />
           </Button>
 
           <Box display="flex" alignItems="center">

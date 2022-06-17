@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+} from 'react-router-dom';
 import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
 import Header from './components/Header';
 import Footer from './components/Footer/Footer';
@@ -11,7 +16,6 @@ import PredictionContext from './helper/PredictionContext';
 import Loading from './helper/Loading';
 import MyPreds from './components/Mypreds';
 import Portfolio from './page/Portfolio/Portfolio';
-import Privacy from './page/Privacy/Privacy';
 
 function App() {
   const [predictions, setPredictions] = React.useState(null);
@@ -58,7 +62,7 @@ function App() {
                 updatePredictions,
               }}
             >
-              <BrowserRouter>
+              <Router>
                 <Header />
                 <Routes>
                   <Route exact path="/" element={<Home />} />
@@ -67,9 +71,9 @@ function App() {
 
                   <Route path="/mypreds" element={<MyPreds />} />
                   <Route path="/Portfolio" element={<Portfolio />} />
-                  <Route path="/Privacy" element={<Privacy />} />
+                  <Route path="/Privacy" element={<Portfolio />} />
                 </Routes>
-              </BrowserRouter>
+              </Router>
             </PredictionContext.Provider>
           </>
         ) : (
