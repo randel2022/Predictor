@@ -34,7 +34,7 @@ const Privacy = () => {
       w="100%"
       maxWidth="100%"
     >
-      <Text color={'white'}>This Privacy</Text>
+      <Text color={'white'}>Privacy Policy</Text>
     </Container>
   );
 };
