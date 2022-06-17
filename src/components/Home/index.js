@@ -60,14 +60,19 @@ export default function Home() {
         display="flex"
         bgGradient="linear(to-r, #202433, #181c27)"
         width="100%"
-        paddingStart="25vh"
-        paddingEnd="25vh"
+        paddingStart={{ base: '5vh', md: '25vh', lg: '25vh' }}
+        paddingEnd={{ base: '5vh', md: '25vh', lg: '25vh' }}
         paddingTop="10vh"
         bgImage={HeroBg}
         bgPosition="center"
         bgSize="cover"
+        flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
       >
-        <Box w="55%">
+        <Box
+          w={{ base: 'auto', md: '55%', lg: '55%' }}
+          display="flex"
+          flexDirection={{ base: 'column', md: 'column', lg: 'column' }}
+        >
           <Heading
             className="mainfont"
             as="h2"
@@ -98,7 +103,11 @@ export default function Home() {
               &nbsp;&nbsp;<p>24/7 Support</p>
             </Box>
           </Box>
-          <Box marginTop="10" display="flex">
+          <Box
+            marginTop="10"
+            display="flex"
+            flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+          >
             <Link
               py="3"
               px="10"
@@ -143,9 +152,9 @@ export default function Home() {
         </Box>
         <Box w="45%">
           <Image
-            boxSize="700px"
+            boxSize={{ base: '400px', md: '700px', lg: '700px' }}
             objectFit="cover"
-            marginTop="-100"
+            marginTop={{ base: '0px', md: '-100px', lg: '-100px' }}
             src={phoneImg}
           />
         </Box>
@@ -452,7 +461,7 @@ export default function Home() {
             borderColor="white"
             border="1px solid"
           >
-            <HiOutlineArrowSmLeft fontSize="22" />
+            <HiOutlineArrowSmLeft fontSize="22" className="h-btn" />
           </Button>
 
           <Box display="flex" alignItems="center">
@@ -464,6 +473,7 @@ export default function Home() {
               py="2"
               borderColor="white"
               border="1px solid"
+              className="h-btn"
             >
               64
             </Button>
@@ -477,6 +487,7 @@ export default function Home() {
             py="2"
             borderColor="white"
             border="1px solid"
+            className="h-btn"
           >
             <HiOutlineArrowSmRight fontSize="22" />
           </Button>

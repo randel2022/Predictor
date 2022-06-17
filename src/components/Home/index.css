@@ -81,3 +81,7 @@
 .mainfont {
   font-family: "Hahmlet", serif !important;
 }
+
+.h-btn:hover {
+  color: #3b3a3a;
+}

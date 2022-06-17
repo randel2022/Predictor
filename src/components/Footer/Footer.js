@@ -51,7 +51,7 @@ export default function Footer() {
           <Link paddingStart="5" paddingEnd="5">
             Contact Us
           </Link>
-          <Link paddingStart="5" paddingEnd="5">
+          <Link paddingStart="5" paddingEnd="5" href="/Privacy">
             Privacy Policy
           </Link>
           <Link paddingStart="5" paddingEnd="5">

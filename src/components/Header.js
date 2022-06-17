@@ -122,6 +122,7 @@ export default function Header({ links = [] }) {
         alignItems={'center'}
         justifyContent={'space-between'}
         px="20"
+        flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
       >
         <IconButton
           size={'md'}
