@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.8dc46d3b.chunk.css",
-    "main.js": "/static/js/main.70787c48.chunk.js",
-    "main.js.map": "/static/js/main.70787c48.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.7eb045a0.js",
-    "runtime-main.js.map": "/static/js/runtime-main.7eb045a0.js.map",
-    "static/js/2.8072861b.chunk.js": "/static/js/2.8072861b.chunk.js",
-    "static/js/2.8072861b.chunk.js.map": "/static/js/2.8072861b.chunk.js.map",
-    "static/js/3.a9e79c3c.chunk.js": "/static/js/3.a9e79c3c.chunk.js",
-    "static/js/3.a9e79c3c.chunk.js.map": "/static/js/3.a9e79c3c.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.8dc46d3b.chunk.css.map": "/static/css/main.8dc46d3b.chunk.css.map",
-    "static/js/2.8072861b.chunk.js.LICENSE.txt": "/static/js/2.8072861b.chunk.js.LICENSE.txt",
-    "static/media/Herobg.f160b25e.png": "/static/media/Herobg.f160b25e.png",
-    "static/media/Portfolio-page-bg.28b727f1.png": "/static/media/Portfolio-page-bg.28b727f1.png",
-    "static/media/phone.b064c002.png": "/static/media/phone.b064c002.png"
+    "main.css": "./static/css/main.37372629.chunk.css",
+    "main.js": "./static/js/main.fce7ed2e.chunk.js",
+    "main.js.map": "./static/js/main.fce7ed2e.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.7fa06b58.js",
+    "runtime-main.js.map": "./static/js/runtime-main.7fa06b58.js.map",
+    "static/js/2.fb26f4b6.chunk.js": "./static/js/2.fb26f4b6.chunk.js",
+    "static/js/2.fb26f4b6.chunk.js.map": "./static/js/2.fb26f4b6.chunk.js.map",
+    "static/js/3.a58e2d1a.chunk.js": "./static/js/3.a58e2d1a.chunk.js",
+    "static/js/3.a58e2d1a.chunk.js.map": "./static/js/3.a58e2d1a.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.37372629.chunk.css.map": "./static/css/main.37372629.chunk.css.map",
+    "static/js/2.fb26f4b6.chunk.js.LICENSE.txt": "./static/js/2.fb26f4b6.chunk.js.LICENSE.txt",
+    "static/media/Herobg.f160b25e.png": "./static/media/Herobg.f160b25e.png",
+    "static/media/Portfolio-page-bg.28b727f1.png": "./static/media/Portfolio-page-bg.28b727f1.png",
+    "static/media/phone.b064c002.png": "./static/media/phone.b064c002.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.7eb045a0.js",
-    "static/js/2.8072861b.chunk.js",
-    "static/css/main.8dc46d3b.chunk.css",
-    "static/js/main.70787c48.chunk.js"
+    "static/js/runtime-main.7fa06b58.js",
+    "static/js/2.fb26f4b6.chunk.js",
+    "static/css/main.37372629.chunk.css",
+    "static/js/main.fce7ed2e.chunk.js"
   ]
 }
