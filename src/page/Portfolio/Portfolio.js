@@ -33,8 +33,23 @@ const Portfolio = () => {
       bgSize="cover"
       w="100%"
       maxWidth="100%"
+      flexDirection="column"
     >
-      <Button color={'black'}>Connect Wallet</Button>
+      <Heading className="htext" as="h2" fontWeight="semibold" size="3xl">
+        Portfolio
+      </Heading>
+      <Box
+        bgColor="#051B07"
+        w="60%"
+        padding="20"
+        display="flex"
+        justifyContent="center"
+        borderRadius="20"
+      >
+        <Button color={'black'} bgColor="#22EF01">
+          Connect Wallet
+        </Button>
+      </Box>
     </Container>
   );
 };
