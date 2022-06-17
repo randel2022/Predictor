@@ -1,9 +1,9 @@
 {
   "name": "predictor",
   "version": "1.0.0",
+  "homepage": ".",
   "description": "",
   "keywords": [],
-  "main": "src/index.js",
   "dependencies": {
     "@airgap/beacon-sdk": "2.3.9",
     "@chakra-ui/core": "0.8.0",
