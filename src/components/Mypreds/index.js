@@ -1,6 +1,6 @@
 import React from 'react';
 import PredictionContext from '../../helper/PredictionContext';
-import portfolioBG from '../assets/Predictions-bg.png';
+import portfolioBG from '../assets/Predictions-Background.png';
 import {
   Box,
   Button,
@@ -180,12 +180,12 @@ const AddNewPrediction = () => {
     alert('Prediction Created!');
   };
   return (
-    <Box>
+    <Box display="flex" justifyContent="center">
       <Popover>
         <PopoverTrigger>
           <Box padding="20" bgColor="#180F2Bed" borderRadius="10">
             <Button bgColor="white" color="black" px="20" borderRadius="20">
-              Add New Prediction
+              Add New Predictions
             </Button>
           </Box>
         </PopoverTrigger>
@@ -298,7 +298,7 @@ export default function MyPreds() {
       <Box
         display="flex"
         justifyContent={'space-between'}
-        height="65vh"
+        height="60vh"
         flexDirection="column"
         w="100%"
       >

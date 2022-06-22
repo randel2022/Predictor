@@ -236,7 +236,11 @@ export default function Header({ links = [] }) {
                     Disconnect
                   </MenuItem>
                   {/* <Portfolio /> */}
-                  <Redeem />
+                  {/* <Redeem /> */}
+                  <MenuItem color="black" onClick={() => history('/redeem')}>
+                    Redeem
+                  </MenuItem>
+                  <></>
                 </MenuList>
               </Menu>
             )}

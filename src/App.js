@@ -15,6 +15,7 @@ import { ContractProvider, CONTRACT_ADDRESS } from './helper/tezos';
 import PredictionContext from './helper/PredictionContext';
 import Loading from './helper/Loading';
 import MyPreds from './components/Mypreds';
+import Redeem from './components/Redeem/redeem';
 import Portfolio from './page/Portfolio/Portfolio';
 import Privacy from './page/Privacy/Privacy';
 
@@ -73,6 +74,7 @@ function App() {
                   <Route path="/mypreds" element={<MyPreds />} />
                   <Route path="/Portfolio" element={<Portfolio />} />
                   <Route path="/Privacy" element={<Privacy />} />
+                  <Route path="/redeem" element={<Redeem />} />
                 </Routes>
               </Router>
             </PredictionContext.Provider>

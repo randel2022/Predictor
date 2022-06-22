@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './Portfolio.css';
 import { useWallet } from '../../helper/WalletContext';
-import portfolioBG from '../../components/assets/Portfolio-page-bg.png';
+import portfolioBG from '../../components/assets/Portfolio-Background.png';
 import portfolioPurple from '../../components/assets/Portfolio-bg.png';
 import {
   Box,
@@ -119,15 +119,14 @@ export default function Portfolio({ links = [] }) {
       alignItems="center"
       justifyContent="center"
       height="100vh"
-      bgImage={portfolioPurple}
+      bgImage={portfolioBG}
       bgPosition="center"
       bgSize="cover"
       w="100%"
     >
       <Flex
         justifyContent={'space-between'}
-        // bgColor="red"
-        height="65vh"
+        height="60vh"
         flexDirection="column"
         w="100%"
       >
@@ -229,37 +228,47 @@ const PortfolioComponent = () => {
   }, [activeAccount]);
   return (
     data && (
-      <Box bgColor="#180F2B" padding="20" borderRadius="10">
-        <Text color="white">Portfolio Details</Text>
-        <Box>
-          <Text color="white">
-            {' '}
-            <b> Portfolio </b>{' '}
+      <Box w="100%">
+        <Box
+          bgColor="#180F2B"
+          w="500px"
+          h="300px"
+          padding="10"
+          borderRadius="10"
+        >
+          <Text color="white" textAlign="center">
+            Portfolio Details
           </Text>
+          <Box>
+            <Text color="white" textAlign="center">
+              {' '}
+              <b> Portfolio </b>{' '}
+            </Text>
 
-          <Box display="flex" flexDirection="column" flexWrap="wrap">
-            {data.map((pred, i) => {
-              return (
-                <Box
-                  key={i}
-                  display="flex"
-                  maxWidth="400px"
-                  flexDirection="row"
-                  border="0px solid"
-                  borderRadius="15px"
-                  padding="5px"
-                  margin="5px"
-                >
-                  <Text color={colors.text}>
-                    Token id &nbsp;: &nbsp; {pred.id} &nbsp; |&nbsp;
-                  </Text>
-                  <Text color={colors.text}>
-                    Balance &nbsp; : &nbsp; {pred.balance}&emsp;
-                  </Text>
-                  <Redeem1 tokenID={pred.id} />
-                </Box>
-              );
-            })}
+            <Box display="flex" flexDirection="column" flexWrap="wrap">
+              {data.map((pred, i) => {
+                return (
+                  <Box
+                    key={i}
+                    display="flex"
+                    maxWidth="400px"
+                    flexDirection="row"
+                    border="0px solid"
+                    borderRadius="15px"
+                    padding="5px"
+                    margin="5px"
+                  >
+                    <Text color={colors.text}>
+                      Token id &nbsp;: &nbsp; {pred.id} &nbsp; |&nbsp;
+                    </Text>
+                    <Text color={colors.text}>
+                      Balance &nbsp; : &nbsp; {pred.balance}&emsp;
+                    </Text>
+                    <Redeem1 tokenID={pred.id} />
+                  </Box>
+                );
+              })}
+            </Box>
           </Box>
         </Box>
       </Box>
