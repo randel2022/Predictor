@@ -1,5 +1,6 @@
 import React from 'react';
 import PredictionContext from '../../helper/PredictionContext';
+import portfolioBG from '../assets/Predictions-bg.png';
 import {
   Box,
   Button,
@@ -9,6 +10,7 @@ import {
   Input,
   NumberInput,
   Popover,
+  Heading,
   PopoverBody,
   PopoverContent,
   PopoverHeader,
@@ -21,7 +23,12 @@ import {
 } from '@chakra-ui/react';
 import { useWallet } from '../../helper/WalletContext';
 import Loading from '../../helper/Loading';
-import { CONTRACT_ADDRESS, wallet, Tezos, TOKEN_ADDRESS } from '../../helper/tezos';
+import {
+  CONTRACT_ADDRESS,
+  wallet,
+  Tezos,
+  TOKEN_ADDRESS,
+} from '../../helper/tezos';
 
 const AddPredRes = ({ pred }) => {
   const colors = {
@@ -34,9 +41,11 @@ const AddPredRes = ({ pred }) => {
     const { option } = e.target.elements;
     console.log(option.value);
     const contract = await wallet.at(CONTRACT_ADDRESS);
-    const result = await contract.methods.predictResults(pred.predictionRef, option.value).send();
-	await result.confirmation(1);
-    alert("Result Updated!");  
+    const result = await contract.methods
+      .predictResults(pred.predictionRef, option.value)
+      .send();
+    await result.confirmation(1);
+    alert('Result Updated!');
   };
 
   return (
@@ -83,19 +92,20 @@ const AddPredRes = ({ pred }) => {
 
 const UpdatePredStatus = ({ pred }) => {
   const colors = {
-    bg: useColorModeValue('blue.200', 'blue.700'),
+    bg: "useColorModeValue('blue.200', 'blue.700')",
     text: useColorModeValue('blue', 'white'),
-	
   };
 
   const submit = async (e) => {
     e.preventDefault();
     const { status } = e.target.elements;
-	
+
     const contract = await wallet.at(CONTRACT_ADDRESS);
-    const st = await contract.methods.updateStatus(pred.predictionRef, status.value).send();
-	st.confirmation();
-	alert("Status Updated!"); 
+    const st = await contract.methods
+      .updateStatus(pred.predictionRef, status.value)
+      .send();
+    st.confirmation();
+    alert('Status Updated!');
   };
   return (
     <Popover returnFocusOnClose={false} placement="right" closeOnBlur={false}>
@@ -118,7 +128,7 @@ const UpdatePredStatus = ({ pred }) => {
                     'Prediction In-Progress',
                     'Prediction Ended',
                     'Result Declared',
-					'Cancelled',
+                    'Cancelled',
                   ].map((option, i) => {
                     return (
                       <Radio key={i} value={option}>
@@ -154,8 +164,8 @@ const AddNewPrediction = () => {
     const { prediction, resultRef, start, end } = e.target.elements;
 
     const contract = await wallet.at(CONTRACT_ADDRESS);
-	const endValue = new Date(end.value).toISOString();
-	const startValue = new Date(start.value).toISOString();
+    const endValue = new Date(end.value).toISOString();
+    const startValue = new Date(start.value).toISOString();
 
     const op = await contract.methods
       .addprediction(
@@ -165,67 +175,75 @@ const AddNewPrediction = () => {
         Object.keys(options).map((key) => options[key]),
         startValue
       )
-      .send({amount : 2});
-	await op.confirmation(1);
-    alert("Prediction Created!");
+      .send({ amount: 2 });
+    await op.confirmation(1);
+    alert('Prediction Created!');
   };
   return (
-    <Popover>
-      <PopoverTrigger>
-        <Button>Add New Prediction</Button>
-      </PopoverTrigger>
-      <PopoverContent padding="4">
-        <form onSubmit={submit}>
-          <FormControl>
-            <FormLabel htmlFor="prediction">Prediction</FormLabel>
-            <Input name="prediction" id="prediction"></Input>
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="resultRef">Result Reference</FormLabel>
-            <Input name="resultRef" id="resultRef"></Input>
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="start">Start</FormLabel>
-            <Input type="datetime-local" name="start" id="start"></Input>
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="end">End</FormLabel>
-            <Input type="datetime-local" name="end" id="end"></Input>
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="number_options">Number of Options</FormLabel>
-            <Input
-              onChange={(e) => {
-                console.log(e);
-                setNum(parseInt(e.target.value) || 0);
-              }}
-              name="number_options"
-              id="number_options"
-              type="number"
-            ></Input>
-          </FormControl>
-          {[...Array(num).keys()].map((i) => {
-            return (
-              <FormControl>
-                <FormLabel htmlFor={'option_' + i}>Option {i}</FormLabel>
-                <Input
-                  onChange={(e) =>
-                    setOptions((options) => {
-                      var opt = options;
-                      opt[`option_${i}`] = e.target.value;
-                      return opt;
-                    })
-                  }
-                  name={`option_${i}`}
-                  id={`option_${i}`}
-                ></Input>
-              </FormControl>
-            );
-          })}
-          <Button type="submit">Submit</Button>
-        </form>
-      </PopoverContent>
-    </Popover>
+    <Box>
+      <Popover>
+        <PopoverTrigger>
+          <Box padding="20" bgColor="#180F2Bed" borderRadius="10">
+            <Button bgColor="white" color="black" px="20" borderRadius="20">
+              Add New Prediction
+            </Button>
+          </Box>
+        </PopoverTrigger>
+        <PopoverContent padding="4" bgColor="#1A1A1A">
+          <form onSubmit={submit}>
+            <FormControl>
+              <FormLabel htmlFor="prediction">Prediction</FormLabel>
+              <Input name="prediction" id="prediction"></Input>
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="resultRef">Result Reference</FormLabel>
+              <Input name="resultRef" id="resultRef"></Input>
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="start">Start</FormLabel>
+              <Input type="datetime-local" name="start" id="start"></Input>
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="end">End</FormLabel>
+              <Input type="datetime-local" name="end" id="end"></Input>
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="number_options">Number of Options</FormLabel>
+              <Input
+                onChange={(e) => {
+                  console.log(e);
+                  setNum(parseInt(e.target.value) || 0);
+                }}
+                name="number_options"
+                id="number_options"
+                type="number"
+              ></Input>
+            </FormControl>
+            {[...Array(num).keys()].map((i) => {
+              return (
+                <FormControl>
+                  <FormLabel htmlFor={'option_' + i}>Option {i}</FormLabel>
+                  <Input
+                    onChange={(e) =>
+                      setOptions((options) => {
+                        var opt = options;
+                        opt[`option_${i}`] = e.target.value;
+                        return opt;
+                      })
+                    }
+                    name={`option_${i}`}
+                    id={`option_${i}`}
+                  ></Input>
+                </FormControl>
+              );
+            })}
+            <Button type="submit" bgColor="#9C4FFF">
+              Submit
+            </Button>
+          </form>
+        </PopoverContent>
+      </Popover>
+    </Box>
   );
 };
 
@@ -238,28 +256,26 @@ export default function MyPreds() {
     text: useColorModeValue('blue', 'white'),
   };
 
-  
-
   React.useEffect(() => {
     (async function () {
       if (!connected) {
         await connect();
       }
-	    const contract = await wallet.at(CONTRACT_ADDRESS);
-		const storage = await contract.storage();
-		const admin = storage.admin;
-		console.log(admin);
+      const contract = await wallet.at(CONTRACT_ADDRESS);
+      const storage = await contract.storage();
+      const admin = storage.admin;
+      console.log(admin);
       if (activeAccount) {
-
-        const _ = []; 
-		for ( let x = 0 ; x < predictionsArray.length ; x++) {
-			  
-			  let item = predictionsArray[x].value;
-			 if (item.proposer === activeAccount.address || admin === activeAccount.address) {
-				_.push(item);
-				
-			 }
-		}
+        const _ = [];
+        for (let x = 0; x < predictionsArray.length; x++) {
+          let item = predictionsArray[x].value;
+          if (
+            item.proposer === activeAccount.address ||
+            admin === activeAccount.address
+          ) {
+            _.push(item);
+          }
+        }
         console.log(_);
         setMyPreds(_);
       }
@@ -268,114 +284,133 @@ export default function MyPreds() {
 
   return myPreds ? (
     <Container
-      width="auto"
-      maxWidth="100vw"
-      bg={colors.bg}
-      height="auto"
-      maxHeight="100vh"
-      padding="10vh"
+      px={20}
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      height="100vh"
+      bgImage={portfolioBG}
+      bgPosition="center"
+      bgSize="cover"
+      w="100%"
+      maxWidth="100%"
     >
-      <AddNewPrediction />
-      <Box display="flex" flexDirection="row" flexWrap="wrap">
-        {myPreds.map((pred, i) => {
-          return (
-            <Box
-              key={i}
-              // onClick={}
-              display="flex"
-              maxWidth="300px"
-              border="1px solid"
-              borderRadius="15px"
-              padding="20px"
-              margin="10px"
-            >
-              <Text color={colors.text}>{pred.predictionName}</Text>
-              <UpdatePredStatus pred={pred} />
-              <AddPredRes pred={pred} />
-            </Box>
-          );
-        })}
-      </Box>
-	 
-    </Container>
+      <Box
+        display="flex"
+        justifyContent={'space-between'}
+        height="65vh"
+        flexDirection="column"
+        w="100%"
+      >
+        <Heading className="mainfont" as="h2" fontWeight="semibold" size="4xl">
+          Predictions
+        </Heading>
+        <Box display="flex" justifyContent="center">
+          <AddNewPrediction />
+        </Box>
 
+        <Box display="flex" flexDirection="row" flexWrap="wrap">
+          {myPreds.map((pred, i) => {
+            return (
+              <Box
+                key={i}
+                // onClick={}
+                display="flex"
+                maxWidth="300px"
+                border="1px solid"
+                borderRadius="15px"
+                padding="20px"
+                margin="10px"
+              >
+                <Text color={colors.text}>{pred.predictionName}</Text>
+                <UpdatePredStatus pred={pred} />
+                <AddPredRes pred={pred} />
+              </Box>
+            );
+          })}
+        </Box>
+      </Box>
+    </Container>
   ) : (
     <Loading />
   );
 }
 
 const Portfolio = () => {
-	//const { isOpen, onOpen, onClose } = useDisclosure();
-	const colors = {
+  //const { isOpen, onOpen, onClose } = useDisclosure();
+  const colors = {
     bg: useColorModeValue('blue.100', 'blue.900'),
     text: useColorModeValue('blue', 'white'),
-	
   };
-	const { connect, disconnect, activeAccount, connected } = useWallet();
-	const [data, setData] = React.useState(null);
-	let ledger = [];
-	React.useEffect( async () => {
-		if (!connected) {
-			await connect();
-		}
-		if (activeAccount) {
-			console.log(activeAccount);
-			console.log(activeAccount.address);
-			const tokenContract =await Tezos.contract.at(TOKEN_ADDRESS);
-			const tokenStore = await tokenContract.storage();
-			const tokenLedger = tokenStore.ledger;
-			console.log(tokenLedger);
-			let tokens = tokenStore.all_tokens.toString().split(',').map(Number);
-			console.log(tokens);
-			
-			for (let tokenId = tokens.length-1 ; tokenId>=0; tokenId--) {	
-				console.log(tokenId,tokens[tokenId]);
-				await tokenLedger.get([activeAccount.address, tokens[tokenId]])
-					.then(value => { ledger.push({id:tokens[tokenId], balance: value.toString()})})
-					.catch(error => console.log(`Error: ${tokens[tokenId]} ${activeAccount.address}`));
-				console.log(ledger)
+  const { connect, disconnect, activeAccount, connected } = useWallet();
+  const [data, setData] = React.useState(null);
+  let ledger = [];
+  React.useEffect(async () => {
+    if (!connected) {
+      await connect();
+    }
+    if (activeAccount) {
+      console.log(activeAccount);
+      console.log(activeAccount.address);
+      const tokenContract = await Tezos.contract.at(TOKEN_ADDRESS);
+      const tokenStore = await tokenContract.storage();
+      const tokenLedger = tokenStore.ledger;
+      console.log(tokenLedger);
+      let tokens = tokenStore.all_tokens.toString().split(',').map(Number);
+      console.log(tokens);
 
-			};
-			
-			setData(ledger);
-		};
-	
-	},[activeAccount]);
-	return data ?(
-	<Container
-      width="auto"
+      for (let tokenId = tokens.length - 1; tokenId >= 0; tokenId--) {
+        console.log(tokenId, tokens[tokenId]);
+        await tokenLedger
+          .get([activeAccount.address, tokens[tokenId]])
+          .then((value) => {
+            ledger.push({ id: tokens[tokenId], balance: value.toString() });
+          })
+          .catch((error) =>
+            console.log(`Error: ${tokens[tokenId]} ${activeAccount.address}`)
+          );
+        console.log(ledger);
+      }
+
+      setData(ledger);
+    }
+  }, [activeAccount]);
+  return data ? (
+    <Container
+      width="100%"
       maxWidth="100vw"
-      bg={colors.bg}
+      // bg={colors.bg}
+      bgColor="red"
       height="auto"
       maxHeight="100vh"
-      padding="10vh"
     >
-	
-			<Text color={colors.text}>Portfolio</Text>
-      		<Box display="flex" flexDirection="column" flexWrap="wrap">
-				{data.map((pred, i) => {
-					return (
-						<Box
-							key={i}
-			    			// onClick={}
-							display="flex"
-							maxWidth="300px"
-							flexDirection="row"
-							border="1px solid"
-							borderRadius="15px"
-							padding="20px"
-							margin="10px"
-						>
-								<Text color={colors.text}>Token id &nbsp;: &nbsp; {pred.id} &nbsp;</Text>
-								<Text color={colors.text}>Balance &nbsp; :&nbsp; {pred.balance}</Text>
-						</Box>
-		            );
-                })}
-			</Box>
-		  </Container>
- 
-  ):(
+      <Text color={colors.text}>Portfolio</Text>
+      <Box display="flex" flexDirection="column" flexWrap="wrap" bgColor="blue">
+        {data.map((pred, i) => {
+          return (
+            <Box
+              key={i}
+              // onClick={}
+              display="flex"
+              maxWidth="300px"
+              flexDirection="row"
+              border="1px solid"
+              borderRadius="15px"
+              padding="20px"
+              margin="10px"
+            >
+              <Text color={colors.text}>
+                Token id &nbsp;: &nbsp; {pred.id} &nbsp;
+              </Text>
+              <Text color={colors.text}>
+                Balance &nbsp; :&nbsp; {pred.balance}
+              </Text>
+            </Box>
+          );
+        })}
+      </Box>
+    </Container>
+  ) : (
     <Loading />
   );
 };
-	

@@ -26,6 +26,8 @@ import { AiFillCheckCircle } from 'react-icons/ai';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { HiOutlineArrowSmLeft, HiOutlineArrowSmRight } from 'react-icons/hi';
 import HeroBg from '../assets/Herobg.png';
+import heroPurple from '../assets/Homepage-bg-purple.png';
+import phonePurple from '../assets/phone-purple.png';
 
 export default function Home() {
   const { predictionsArray } = React.useContext(PredictionContext);
@@ -45,9 +47,6 @@ export default function Home() {
     <Container
       width="auto"
       maxWidth="100vw"
-      //   bgGradient="linear(to-l, #1B3318 20%, #0C4A02 20%)"
-      // bgGradient="linear(to-r, #202b2f, #121b19)"
-      //   bgColor="#202b2f"
       className="main-container"
       height="auto"
       maxHeight="1000vh"
@@ -55,15 +54,15 @@ export default function Home() {
       paddingBottom="15vh"
       paddingStart="0"
       paddingEnd="0"
+      bgGradient="linear(to-r, #25203a, #181125)"
     >
       <Box
         display="flex"
-        bgGradient="linear(to-r, #202433, #181c27)"
         width="100%"
         paddingStart={{ base: '5vh', md: '25vh', lg: '25vh' }}
         paddingEnd={{ base: '5vh', md: '25vh', lg: '25vh' }}
         paddingTop="10vh"
-        bgImage={HeroBg}
+        bgImage={heroPurple}
         bgPosition="center"
         bgSize="cover"
         flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
@@ -91,15 +90,15 @@ export default function Home() {
             marginTop="7"
           >
             <Box display="flex" alignItems="center">
-              <AiFillCheckCircle color="#AEF8A2" fontSize="21" />
+              <AiFillCheckCircle color="#9C4FFF" fontSize="21" />
               &nbsp;&nbsp;<p>100% Guarantee</p>
             </Box>
             <Box display="flex" alignItems="center">
-              <AiFillCheckCircle color="#AEF8A2" fontSize="21" />
+              <AiFillCheckCircle color="#9C4FFF" fontSize="21" />
               &nbsp;&nbsp;<p>Safe Payment</p>
             </Box>
             <Box display="flex" alignItems="center">
-              <AiFillCheckCircle color="#AEF8A2" fontSize="21" />
+              <AiFillCheckCircle color="#9C4FFF" fontSize="21" />
               &nbsp;&nbsp;<p>24/7 Support</p>
             </Box>
           </Box>
@@ -111,13 +110,14 @@ export default function Home() {
             <Link
               py="3"
               px="10"
-              bgColor="#22EF01"
+              bgColor="#9C4FFF"
               color="#343538"
               borderRadius="15"
+              textAlign="center"
             >
               Get Started
             </Link>
-            <Box display="flex" alignItems="center">
+            <Box display="flex" alignItems="center" justifyContent="center">
               <Link py="3" paddingStart="10" paddingEnd="3">
                 Learn more
               </Link>
@@ -127,45 +127,48 @@ export default function Home() {
           <Box
             display="flex"
             justifyContent="space-between"
-            width="70%"
+            width={{ base: '100%', md: '70%', lg: '70%' }}
             marginTop="10"
           >
             <Box display="flex" flexDirection="column" alignItems="start">
-              <Heading as="h3" fontWeight="semibold" size="xl" color="#AEF8A2">
+              <Heading as="h3" fontWeight="semibold" size="xl" color="#9C4FFF">
                 200+
               </Heading>
               <p>Markets</p>
             </Box>
             <Box display="flex" flexDirection="column" alignItems="start">
-              <Heading as="h3" fontWeight="semibold" size="xl" color="#AEF8A2">
+              <Heading as="h3" fontWeight="semibold" size="xl" color="#9C4FFF">
                 9000+
               </Heading>
               <p>Active Users</p>
             </Box>
             <Box display="flex" flexDirection="column" alignItems="start">
-              <Heading as="h3" fontWeight="semibold" size="xl" color="#AEF8A2">
+              <Heading as="h3" fontWeight="semibold" size="xl" color="#9C4FFF">
                 10M+
               </Heading>
               <p>Transactions</p>
             </Box>
           </Box>
         </Box>
-        <Box w="45%">
+        <Box
+          w={{ base: '100%', md: '45%', lg: '45%' }}
+          display="flex"
+          justifyContent="center"
+        >
           <Image
             boxSize={{ base: '400px', md: '700px', lg: '700px' }}
             objectFit="cover"
             marginTop={{ base: '0px', md: '-100px', lg: '-100px' }}
-            src={phoneImg}
+            src={phonePurple}
           />
         </Box>
       </Box>
 
       <Box
         display="flex"
-        flexDirection="column"
         flexWrap="wrap"
-        paddingStart="25vh"
-        paddingEnd="26vh"
+        paddingStart={{ base: '5vh', md: '25vh', lg: '25vh' }}
+        paddingEnd={{ base: '5vh', md: '25vh', lg: '25vh' }}
         paddingTop="6vh"
       >
         <Heading as="h3" fontWeight="semibold" margin="0px" size="lg">
@@ -174,7 +177,7 @@ export default function Home() {
 
         <Box
           display="flex"
-          flexDirection="row"
+          flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
           flexWrap="wrap"
           w="100%"
           alignItems="center"
@@ -187,11 +190,12 @@ export default function Home() {
                 key={i}
                 onClick={() => history('/predict/' + pred.id)}
                 display="flex"
-                w="29%"
+                w={{ base: '100%', md: '29%', lg: '29%' }}
                 borderRadius="10px"
                 flexDirection="row"
                 padding="20px"
-                backgroundColor="#12231b"
+                backgroundColor="#180F2B"
+                marginBottom="2vh"
               >
                 <Box display="flex" flexDirection="row" flexWrap="wrap">
                   {/* <Text color={'white'}>
@@ -211,7 +215,7 @@ export default function Home() {
 
                   <Box w="80%">
                     <Text
-                      color={'#AEF8A2'}
+                      color={'#CEB0F5'}
                       fontSize="lg"
                       fontWeight={'bold'}
                       paddingStart="2"
@@ -228,17 +232,19 @@ export default function Home() {
               </Box>
             );
           })}
+
           {inProgressArray.map((pred, i) => {
             return (
               <Box
                 key={i}
                 onClick={() => history('/predict/' + pred.id)}
                 display="flex"
-                w="29%"
+                w={{ base: '100%', md: '29%', lg: '29%' }}
                 borderRadius="10px"
                 flexDirection="row"
                 padding="20px"
-                backgroundColor="#12231b"
+                backgroundColor="#180F2B"
+                marginBottom="2vh"
               >
                 <Box display="flex" flexDirection="row" flexWrap="wrap">
                   {/* <Text color={'white'}>
@@ -258,7 +264,7 @@ export default function Home() {
 
                   <Box w="80%">
                     <Text
-                      color={'#AEF8A2'}
+                      color={'#CEB0F5'}
                       fontSize="lg"
                       fontWeight={'bold'}
                       paddingStart="2"
@@ -275,17 +281,19 @@ export default function Home() {
               </Box>
             );
           })}
+
           {inProgressArray.map((pred, i) => {
             return (
               <Box
                 key={i}
                 onClick={() => history('/predict/' + pred.id)}
                 display="flex"
-                w="29%"
+                w={{ base: '100%', md: '29%', lg: '29%' }}
                 borderRadius="10px"
                 flexDirection="row"
                 padding="20px"
-                backgroundColor="#12231b"
+                backgroundColor="#180F2B"
+                marginBottom="2vh"
               >
                 <Box display="flex" flexDirection="row" flexWrap="wrap">
                   {/* <Text color={'white'}>
@@ -305,7 +313,7 @@ export default function Home() {
 
                   <Box w="80%">
                     <Text
-                      color={'#AEF8A2'}
+                      color={'#CEB0F5'}
                       fontSize="lg"
                       fontWeight={'bold'}
                       paddingStart="2"
@@ -398,12 +406,16 @@ export default function Home() {
               >
                 <Box
                   display="flex"
-                  flexDirection="row"
                   alignItems="center"
                   flexWrap="wrap"
                   w="100%"
+                  flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
                 >
-                  <Box w="5%">
+                  <Box
+                    w={{ base: '30%', md: '5%', lg: '5%' }}
+                    display="flex"
+                    justifyContent="center"
+                  >
                     <Text color={colors.text}>
                       {/* <b>ID </b>: {pred.value.predictionRef} */}
                       <Image
@@ -419,7 +431,11 @@ export default function Home() {
                     </Text>
                   </Box>
 
-                  <Box w="55%" paddingEnd="10" paddingStart="3">
+                  <Box
+                    w={{ base: '100%', md: '55%', lg: '55%' }}
+                    paddingEnd={{ base: '0', md: '10', lg: '10' }}
+                    paddingStart={{ base: '0', md: '3', lg: '3' }}
+                  >
                     <Text color="white"> {pred.value.predictionName} </Text>
                   </Box>
 
@@ -452,7 +468,12 @@ export default function Home() {
             );
           })}
         </Box>
-        <Flex justifyContent="center" alignItems="center" marginTop="6vh">
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          marginTop="6vh"
+          w="100%"
+        >
           <Button
             bgColor="#3B3A3A"
             color="white"

@@ -41,10 +41,11 @@ import {
 export default function Footer() {
   return (
     <>
-      <Box
+      <Flex
+        flexDirection={{ base: 'column-reverse', md: 'column', lg: 'column' }}
         color={useColorModeValue('white')}
-        bg={'#051B07'}
-        px={20}
+        bg={'#1A1A1A'}
+        px={{ base: '5', md: '20', lg: '20' }}
         paddingBottom="7"
       >
         <Flex
@@ -52,36 +53,29 @@ export default function Footer() {
           justifyContent={'center'}
           flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
         >
-          <Link paddingStart="5" paddingEnd="5">
-            Contact Us
-          </Link>
-          <Link paddingStart="5" paddingEnd="5" href="/Privacy">
+          <Link px={{ base: '0', md: '5', lg: '5' }}>Contact Us</Link>
+          <Link px={{ base: '0', md: '5', lg: '5' }} href="/Privacy">
             Privacy Policy
           </Link>
-          <Link paddingStart="5" paddingEnd="5">
-            Terms of Use
-          </Link>
-          <Link paddingStart="5" paddingEnd="5">
-            How it Works
-          </Link>
-          <Link paddingStart="5" paddingEnd="5">
-            FAQs
-          </Link>
-          <Link paddingStart="5" paddingEnd="5">
-            Blogs
-          </Link>
+          <Link px={{ base: '0', md: '5', lg: '5' }}>Terms of Use</Link>
+          <Link px={{ base: '0', md: '5', lg: '5' }}>How it Works</Link>
+          <Link px={{ base: '0', md: '5', lg: '5' }}>FAQs</Link>
+          <Link px={{ base: '0', md: '5', lg: '5' }}>Blogs</Link>
         </Flex>
 
         <Flex
-          paddingStart="20"
-          paddingEnd="20"
+          paddingStart={{ base: '5', md: '20', lg: '20' }}
+          paddingEnd={{ base: '5', md: '20', lg: '20' }}
           paddingBottom="10"
           paddingTop="18"
           borderBottom="1px solid"
           borderColor="gray"
           flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
         >
-          <Box w="50%" paddingEnd="20">
+          <Box
+            w={{ base: '100%', md: '50%', lg: '50%' }}
+            paddingEnd={{ base: '0', md: '20', lg: '20' }}
+          >
             <Flex flexDirection="column">
               <Heading as="h3" size="lg" paddingBottom="3">
                 Disclaimers
@@ -106,7 +100,7 @@ export default function Footer() {
             </Flex>
           </Box>
 
-          <Box w="50%">
+          <Box w={{ base: '100%', md: '50%', lg: '50%' }}>
             <Box w="100%">
               <Heading as="h4" size="sm">
                 Subcribe to our newsletter
@@ -143,7 +137,7 @@ export default function Footer() {
           </Box>
         </Flex>
         <Center paddingTop="7">© 2022 Predictor. All rights reserved.</Center>
-      </Box>
+      </Flex>
     </>
   );
 }

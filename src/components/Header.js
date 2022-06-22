@@ -8,6 +8,7 @@ import {
   Container,
   IconButton,
   Button,
+  Image,
   Menu,
   MenuButton,
   MenuList,
@@ -42,6 +43,8 @@ import {
 } from '../helper/tezos';
 import { TezosToolkit, MichelCodecPacker, compose } from '@taquito/taquito';
 import Loading from '../helper/Loading';
+import SignIn from './SignIn/signin';
+import logoIcon from './assets/logo.png';
 
 const Redeem = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -61,10 +64,12 @@ const Redeem = () => {
 
   return (
     <>
-      <MenuItem onClick={onOpen}>Redeem</MenuItem>
+      <MenuItem onClick={onOpen} color="black">
+        Redeem
+      </MenuItem>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bgColor="#1A1A1A">
           <ModalHeader>Redeem Token</ModalHeader>
           <ModalBody>
             <form onSubmit={submit}>
@@ -74,17 +79,23 @@ const Redeem = () => {
                   type="number"
                   name="tokenId"
                   placeholder="Token ID"
+                  _placeholder={{ color: 'white' }}
                 ></Input>
               </FormControl>
-              <FormControl>
+              <FormControl marginTop="5">
                 <Input
                   required
                   type="number"
                   name="amount"
                   placeholder="Amount"
+                  _placeholder={{ color: 'white' }}
                 />
               </FormControl>
-              <Button type="submit">Redeem</Button>
+              <Flex justifyContent="center" marginTop="5">
+                <Button type="submit" bgColor="#9C4FFF">
+                  Redeem
+                </Button>
+              </Flex>
             </form>
           </ModalBody>
         </ModalContent>
@@ -113,7 +124,7 @@ export default function Header({ links = [] }) {
     <Box
       color={'white'}
       // bg={useColorModeValue('222737', '222737')}
-      backgroundColor="#051B07"
+      backgroundColor="#1A1A1A"
       px={4}
       py={4}
     >
@@ -122,6 +133,7 @@ export default function Header({ links = [] }) {
         alignItems={'center'}
         justifyContent={'space-between'}
         px="20"
+        paddingBottom={{ base: '20', md: '0', lg: '0' }}
         flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
       >
         <IconButton
@@ -132,14 +144,13 @@ export default function Header({ links = [] }) {
           onClick={isOpen ? onClose : onOpen}
         />
 
-        <HStack spacing={8} alignItems={'center'} w="33%">
-          <Text fontSize="2xl" paddingEnd="3" color="white" fontWeight="bold">
-            Predict{''}
-            <Box as="span" color="#22EF01">
-              or.
-            </Box>
-          </Text>
-        </HStack>
+        <Flex
+          alignItems={'center'}
+          justifyContent={{ base: 'center', md: 'start', lg: 'start' }}
+          w={{ base: '100%', md: '33%', lg: '33%' }}
+        >
+          <Image height="auto" width="120px" src={logoIcon} />
+        </Flex>
 
         <Flex alignItems={'center'} justifyContent={'center'} w="33%">
           <Link
@@ -157,6 +168,7 @@ export default function Header({ links = [] }) {
             paddingEnd="3"
             colorScheme="blue"
             href="/Portfolio"
+            textAlign="center"
           >
             Portfolio
           </Link>
@@ -174,7 +186,7 @@ export default function Header({ links = [] }) {
               //   Connect Wallet
               // </Button>
               <Flex alignItems={'center'} justifyContent={'end'}>
-                <Link
+                {/* <Link
                   fontSize="1xl"
                   paddingStart="3"
                   paddingEnd="3"
@@ -194,7 +206,11 @@ export default function Header({ links = [] }) {
                   color={'black'}
                 >
                   Sign Up
-                </Link>
+                </Link> */}
+
+                <Button borderRadius="15" color={'black'} onClick={connect}>
+                  Connect Wallet
+                </Button>
               </Flex>
             ) : (
               <Menu>
@@ -204,17 +220,22 @@ export default function Header({ links = [] }) {
                     overflow="hidden"
                     whiteSpace="nowrap"
                     textOverflow="ellipsis"
+                    color="black"
                   >
                     {activeAccount?.address}
                   </Text>
                 </MenuButton>
                 <MenuList>
-                  <MenuItem onClick={() => history('/mypreds')}>
+                  <MenuItem color="black" onClick={() => history('/mypreds')}>
                     My Predictions
                   </MenuItem>
-                  <MenuItem onClick={whiteListProposer}>Whitelist Me</MenuItem>
-                  <MenuItem onClick={disconnect}>Disconnect</MenuItem>
-                  <Portfolio />
+                  <MenuItem color="black" onClick={whiteListProposer}>
+                    Whitelist Me
+                  </MenuItem>
+                  <MenuItem color="black" onClick={disconnect}>
+                    Disconnect
+                  </MenuItem>
+                  {/* <Portfolio /> */}
                   <Redeem />
                 </MenuList>
               </Menu>
@@ -243,10 +264,12 @@ export default function Header({ links = [] }) {
                   </Text>
                 </MenuButton>
                 <MenuList>
-                  <MenuItem onClick={() => history('/mypreds')}>
+                  <MenuItem color="black" onClick={() => history('/mypreds')}>
                     My Predictions
                   </MenuItem>
-                  <MenuItem onClick={disconnect}>Disconnect</MenuItem>
+                  <MenuItem color="black" onClick={disconnect}>
+                    Disconnect
+                  </MenuItem>
                 </MenuList>
               </Menu>
             )}
@@ -297,7 +320,9 @@ const Redeem1 = (tokenID) => {
                 placeholder="Amount"
               />
             </FormControl>
-            <Button type="submit">Redeem</Button>
+            <Button color="black" type="submit">
+              Redeem
+            </Button>
           </form>
         </PopoverBody>
       </PopoverContent>
