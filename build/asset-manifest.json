@@ -1,29 +1,31 @@
 {
   "files": {
     "main.css": "./static/css/main.1034930d.chunk.css",
-    "main.js": "./static/js/main.2d312130.chunk.js",
-    "main.js.map": "./static/js/main.2d312130.chunk.js.map",
+    "main.js": "./static/js/main.5b355c9d.chunk.js",
+    "main.js.map": "./static/js/main.5b355c9d.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.d1cee963.js",
     "runtime-main.js.map": "./static/js/runtime-main.d1cee963.js.map",
-    "static/js/2.0fb000a3.chunk.js": "./static/js/2.0fb000a3.chunk.js",
-    "static/js/2.0fb000a3.chunk.js.map": "./static/js/2.0fb000a3.chunk.js.map",
+    "static/js/2.d9598e41.chunk.js": "./static/js/2.d9598e41.chunk.js",
+    "static/js/2.d9598e41.chunk.js.map": "./static/js/2.d9598e41.chunk.js.map",
     "static/js/3.ba915a30.chunk.js": "./static/js/3.ba915a30.chunk.js",
     "static/js/3.ba915a30.chunk.js.map": "./static/js/3.ba915a30.chunk.js.map",
     "index.html": "./index.html",
     "static/css/main.1034930d.chunk.css.map": "./static/css/main.1034930d.chunk.css.map",
-    "static/js/2.0fb000a3.chunk.js.LICENSE.txt": "./static/js/2.0fb000a3.chunk.js.LICENSE.txt",
+    "static/js/2.d9598e41.chunk.js.LICENSE.txt": "./static/js/2.d9598e41.chunk.js.LICENSE.txt",
     "static/media/Herobg.f160b25e.png": "./static/media/Herobg.f160b25e.png",
     "static/media/Homepage-bg-purple.f246cb89.png": "./static/media/Homepage-bg-purple.f246cb89.png",
+    "static/media/Portfolio-Background.a4b9b349.png": "./static/media/Portfolio-Background.a4b9b349.png",
     "static/media/Portfolio-bg.3469633d.png": "./static/media/Portfolio-bg.3469633d.png",
     "static/media/Portfolio-page-bg.28b727f1.png": "./static/media/Portfolio-page-bg.28b727f1.png",
-    "static/media/Predictions-bg.e5a5772d.png": "./static/media/Predictions-bg.e5a5772d.png",
+    "static/media/Predictions-Background.4c014538.png": "./static/media/Predictions-Background.4c014538.png",
+    "static/media/Redeem-Background.fe558f01.png": "./static/media/Redeem-Background.fe558f01.png",
     "static/media/phone-purple.6a0b0f22.png": "./static/media/phone-purple.6a0b0f22.png",
     "static/media/phone.b064c002.png": "./static/media/phone.b064c002.png"
   },
   "entrypoints": [
     "static/js/runtime-main.d1cee963.js",
-    "static/js/2.0fb000a3.chunk.js",
+    "static/js/2.d9598e41.chunk.js",
     "static/css/main.1034930d.chunk.css",
-    "static/js/main.2d312130.chunk.js"
+    "static/js/main.5b355c9d.chunk.js"
   ]
 }
