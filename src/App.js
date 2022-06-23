@@ -16,8 +16,11 @@ import PredictionContext from './helper/PredictionContext';
 import Loading from './helper/Loading';
 import MyPreds from './components/Mypreds';
 import Redeem from './components/Redeem/redeem';
-import Portfolio from './page/Portfolio/Portfolio';
+import Portfolio from './components/Portfolio/Portfolio';
 import Privacy from './page/Privacy/Privacy';
+import Contact from './page/Contact/Contact';
+import FAQ from './page/FAQ/FAQ';
+import Blogs from './page/Blogs/Blogs';
 
 function App() {
   const [predictions, setPredictions] = React.useState(null);
@@ -74,7 +77,10 @@ function App() {
                   <Route path="/mypreds" element={<MyPreds />} />
                   <Route path="/Portfolio" element={<Portfolio />} />
                   <Route path="/Privacy" element={<Privacy />} />
+                  <Route path="/Contact" element={<Contact />} />
                   <Route path="/redeem" element={<Redeem />} />
+                  <Route path="/FAQ" element={<FAQ />} />
+                  <Route path="/Blogs" element={<Blogs />} />
                 </Routes>
               </Router>
             </PredictionContext.Provider>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import './Privacy.css';
+import './Blogs.css';
 import { useWallet } from '../../helper/WalletContext';
 import privacyBG from '../../components/assets/Privacy-Background.png';
 import {
@@ -23,7 +23,7 @@ import {
   bgImage,
 } from '@chakra-ui/react';
 
-const Privacy = () => {
+const Blogs = () => {
   return (
     <Container
       display="flex"
@@ -44,7 +44,7 @@ const Privacy = () => {
         w="100%"
       >
         <Heading className="mainfont" as="h2" fontWeight="semibold" size="4xl">
-          Privacy Policys
+          Blogs
         </Heading>
         <Flex
           alignItems={'center'}
@@ -100,4 +100,4 @@ const Privacy = () => {
   );
 };
 
-export default Privacy;
+export default Blogs;

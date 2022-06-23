@@ -53,14 +53,20 @@ export default function Footer() {
           justifyContent={'center'}
           flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
         >
-          <Link px={{ base: '0', md: '5', lg: '5' }}>Contact Us</Link>
+          <Link px={{ base: '0', md: '5', lg: '5' }} href="/Contact">
+            Contact Us
+          </Link>
           <Link px={{ base: '0', md: '5', lg: '5' }} href="/Privacy">
             Privacy Policy
           </Link>
           <Link px={{ base: '0', md: '5', lg: '5' }}>Terms of Use</Link>
           <Link px={{ base: '0', md: '5', lg: '5' }}>How it Works</Link>
-          <Link px={{ base: '0', md: '5', lg: '5' }}>FAQs</Link>
-          <Link px={{ base: '0', md: '5', lg: '5' }}>Blogs</Link>
+          <Link px={{ base: '0', md: '5', lg: '5' }} href="/FAQ">
+            FAQs
+          </Link>
+          <Link px={{ base: '0', md: '5', lg: '5' }} href="/Blogs">
+            Blogs
+          </Link>
         </Flex>
 
         <Flex

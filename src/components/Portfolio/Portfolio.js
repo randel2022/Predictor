@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './Portfolio.css';
 import { useWallet } from '../../helper/WalletContext';
-import portfolioBG from '../../components/assets/Portfolio-Background.png';
-import portfolioPurple from '../../components/assets/Portfolio-bg.png';
+import portfolioBG from '../assets/Portfolio-Background.png';
+import portfolioPurple from '../assets/Portfolio-bg.png';
 import {
   Box,
   Flex,
