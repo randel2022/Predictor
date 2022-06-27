@@ -197,8 +197,7 @@ export default function Predict() {
       bgPosition="center"
       bgSize="cover"
       color={colors.text}
-      height="auto"
-      minH="92vh"
+      height="120vh"
       display="flex"
       flexDir="column"
       justifyContent="center"
