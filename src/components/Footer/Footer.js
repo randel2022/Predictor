@@ -2,6 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Footer.css';
 import { FcNext } from 'react-icons/fc';
+import { AiOutlineArrowRight, AiOutlineRight } from 'react-icons/ai';
+
+import { HiOutlineChevronRight } from 'react-icons/hi';
+
 import {
   Box,
   Flex,
@@ -36,6 +40,9 @@ import {
   PopoverHeader,
   PopoverTrigger,
   Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
 } from '@chakra-ui/react';
 
 export default function Footer() {
@@ -59,8 +66,12 @@ export default function Footer() {
           <Link px={{ base: '0', md: '5', lg: '5' }} href="/Privacy">
             Privacy Policy
           </Link>
-          <Link px={{ base: '0', md: '5', lg: '5' }}>Terms of Use</Link>
-          <Link px={{ base: '0', md: '5', lg: '5' }}>How it Works</Link>
+          <Link px={{ base: '0', md: '5', lg: '5' }} href="/Terms">
+            Terms of Use
+          </Link>
+          <Link px={{ base: '0', md: '5', lg: '5' }} href="/How">
+            How it Works
+          </Link>
           <Link px={{ base: '0', md: '5', lg: '5' }} href="/FAQ">
             FAQs
           </Link>
@@ -112,20 +123,34 @@ export default function Footer() {
                 Subcribe to our newsletter
               </Heading>
               <Box paddingTop="7" w="100%">
-                <form position="relative">
-                  <label className="label">
-                    <input
+                <form position="relative" display="flex" flex-direction="row">
+                  <InputGroup className="label">
+                    <Input
                       className="email"
                       type="text"
                       placeholder="Enter Email Address here..."
+                      w="70%"
+                      bgColor="white"
+                      focusBorderColor="none"
                     />
-                  </label>
-                  <input
-                    className="btn-submit"
-                    type="submit"
-                    value="Subscribe"
-                  />
-                  {/* <FcNext position="absolute" marginTop="-10" /> */}
+                    <InputGroup w="30%">
+                      <InputRightElement
+                        pointerEvents="none"
+                        children={<AiOutlineRight color="gray.300" />}
+                        size="xs"
+                        className="arrow"
+                        zIndex="20"
+                      />
+                      <Input
+                        className="btn-submit"
+                        type="submit"
+                        value="Subscribe"
+                        bgColor="#9C4FFF"
+                        marginLeft="-10"
+                        zIndex="10"
+                      />
+                    </InputGroup>
+                  </InputGroup>
                 </form>
               </Box>
             </Box>
@@ -135,7 +160,7 @@ export default function Footer() {
                 Bet on your beliefs
               </Heading>
               <Text fontSize="sm">
-                Polymarket is a decentralized information markets platform,
+                Predictor is a decentralized information markets platform,
                 harnessing the power of free markets to demystify the real world
                 events that matter most to you.
               </Text>

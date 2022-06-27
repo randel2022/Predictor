@@ -21,6 +21,8 @@ import Privacy from './page/Privacy/Privacy';
 import Contact from './page/Contact/Contact';
 import FAQ from './page/FAQ/FAQ';
 import Blogs from './page/Blogs/Blogs';
+import Terms from './page/Terms/Terms';
+import How from './page/How/How';
 
 function App() {
   const [predictions, setPredictions] = React.useState(null);
@@ -58,36 +60,36 @@ function App() {
           useSystemColorMode: true,
         }}
       >
-        {predictions ? (
-          <>
-            <PredictionContext.Provider
-              value={{
-                predictions,
-                predictionsArray,
-                updatePredictions,
-              }}
-            >
-              <Router>
-                <Header />
-                <Routes>
-                  <Route exact path="/" element={<Home />} />
+        <>
+          <PredictionContext.Provider
+            value={{
+              predictions,
+              predictionsArray,
+              updatePredictions,
+            }}
+          >
+            <Router>
+              <Header />
+              <Routes>
+                <Route exact path="/" element={<Home />} />
 
-                  <Route path="/predict/:id" element={<Predict />} />
+                <Route path="/predict/:id" element={<Predict />} />
 
-                  <Route path="/mypreds" element={<MyPreds />} />
-                  <Route path="/Portfolio" element={<Portfolio />} />
-                  <Route path="/Privacy" element={<Privacy />} />
-                  <Route path="/Contact" element={<Contact />} />
-                  <Route path="/redeem" element={<Redeem />} />
-                  <Route path="/FAQ" element={<FAQ />} />
-                  <Route path="/Blogs" element={<Blogs />} />
-                </Routes>
-              </Router>
-            </PredictionContext.Provider>
-          </>
-        ) : (
-          <Loading />
-        )}
+                <Route path="/mypreds" element={<MyPreds />} />
+                <Route path="/Portfolio" element={<Portfolio />} />
+                <Route path="/Privacy" element={<Privacy />} />
+
+                <Route path="/Contact" element={<Contact />} />
+                <Route path="/redeem" element={<Redeem />} />
+                <Route path="/FAQ" element={<FAQ />} />
+                <Route path="/Blogs" element={<Blogs />} />
+                <Route path="/Terms" element={<Terms />} />
+
+                <Route path="/How" element={<How />} />
+              </Routes>
+            </Router>
+          </PredictionContext.Provider>
+        </>
       </ColorModeProvider>
       <Footer />
     </ChakraProvider>
