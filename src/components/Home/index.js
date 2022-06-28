@@ -476,7 +476,7 @@ export default function Home() {
                           fontWeight="bold"
                           border="1px solid"
                           borderColor="#22EF01"
-                          fontSize="sm"
+                          fontSize="xs"
                         >
                           ID:{pred.value.predictionRef}
                         </Text>
