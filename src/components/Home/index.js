@@ -25,11 +25,7 @@ import {
 import PredictionContext from '../../helper/PredictionContext';
 import { useNavigate } from 'react-router-dom';
 import phoneImg from '../assets/phone.png';
-import {
-  AiOutlineArrowRight,
-  AiOutlineRight,
-  AiOutlineSearch,
-} from 'react-icons/ai';
+import { AiOutlineRight, AiOutlineSearch } from 'react-icons/ai';
 
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { FaLongArrowAltRight } from 'react-icons/fa';
