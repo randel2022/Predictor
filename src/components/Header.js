@@ -188,6 +188,28 @@ export default function Header({ links = [] }) {
           >
             Portfolio
           </Link>
+          <Link
+            fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+            paddingStart="3"
+            paddingEnd="3"
+            colorScheme="blue"
+            href="/mypreds"
+            textAlign="center"
+            className="header"
+          >
+            Predictions
+          </Link>
+          <Link
+            fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+            paddingStart="3"
+            paddingEnd="3"
+            colorScheme="blue"
+            href="/Whitelist"
+            textAlign="center"
+            className="header"
+          >
+            WhitelistMe
+          </Link>
         </Flex>
 
         <Flex

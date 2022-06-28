@@ -17,6 +17,7 @@ import Loading from './helper/Loading';
 import MyPreds from './components/Mypreds';
 import Redeem from './components/Redeem/redeem';
 import Portfolio from './components/Portfolio/Portfolio';
+import Whitelistme from './components/Whitelist/Whitelist';
 import Privacy from './page/Privacy/Privacy';
 import Contact from './page/Contact/Contact';
 import FAQ from './page/FAQ/FAQ';
@@ -84,6 +85,7 @@ function App() {
                 <Route path="/FAQ" element={<FAQ />} />
                 <Route path="/Blogs" element={<Blogs />} />
                 <Route path="/Terms" element={<Terms />} />
+                <Route path="/Whitelist" element={<Whitelistme />} />
 
                 <Route path="/How" element={<How />} />
               </Routes>

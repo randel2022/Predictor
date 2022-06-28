@@ -238,26 +238,27 @@ export default function Home() {
                     marginBottom="2vh"
                   >
                     <Box display="flex" flexDirection="row" flexWrap="wrap">
-                      {/* <Text color={'white'}>
-                    {' '}
-                    <b>ID </b>: {pred.value.predictionRef}
-                  </Text> */}
-                      <Box w="20%">
-                        <Image
-                          height="50px"
-                          width="50px"
-                          objectFit="cover"
-                          borderRadius="50%"
-                          src="https://bit.ly/dan-abramov"
-                          alt="Dan Abramov"
+                      <Box w="20%" display="flex" alignItems="center">
+                        <Text
+                          py="3"
+                          px="2"
+                          borderRadius="60%"
+                          backgroundColor={'#9C4FFF'}
+                          fontWeight="bold"
+                          border="1px solid"
+                          borderColor="#22EF01"
+                          fontSize="xs"
                           cursor="pointer"
-                        />
+                        >
+                          ID:
+                          {pred.value.predictionRef}
+                        </Text>
                       </Box>
 
                       <Box w="80%">
                         <Text
                           color={'#CEB0F5'}
-                          fontSize={{ base: 'sm', md: 'lg', lg: 'lg' }}
+                          fontSize="lg"
                           fontWeight={'bold'}
                           paddingStart="2"
                           cursor="pointer"
@@ -265,11 +266,10 @@ export default function Home() {
                           {' '}
                           {pred.value.predictionName}{' '}
                         </Text>
+                        <Text paddingStart="2" paddingTop="3" fontSize="sm">
+                          <b>Status:</b> {pred.value.predictionStatus}
+                        </Text>
                       </Box>
-
-                      {/* <Text color={'white'}>
-                    <b>Status </b>: {pred.value.predictionStatus}
-                  </Text> */}
                     </Box>
                   </Box>
                 );
@@ -289,38 +289,38 @@ export default function Home() {
                     marginBottom="2vh"
                   >
                     <Box display="flex" flexDirection="row" flexWrap="wrap">
-                      {/* <Text color={'white'}>
-                    {' '}
-                    <b>ID </b>: {pred.value.predictionRef}
-                  </Text> */}
-                      <Box w="20%">
-                        <Image
-                          height="50px"
-                          width="50px"
-                          objectFit="cover"
-                          borderRadius="50%"
-                          src="https://bit.ly/dan-abramov"
-                          alt="Dan Abramov"
+                      <Box w="20%" display="flex" alignItems="center">
+                        <Text
+                          py="3"
+                          px="2"
+                          borderRadius="60%"
+                          backgroundColor={'#9C4FFF'}
+                          fontWeight="bold"
+                          border="1px solid"
+                          borderColor="#22EF01"
+                          fontSize="xs"
                           cursor="pointer"
-                        />
+                        >
+                          ID:
+                          {pred.value.predictionRef}
+                        </Text>
                       </Box>
 
                       <Box w="80%">
                         <Text
                           color={'#CEB0F5'}
+                          fontSize="lg"
                           fontWeight={'bold'}
                           paddingStart="2"
                           cursor="pointer"
-                          fontSize={{ base: 'sm', md: 'lg', lg: 'lg' }}
                         >
                           {' '}
                           {pred.value.predictionName}{' '}
                         </Text>
+                        <Text paddingStart="2" paddingTop="3" fontSize="sm">
+                          <b>Status:</b> {pred.value.predictionStatus}
+                        </Text>
                       </Box>
-
-                      {/* <Text color={'white'}>
-                    <b>Status </b>: {pred.value.predictionStatus}
-                  </Text> */}
                     </Box>
                   </Box>
                 );
@@ -340,26 +340,27 @@ export default function Home() {
                     marginBottom="2vh"
                   >
                     <Box display="flex" flexDirection="row" flexWrap="wrap">
-                      {/* <Text color={'white'}>
-                    {' '}
-                    <b>ID </b>: {pred.value.predictionRef}
-                  </Text> */}
-                      <Box w="20%">
-                        <Image
-                          height="50px"
-                          width="50px"
-                          objectFit="cover"
-                          borderRadius="50%"
-                          src="https://bit.ly/dan-abramov"
-                          alt="Dan Abramov"
+                      <Box w="20%" display="flex" alignItems="center">
+                        <Text
+                          py="3"
+                          px="2"
+                          borderRadius="60%"
+                          backgroundColor={'#9C4FFF'}
+                          fontWeight="bold"
+                          border="1px solid"
+                          borderColor="#22EF01"
+                          fontSize="xs"
                           cursor="pointer"
-                        />
+                        >
+                          ID:
+                          {pred.value.predictionRef}
+                        </Text>
                       </Box>
 
                       <Box w="80%">
                         <Text
                           color={'#CEB0F5'}
-                          fontSize={{ base: 'sm', md: 'lg', lg: 'lg' }}
+                          fontSize="lg"
                           fontWeight={'bold'}
                           paddingStart="2"
                           cursor="pointer"
@@ -367,18 +368,17 @@ export default function Home() {
                           {' '}
                           {pred.value.predictionName}{' '}
                         </Text>
+                        <Text paddingStart="2" paddingTop="3" fontSize="sm">
+                          <b>Status:</b> {pred.value.predictionStatus}
+                        </Text>
                       </Box>
-
-                      {/* <Text color={'white'}>
-                    <b>Status </b>: {pred.value.predictionStatus}
-                  </Text> */}
                     </Box>
                   </Box>
                 );
               })}
             </Box>
 
-            <Box w="100%" display="flex" marginTop="20vh">
+            {/* <Box w="100%" display="flex" marginTop="20vh">
               <Box w="33.33%">
                 <InputGroup className="label">
                   <Input
@@ -417,7 +417,7 @@ export default function Home() {
                   <option value="option3">Option 3</option>
                 </Select>
               </Box>
-            </Box>
+            </Box> */}
 
             <Box
               display="flex"
@@ -430,25 +430,13 @@ export default function Home() {
               paddingBottom="5"
               bgColor="white"
               borderRadius="10"
-              marginTop="3"
+              marginTop="20"
             >
-              <Box w="70%">
+              <Box w="50%">
                 <Text color="black">Market</Text>
               </Box>
-              <Box w="10%">
-                <Text color="black" textAlign="center">
-                  Volume
-                </Text>
-              </Box>
-              <Box w="10%">
-                <Text color="black" textAlign="center">
-                  Yes
-                </Text>
-              </Box>
-              <Box w="10%">
-                <Text color="black" textAlign="center">
-                  No
-                </Text>
+              <Box w="50%">
+                <Center color="black">Status</Center>
               </Box>
             </Box>
             <Box display="flex" flexDirection="column" flexWrap="wrap" w="100%">
@@ -463,72 +451,85 @@ export default function Home() {
                     borderColor="gray"
                     flexDirection="row"
                     // borderRadius="20px"
-                    py="10px"
-                    margin="0px"
+                    padding="20px"
+                    margin="10px"
                   >
                     <Box
                       display="flex"
                       alignItems="center"
                       flexWrap="wrap"
                       w="100%"
-                      flexDirection={{ base: 'row', md: 'row', lg: 'row' }}
+                      flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
                     >
                       <Box
-                        w={{ base: '10%', md: '5%', lg: '5%' }}
+                        w={{ base: '30%', md: '5%', lg: '7%' }}
                         display="flex"
                         justifyContent="center"
+                        flexDirection="column"
+                        alignItems="center"
                       >
-                        <Text color={colors.text}>
-                          {/* <b>ID </b>: {pred.value.predictionRef} */}
-                          <Image
-                            height={{ base: '33px', md: '50px', lg: '50px' }}
-                            width={{ base: '33px', md: '50px', lg: '50px' }}
-                            objectFit="cover"
-                            borderRadius="50%"
-                            src="https://bit.ly/dan-abramov"
-                            alt="Dan Abramov"
-                            border="1px solid"
-                            borderColor="#22EF01"
-                            cursor="pointer"
-                          />
+                        <Text
+                          py="3"
+                          px="2"
+                          borderRadius="50%"
+                          backgroundColor={'#9C4FFF'}
+                          fontWeight="bold"
+                          border="1px solid"
+                          borderColor="#22EF01"
+                          fontSize="sm"
+                        >
+                          ID:{pred.value.predictionRef}
                         </Text>
+                        {/* <Text
+                          py="3"
+                          px="4"
+                          borderRadius="50%"
+                          backgroundColor={'#9C4FFF'}
+                          fontWeight="bold"
+                          border="1px solid"
+                          borderColor="#22EF01"
+                        >
+                          <b>ID </b>: {pred.value.predictionRef}
+                          
+                        </Text> */}
                       </Box>
 
                       <Box
-                        w={{ base: '40%', md: '55%', lg: '55%' }}
+                        w={{ base: '100%', md: '55%', lg: '50%' }}
                         paddingEnd={{ base: '0', md: '10', lg: '10' }}
-                        paddingStart={{ base: '3', md: '3', lg: '3' }}
+                        paddingStart={{ base: '0', md: '3', lg: '3' }}
                       >
-                        <Text color="white" cursor="pointer" className="preds">
+                        <Text color="white" cursor="pointer">
                           {' '}
                           {pred.value.predictionName}{' '}
                         </Text>
                       </Box>
 
-                      <Box w={{ base: '10%', md: '10%', lg: '10%' }}>
-                        <Center color={'#15803D'} className="preds">
-                          {/* <b>Status </b>: {pred.value.predictionStatus} */}
-                          100%
+                      <Box w="40%">
+                        <Center color={'#6EFB57'}>
+                          {/* <b>Status </b>:  */}
+                          {pred.value.predictionStatus}
+                          {/* 100% */}
                         </Center>
                       </Box>
-                      <Box w={{ base: '20%', md: '10%', lg: '10%' }}>
-                        <Center color={'#6EFB57'} className="preds">
-                          {/* <b>Status </b>: {pred.value.predictionStatus} */}
+                      {/* <Box w="10%">
+                        <Center color={'#6EFB57'}>
+                        
                           $1,003,797
                         </Center>
                       </Box>
-                      <Box w={{ base: '10%', md: '10%', lg: '10%' }}>
-                        <Center color={'#6EFB57'} className="preds">
-                          {/* <b>Status </b>: {pred.value.predictionStatus} */}
+                      <Box w="10%">
+                        <Center color={'#6EFB57'}>
+                         
                           $0.41
                         </Center>
                       </Box>
-                      <Box w={{ base: '10%', md: '10%', lg: '10%' }}>
-                        <Center color={'#6EFB57'} className="preds">
-                          {/* <b>Status </b>: {pred.value.predictionStatus} */}
+                      <Box w="10%">
+                        <Center color={'#6EFB57'}>
+                        
                           $0.59
                         </Center>
-                      </Box>
+                      </Box> */}
                     </Box>
                   </Box>
                 );
