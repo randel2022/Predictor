@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { extendTheme } from '@chakra-ui/react';
 
 import {
   Box,
@@ -61,6 +62,14 @@ const Redeem = () => {
     await op.confirmation(1);
     alert('Redemption Completed!');
   };
+
+  const theme = extendTheme({
+    textStyles: {
+      h1: {
+        fontSize: ['10px'],
+      },
+    },
+  });
 
   return (
     <>
@@ -126,61 +135,72 @@ export default function Header({ links = [] }) {
       // bg={useColorModeValue('222737', '222737')}
       backgroundColor="#1A1A1A"
       px={4}
-      py={4}
+      py={2}
     >
       <Flex
         h={16}
         alignItems={'center'}
         justifyContent={'space-between'}
-        px="20"
-        paddingBottom={{ base: '20', md: '0', lg: '0' }}
-        flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+        px={{ base: '0', md: '20', lg: '20' }}
+        paddingBottom={{ base: '0', md: '0', lg: '0' }}
+        flexDirection={{ base: 'row', md: 'row', lg: 'row' }}
+        // bgColor="red"
       >
-        <IconButton
+        {/* <IconButton
           size={'md'}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           aria-label={'Open Menu'}
           display={{ md: 'none' }}
           onClick={isOpen ? onClose : onOpen}
-        />
+        /> */}
 
         <Flex
           alignItems={'center'}
-          justifyContent={{ base: 'center', md: 'start', lg: 'start' }}
-          w={{ base: '100%', md: '33%', lg: '33%' }}
+          justifyContent={{ base: 'start', md: 'start', lg: 'start' }}
+          w={{ base: '33%', md: '33%', lg: '33%' }}
         >
-          <Image height="auto" width="120px" src={logoIcon} />
+          <Image
+            height="auto"
+            w={{ base: '70px', md: '120px', lg: '120px' }}
+            src={logoIcon}
+          />
         </Flex>
 
         <Flex alignItems={'center'} justifyContent={'center'} w="33%">
           <Link
-            fontSize="1xl"
+            fontSize={{ base: '10', md: 'sm', lg: 'md' }}
             paddingStart="3"
             paddingEnd="3"
             colorScheme="blue"
             href="/"
+            className="header"
           >
             Marketplace
           </Link>
           <Link
-            fontSize="1xl"
+            fontSize={{ base: '10', md: 'sm', lg: 'md' }}
             paddingStart="3"
             paddingEnd="3"
             colorScheme="blue"
             href="/Portfolio"
             textAlign="center"
+            className="header"
           >
             Portfolio
           </Link>
         </Flex>
 
-        <Flex alignItems={'center'} w="33%" justifyContent={'end'}>
+        <Flex
+          alignItems={'center'}
+          w="33%"
+          justifyContent={{ base: 'end', md: 'end', lg: 'end' }}
+        >
           {/* <IconButton
             marginRight="10px"
             icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
             onClick={toggleColorMode}
           /> */}
-          <Box display={{ base: 'none', md: 'flex' }}>
+          <Box display={{ base: 'flex', md: 'flex' }}>
             {!connected ? (
               // <Button color={'black'} onClick={connect}>
               //   Connect Wallet
@@ -208,7 +228,14 @@ export default function Header({ links = [] }) {
                   Sign Up
                 </Link> */}
 
-                <Button borderRadius="15" color={'black'} onClick={connect}>
+                <Button
+                  borderRadius="15"
+                  color={'black'}
+                  onClick={connect}
+                  fontSize={{ base: '10', md: 'md', lg: 'md' }}
+                  className="header"
+                  padding="10px"
+                >
                   Connect Wallet
                 </Button>
               </Flex>

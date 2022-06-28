@@ -257,7 +257,7 @@ export default function Home() {
                       <Box w="80%">
                         <Text
                           color={'#CEB0F5'}
-                          fontSize="lg"
+                          fontSize={{ base: 'sm', md: 'lg', lg: 'lg' }}
                           fontWeight={'bold'}
                           paddingStart="2"
                           cursor="pointer"
@@ -308,10 +308,10 @@ export default function Home() {
                       <Box w="80%">
                         <Text
                           color={'#CEB0F5'}
-                          fontSize="lg"
                           fontWeight={'bold'}
                           paddingStart="2"
                           cursor="pointer"
+                          fontSize={{ base: 'sm', md: 'lg', lg: 'lg' }}
                         >
                           {' '}
                           {pred.value.predictionName}{' '}
@@ -359,7 +359,7 @@ export default function Home() {
                       <Box w="80%">
                         <Text
                           color={'#CEB0F5'}
-                          fontSize="lg"
+                          fontSize={{ base: 'sm', md: 'lg', lg: 'lg' }}
                           fontWeight={'bold'}
                           paddingStart="2"
                           cursor="pointer"
@@ -436,13 +436,19 @@ export default function Home() {
                 <Text color="black">Market</Text>
               </Box>
               <Box w="10%">
-                <Center color="black">Volume</Center>
+                <Text color="black" textAlign="center">
+                  Volume
+                </Text>
               </Box>
               <Box w="10%">
-                <Center color="black">Yes</Center>
+                <Text color="black" textAlign="center">
+                  Yes
+                </Text>
               </Box>
               <Box w="10%">
-                <Center color="black">No</Center>
+                <Text color="black" textAlign="center">
+                  No
+                </Text>
               </Box>
             </Box>
             <Box display="flex" flexDirection="column" flexWrap="wrap" w="100%">
@@ -457,26 +463,26 @@ export default function Home() {
                     borderColor="gray"
                     flexDirection="row"
                     // borderRadius="20px"
-                    padding="20px"
-                    margin="10px"
+                    py="10px"
+                    margin="0px"
                   >
                     <Box
                       display="flex"
                       alignItems="center"
                       flexWrap="wrap"
                       w="100%"
-                      flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+                      flexDirection={{ base: 'row', md: 'row', lg: 'row' }}
                     >
                       <Box
-                        w={{ base: '30%', md: '5%', lg: '5%' }}
+                        w={{ base: '10%', md: '5%', lg: '5%' }}
                         display="flex"
                         justifyContent="center"
                       >
                         <Text color={colors.text}>
                           {/* <b>ID </b>: {pred.value.predictionRef} */}
                           <Image
-                            height="50px"
-                            width="50px"
+                            height={{ base: '33px', md: '50px', lg: '50px' }}
+                            width={{ base: '33px', md: '50px', lg: '50px' }}
                             objectFit="cover"
                             borderRadius="50%"
                             src="https://bit.ly/dan-abramov"
@@ -489,36 +495,36 @@ export default function Home() {
                       </Box>
 
                       <Box
-                        w={{ base: '100%', md: '55%', lg: '55%' }}
+                        w={{ base: '40%', md: '55%', lg: '55%' }}
                         paddingEnd={{ base: '0', md: '10', lg: '10' }}
-                        paddingStart={{ base: '0', md: '3', lg: '3' }}
+                        paddingStart={{ base: '3', md: '3', lg: '3' }}
                       >
-                        <Text color="white" cursor="pointer">
+                        <Text color="white" cursor="pointer" className="preds">
                           {' '}
                           {pred.value.predictionName}{' '}
                         </Text>
                       </Box>
 
-                      <Box w="10%">
-                        <Center color={'#15803D'}>
+                      <Box w={{ base: '10%', md: '10%', lg: '10%' }}>
+                        <Center color={'#15803D'} className="preds">
                           {/* <b>Status </b>: {pred.value.predictionStatus} */}
                           100%
                         </Center>
                       </Box>
-                      <Box w="10%">
-                        <Center color={'#6EFB57'}>
+                      <Box w={{ base: '20%', md: '10%', lg: '10%' }}>
+                        <Center color={'#6EFB57'} className="preds">
                           {/* <b>Status </b>: {pred.value.predictionStatus} */}
                           $1,003,797
                         </Center>
                       </Box>
-                      <Box w="10%">
-                        <Center color={'#6EFB57'}>
+                      <Box w={{ base: '10%', md: '10%', lg: '10%' }}>
+                        <Center color={'#6EFB57'} className="preds">
                           {/* <b>Status </b>: {pred.value.predictionStatus} */}
                           $0.41
                         </Center>
                       </Box>
-                      <Box w="10%">
-                        <Center color={'#6EFB57'}>
+                      <Box w={{ base: '10%', md: '10%', lg: '10%' }}>
+                        <Center color={'#6EFB57'} className="preds">
                           {/* <b>Status </b>: {pred.value.predictionStatus} */}
                           $0.59
                         </Center>

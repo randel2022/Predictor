@@ -49,40 +49,70 @@ export default function Footer() {
   return (
     <>
       <Flex
-        flexDirection={{ base: 'column-reverse', md: 'column', lg: 'column' }}
+        flexDirection={{ base: 'column', md: 'column', lg: 'column' }}
         color={useColorModeValue('white')}
         bg={'#1A1A1A'}
         px={{ base: '5', md: '20', lg: '20' }}
         paddingBottom="7"
       >
         <Flex
-          padding={5}
+          py={5}
           justifyContent={'center'}
-          flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+          flexDirection={{ base: 'row', md: 'row', lg: 'row' }}
         >
-          <Link px={{ base: '0', md: '5', lg: '5' }} href="/Contact">
+          <Link
+            px={{ base: '0', md: '5', lg: '5' }}
+            fontSize={{ md: 'sm', lg: 'sm' }}
+            href="/Contact"
+            className="links"
+          >
             Contact Us
           </Link>
-          <Link px={{ base: '0', md: '5', lg: '5' }} href="/Privacy">
+          <Link
+            px={{ base: '0', md: '5', lg: '5' }}
+            fontSize={{ md: 'sm', lg: 'sm' }}
+            href="/Privacy"
+            className="links"
+          >
             Privacy Policy
           </Link>
-          <Link px={{ base: '0', md: '5', lg: '5' }} href="/Terms">
+          <Link
+            px={{ base: '0', md: '5', lg: '5' }}
+            fontSize={{ md: 'sm', lg: 'sm' }}
+            href="/Terms"
+            className="links"
+          >
             Terms of Use
           </Link>
-          <Link px={{ base: '0', md: '5', lg: '5' }} href="/How">
+          <Link
+            px={{ base: '0', md: '5', lg: '5' }}
+            fontSize={{ md: 'sm', lg: 'sm' }}
+            href="/How"
+            className="links"
+          >
             How it Works
           </Link>
-          <Link px={{ base: '0', md: '5', lg: '5' }} href="/FAQ">
+          <Link
+            px={{ base: '0', md: '5', lg: '5' }}
+            fontSize={{ md: 'sm', lg: 'sm' }}
+            href="/FAQ"
+            className="links"
+          >
             FAQs
           </Link>
-          <Link px={{ base: '0', md: '5', lg: '5' }} href="/Blogs">
+          <Link
+            px={{ base: '0', md: '5', lg: '5' }}
+            fontSize={{ md: 'sm', lg: 'sm' }}
+            href="/Blogs"
+            className="links"
+          >
             Blogs
           </Link>
         </Flex>
 
         <Flex
-          paddingStart={{ base: '5', md: '20', lg: '20' }}
-          paddingEnd={{ base: '5', md: '20', lg: '20' }}
+          paddingStart={{ base: '3', md: '20', lg: '20' }}
+          paddingEnd={{ base: '3', md: '20', lg: '20' }}
           paddingBottom="10"
           paddingTop="18"
           borderBottom="1px solid"
@@ -97,7 +127,7 @@ export default function Footer() {
               <Heading as="h3" size="lg" paddingBottom="3">
                 Disclaimers
               </Heading>
-              <Text fontSize="sm">
+              <Text className="footer" fontSize={{ md: 'sm', lg: 'sm' }}>
                 The Predictor website (“Site”) is for informational and
                 educational purposes only. The Site displays existing markets
                 deployed on the Polygon blockchain and is a graphical user
@@ -148,6 +178,7 @@ export default function Footer() {
                         bgColor="#9C4FFF"
                         marginLeft="-10"
                         zIndex="10"
+                        cursor="pointer"
                       />
                     </InputGroup>
                   </InputGroup>
@@ -159,7 +190,7 @@ export default function Footer() {
               <Heading as="h4" size="sm" paddingBottom="3">
                 Bet on your beliefs
               </Heading>
-              <Text fontSize="sm">
+              <Text className="footer" fontSize={{ md: 'sm', lg: 'sm' }}>
                 Predictor is a decentralized information markets platform,
                 harnessing the power of free markets to demystify the real world
                 events that matter most to you.
@@ -167,7 +198,9 @@ export default function Footer() {
             </Box>
           </Box>
         </Flex>
-        <Center paddingTop="7">© 2022 Predictor. All rights reserved.</Center>
+        <Center paddingTop="7" color="#9CA3AF">
+          © 2022 Predictor. All rights reserved.
+        </Center>
       </Flex>
     </>
   );

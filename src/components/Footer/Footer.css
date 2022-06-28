@@ -38,3 +38,15 @@ input:focus {
   width: 30%;
   margin-left: -8px;
 } */
+
+@media (max-width: 500px) {
+  .links {
+    font-size: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .footer {
+    font-size: 10px;
+  }
+}

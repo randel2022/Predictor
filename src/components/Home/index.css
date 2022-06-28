@@ -85,3 +85,9 @@
 .h-btn:hover {
   color: #3b3a3a;
 }
+
+@media (max-width: 500px) {
+  .preds {
+    font-size: 10px;
+  }
+}
