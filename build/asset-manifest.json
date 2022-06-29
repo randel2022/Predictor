@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "./static/css/main.20bd116e.chunk.css",
-    "main.js": "./static/js/main.cce53763.chunk.js",
-    "main.js.map": "./static/js/main.cce53763.chunk.js.map",
+    "main.js": "./static/js/main.e3bf1e8e.chunk.js",
+    "main.js.map": "./static/js/main.e3bf1e8e.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.35522b20.js",
     "runtime-main.js.map": "./static/js/runtime-main.35522b20.js.map",
     "static/js/2.7cfa48b2.chunk.js": "./static/js/2.7cfa48b2.chunk.js",
@@ -19,7 +19,6 @@
     "static/media/Herobg.f160b25e.png": "./static/media/Herobg.f160b25e.png",
     "static/media/Homepage-bg-purple.f246cb89.png": "./static/media/Homepage-bg-purple.f246cb89.png",
     "static/media/How.8b897e52.png": "./static/media/How.8b897e52.png",
-    "static/media/Phone_lazyloader.c30ea932.png": "./static/media/Phone_lazyloader.c30ea932.png",
     "static/media/Portfolio-Background.a4b9b349.png": "./static/media/Portfolio-Background.a4b9b349.png",
     "static/media/Portfolio-bg.3469633d.png": "./static/media/Portfolio-bg.3469633d.png",
     "static/media/Predictions-Background.4c014538.png": "./static/media/Predictions-Background.4c014538.png",
@@ -29,6 +28,7 @@
     "static/media/Terms.474e0b05.png": "./static/media/Terms.474e0b05.png",
     "static/media/Twitter.aa30bebc.svg": "./static/media/Twitter.aa30bebc.svg",
     "static/media/Whitelistme-Background.b06e4304.png": "./static/media/Whitelistme-Background.b06e4304.png",
+    "static/media/lazyphone.c30ea932.png": "./static/media/lazyphone.c30ea932.png",
     "static/media/phone-purple.6a0b0f22.png": "./static/media/phone-purple.6a0b0f22.png",
     "static/media/phone.b064c002.png": "./static/media/phone.b064c002.png"
   },
@@ -36,6 +36,6 @@
     "static/js/runtime-main.35522b20.js",
     "static/js/2.7cfa48b2.chunk.js",
     "static/css/main.20bd116e.chunk.css",
-    "static/js/main.cce53763.chunk.js"
+    "static/js/main.e3bf1e8e.chunk.js"
   ]
 }
