@@ -13,7 +13,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import heroPurple from '../components/assets/Homepage-bg-purple.png';
-import phoneLazy from '../components/assets/Phone_lazyloader.png';
+import phoneLazy from '../components/assets/lazyphone.png';
 
 import { AiFillCheckCircle } from 'react-icons/ai';
 
