@@ -13,7 +13,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import heroPurple from '../components/assets/Homepage-bg-purple.png';
-import phonePurple from '../components/assets/Phone_lazyloader.png';
+import phoneLazy from '../components/assets/Phone_lazyloader.png';
 
 import { AiFillCheckCircle } from 'react-icons/ai';
 
@@ -104,7 +104,7 @@ export default function Loading() {
             boxSize={{ base: '400px', md: '700px', lg: '700px' }}
             objectFit="cover"
             marginTop={{ base: '0px', md: '-100px', lg: '-100px' }}
-            src={phonePurple}
+            src={phoneLazy}
           />
         </Box>
       </Box>
