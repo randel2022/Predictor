@@ -35,6 +35,7 @@ import heroPurple from '../assets/Homepage-bg-purple.png';
 import phonePurple from '../assets/phone-purple.png';
 
 import Loading from '../../helper/Loading';
+import PageLoading from '../../helper/PageLoading';
 
 export default function Home() {
   const { predictionsArray } = React.useContext(PredictionContext);
@@ -231,7 +232,9 @@ export default function Home() {
                     flexDirection="row"
                     padding="20px"
                     backgroundColor="#180F2B"
-                    marginBottom="2vh"
+                    marginBottom="4vh"
+                    height="25vh"
+                    alignItems="center"
                   >
                     <Box display="flex" flexDirection="row" flexWrap="wrap">
                       <Box w="20%" display="flex" alignItems="center">
@@ -282,7 +285,9 @@ export default function Home() {
                     flexDirection="row"
                     padding="20px"
                     backgroundColor="#180F2B"
-                    marginBottom="2vh"
+                    marginBottom="4vh"
+                    height="25vh"
+                    alignItems="center"
                   >
                     <Box display="flex" flexDirection="row" flexWrap="wrap">
                       <Box w="20%" display="flex" alignItems="center">
@@ -333,7 +338,9 @@ export default function Home() {
                     flexDirection="row"
                     padding="20px"
                     backgroundColor="#180F2B"
-                    marginBottom="2vh"
+                    marginBottom="4vh"
+                    height="25vh"
+                    alignItems="center"
                   >
                     <Box display="flex" flexDirection="row" flexWrap="wrap">
                       <Box w="20%" display="flex" alignItems="center">
@@ -446,7 +453,6 @@ export default function Home() {
                     borderBottom="1px solid"
                     borderColor="gray"
                     flexDirection="row"
-                    // borderRadius="20px"
                     padding="20px"
                     margin="10px"
                   >
@@ -476,18 +482,6 @@ export default function Home() {
                         >
                           ID:{pred.value.predictionRef}
                         </Text>
-                        {/* <Text
-                          py="3"
-                          px="4"
-                          borderRadius="50%"
-                          backgroundColor={'#9C4FFF'}
-                          fontWeight="bold"
-                          border="1px solid"
-                          borderColor="#22EF01"
-                        >
-                          <b>ID </b>: {pred.value.predictionRef}
-                          
-                        </Text> */}
                       </Box>
 
                       <Box
@@ -503,29 +497,9 @@ export default function Home() {
 
                       <Box w="40%">
                         <Center color={'#6EFB57'}>
-                          {/* <b>Status </b>:  */}
                           {pred.value.predictionStatus}
-                          {/* 100% */}
                         </Center>
                       </Box>
-                      {/* <Box w="10%">
-                        <Center color={'#6EFB57'}>
-                        
-                          $1,003,797
-                        </Center>
-                      </Box>
-                      <Box w="10%">
-                        <Center color={'#6EFB57'}>
-                         
-                          $0.41
-                        </Center>
-                      </Box>
-                      <Box w="10%">
-                        <Center color={'#6EFB57'}>
-                        
-                          $0.59
-                        </Center>
-                      </Box> */}
                     </Box>
                   </Box>
                 );

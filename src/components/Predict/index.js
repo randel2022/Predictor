@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Container,
@@ -19,13 +19,15 @@ import {
   AccordionItem,
   AccordionButton,
   AccordionPanel,
+  Flex,
+  FormControl,
 } from '@chakra-ui/react';
 import PredictionContext from '../../helper/PredictionContext';
 import { useParams } from 'react-router-dom';
 import Loading from '../../helper/Loading';
 import { CONTRACT_ADDRESS, wallet } from '../../helper/tezos';
-
-import background from '../assets/Predictions-Background.png';
+import heroPurple from '../assets/Homepage-bg-purple.png';
+import './index.css';
 
 const BuySellWindow = ({ id, options }) => {
   const [request, setRequest] = React.useState({
@@ -49,20 +51,22 @@ const BuySellWindow = ({ id, options }) => {
   };
 
   return (
-    <Tabs variant="soft-rounded" width="100%">
-      <TabList>
+    <Tabs variant="soft-rounded" width="100%" padding="0" margin="0">
+      {/* <TabList>
         <Tab>Options</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>
+      </TabList> */}
+      <TabPanels padding="0" margin="0">
+        <TabPanel padding="0" margin="0">
           <form onSubmit={buySubmit}>
             <Container
-              padding={{ base: '0' }}
               display="flex"
               flexDirection="column"
+              padding="0"
+              margin="0"
+              gap="3"
             >
-              <Box margin="3">
-                <Text fontWeight="bold" fontSize="md">
+              <Box padding="0" margin="0">
+                <Text fontWeight="bold" fontSize="md" py="2">
                   Pick an option
                 </Text>
                 <RadioGroup
@@ -77,14 +81,19 @@ const BuySellWindow = ({ id, options }) => {
                   value={request.option}
                   name="option"
                 >
-                  <Stack direction="column">
+                  <Stack
+                    display="flex"
+                    direction="row"
+                    justifyContent="space-between"
+                  >
                     {options.map((option, i) => {
                       return (
                         <Radio key={i} value={option}>
                           <Box
                             borderWidth="1px"
                             borderColor="gray.400"
-                            p="2"
+                            py="2"
+                            px="7"
                             borderRadius="2xl"
                           >
                             {option}
@@ -95,7 +104,7 @@ const BuySellWindow = ({ id, options }) => {
                   </Stack>
                 </RadioGroup>
               </Box>
-              <Box margin="3">
+              <Box>
                 <Text fontWeight="bold" fontSize="lg">
                   Amount of shares
                 </Text>
@@ -116,13 +125,14 @@ const BuySellWindow = ({ id, options }) => {
                   <NumberInputField />
                 </NumberInput>
               </Box>
-              <Box margin="3">
-                <Button type="submit">Buy</Button>
+              <Box>
+                <Button w="100%" bgColor="#9C4FFF" type="submit">
+                  Buy
+                </Button>
               </Box>
             </Container>
           </form>
         </TabPanel>
-        <TabPanel>Lol2</TabPanel>
       </TabPanels>
     </Tabs>
   );
@@ -193,169 +203,115 @@ export default function Predict() {
     <Container
       maxWidth="100vw"
       width="auto"
-      bgImage={background}
+      bgGradient="linear(to-r, #25203a, #181125)"
+      height="150vh"
+      bgImage={heroPurple}
       bgPosition="center"
       bgSize="cover"
-      color={colors.text}
-      height="120vh"
       display="flex"
       flexDir="column"
       justifyContent="center"
       padding="0 15% 0 15%"
     >
-      <Accordion allowToggle margin="6">
-        <AccordionItem>
+      <Accordion allowToggle margin="6" className="accordion">
+        <AccordionItem
+          bgColor="#9C4FFF"
+          className="accordion"
+          borderRadius="10"
+          cursor="none"
+        >
           <h2>
-            <AccordionButton>
+            <AccordionButton className="accordion">
               <Box flex="1">Please Read this before making any purchases</Box>
             </AccordionButton>
           </h2>
           <AccordionPanel p="6">{data.disclosure}</AccordionPanel>
         </AccordionItem>
       </Accordion>
-      <Box
-        p="6"
-        maxW="max-content"
-        borderWidth="1px"
-        borderRadius="lg"
-        borderColor={colors.border}
-        overflow="hidden"
-        display="flex"
-        flexDirection="column"
-        flexWrap="wrap"
-      >
-        <Text fontSize="sm">Prediction id: {data.ref} </Text>
+      <Box bgColor="#180F2B" borderRadius="20">
+        <Box
+          p="6"
+          borderRadius="lg"
+          overflow="hidden"
+          display="flex"
+          flexDirection="row"
+          flexWrap="wrap"
+          w="100%"
+        >
+          <Flex w="30%">
+            <Text fontSize="lg">Prediction id: {data.ref} </Text>
+          </Flex>
 
-        <Text
-          fontSize="lg"
-          fontWeight="bold"
-          margin={{ base: '1', md: '1' }}
-          maxWidth="lg"
-          overflow="visible"
-          textOverflow="clip"
-        >
-          {data.prediction}
-        </Text>
-      </Box>
-      <Box
-        p="3"
-        maxW="max-content"
-        borderWidth="1px"
-        borderRadius="lg"
-        borderColor={colors.border}
-        overflow="hidden"
-        display="flex"
-        flexDirection="row"
-        flexWrap="wrap"
-      >
-        <Box
-          p="2"
-          maxW="sm"
-          borderWidth="1px"
-          borderRadius="lg"
-          borderColor={colors.border}
-          bg={colors.cardBg}
-          overflow="hidden"
-          display="flex"
-          flexDir="column"
-          margin={{ base: '0', md: '2' }}
-        >
-          <Text fontSize="sm">Open Till</Text>
-          <Text fontSize="l">{data.lastDate}</Text>
-        </Box>
-        <Box
-          p="2"
-          maxW="sm"
-          borderWidth="1px"
-          borderRadius="lg"
-          borderColor={colors.border}
-          bg={colors.cardBg}
-          overflow="hidden"
-          display="flex"
-          flexDir="column"
-          margin={{ base: '0', md: '2' }}
-        >
-          <Text fontSize="sm">Status</Text>
-          <Text fontSize="l">{data.pstatus}</Text>
-        </Box>
-        <Box
-          p="2"
-          maxW="sm"
-          borderWidth="1px"
-          borderRadius="lg"
-          borderColor={colors.border}
-          bg={colors.cardBg}
-          overflow="hidden"
-          display="flex"
-          flexDir="column"
-          margin={{ base: '0', md: '2' }}
-        >
-          <Text fontSize="sm">Result</Text>
-          <Text fontSize="l">{data.result}</Text>
-        </Box>
-      </Box>
-      <Text fontSize="sm">Volume :</Text>
-      <Box
-        p="2"
-        maxW="sm"
-        borderWidth="1px"
-        borderRadius="lg"
-        borderColor={colors.border}
-        overflow="hidden"
-        display="flex"
-        flexDir="row"
-        flexWrap="wrap"
-      >
-        <Box
-          p="2"
-          maxW="sm"
-          borderWidth="1px"
-          borderRadius="lg"
-          borderColor={colors.border}
-          bg={colors.cardBg}
-          overflow="hidden"
-          display="flex"
-          flexDir="row"
-          margin={{ base: '0', md: '1' }}
-        >
-          <Text color={colors.text}>Total : &nbsp;</Text>
-          <Text color={colors.text}>{data.Volume} Tez</Text>
-        </Box>
-
-        {data.snap.map((pred, i) => {
-          return (
-            <Box
-              p="2"
-              maxW="sm"
-              borderWidth="1px"
-              borderRadius="lg"
-              borderColor={colors.border}
-              bg={colors.cardBg}
-              overflow="hidden"
-              display="flex"
-              flexDir="row"
-              margin={{ base: '0', md: '1' }}
+          <Flex w="70%" flexDirection="column">
+            <Text
+              fontSize="lg"
+              fontWeight="bold"
+              margin={{ base: '1', md: '1' }}
+              maxWidth="lg"
+              overflow="visible"
+              textOverflow="clip"
+              color="#CEB0F5"
             >
-              <Text color={colors.text}>{pred.id} : &nbsp;</Text>
+              {data.prediction}
+            </Text>
+            <Flex flexDirection="row" w="100%" justifyContent="space-between">
+              <Flex w="50%">
+                <Text fontSize="sm">Open Till : </Text>
+                <Text fontSize="sm"> {data.lastDate}</Text>
+              </Flex>
 
-              <Text color={colors.text}>{pred.value} %</Text>
-            </Box>
-          );
-        })}
-      </Box>
-      <Box
-        margin="6"
-        p={{ base: '2', md: '6' }}
-        maxW="max-content"
-        borderWidth="1px"
-        borderRadius="lg"
-        borderColor={colors.border}
-        overflow="hidden"
-        display="flex"
-        flexDirection="row"
-        flexWrap="wrap"
-      >
-        <BuySellWindow id={id} options={data.options} />
+              <Flex w="50%">
+                <Text fontSize="sm">Result : </Text>
+                <Text fontSize="sm"> {data.result}</Text>
+              </Flex>
+            </Flex>
+
+            <Flex py="3">
+              <Text fontSize="sm">Status :</Text>
+              <Text fontSize="sm">{data.pstatus}</Text>
+            </Flex>
+          </Flex>
+        </Box>
+
+        <Flex flexDirection="column" padding="5" w="100%">
+          <Box className="mid" py="5">
+            <Text fontSize="lg">Volume :</Text>
+
+            <Flex>
+              <Flex>
+                <Text color="white">Total :</Text>
+                <Text color="white">{data.Volume} Tez</Text>
+              </Flex>
+
+              {data.snap.map((pred, i) => {
+                return (
+                  <Flex flexDirection="row" px="7">
+                    <Box display="flex">
+                      <Text>{pred.id} : </Text>
+                    </Box>
+
+                    <Box display="flex">
+                      <Text>{pred.value} %</Text>
+                    </Box>
+                  </Flex>
+                );
+              })}
+            </Flex>
+          </Box>
+        </Flex>
+
+        <Box
+          margin="6"
+          maxW="max-content"
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          display="flex"
+          flexDirection="row"
+          flexWrap="wrap"
+        >
+          <BuySellWindow id={id} options={data.options} />
+        </Box>
       </Box>
     </Container>
   ) : (

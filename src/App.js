@@ -22,6 +22,7 @@ import Privacy from './page/Privacy/Privacy';
 import Contact from './page/Contact/Contact';
 import FAQ from './page/FAQ/FAQ';
 import Blogs from './page/Blogs/Blogs';
+import BlogContent from './page/Blogs/BlogContent';
 import Terms from './page/Terms/Terms';
 import How from './page/How/How';
 
@@ -86,6 +87,8 @@ function App() {
                 <Route path="/Blogs" element={<Blogs />} />
                 <Route path="/Terms" element={<Terms />} />
                 <Route path="/Whitelist" element={<Whitelistme />} />
+
+                <Route path="/BlogContent" element={<BlogContent />} />
 
                 <Route path="/How" element={<How />} />
               </Routes>

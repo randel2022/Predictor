@@ -39,6 +39,18 @@ input:focus {
   margin-left: -8px;
 } */
 
+.inputbtn {
+  position: relative !important;
+}
+
+.arrowright {
+  position: absolute !important;
+  z-index: 999999;
+  left: 50%;
+  top: 33%;
+  font-weight: 700 !important;
+}
+
 @media (max-width: 500px) {
   .links {
     font-size: 10px;
@@ -48,5 +60,10 @@ input:focus {
 
   .footer {
     font-size: 10px;
+    margin-right: auto !important;
   }
+}
+
+.links:focus {
+  outline: none !important;
 }

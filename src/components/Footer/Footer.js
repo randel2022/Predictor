@@ -111,8 +111,8 @@ export default function Footer() {
         </Flex>
 
         <Flex
-          paddingStart={{ base: '3', md: '20', lg: '20' }}
-          paddingEnd={{ base: '3', md: '20', lg: '20' }}
+          paddingStart={{ base: '0', md: '20', lg: '20' }}
+          paddingEnd={{ base: '0', md: '20', lg: '20' }}
           paddingBottom="10"
           paddingTop="18"
           borderBottom="1px solid"
@@ -163,13 +163,17 @@ export default function Footer() {
                       bgColor="white"
                       focusBorderColor="none"
                     />
-                    <InputGroup w="30%">
-                      <InputRightElement
+                    <InputGroup w="30%" className="inputbtn">
+                      {/* <InputRightElement
                         pointerEvents="none"
                         children={<AiOutlineRight color="gray.300" />}
                         size="xs"
-                        className="arrow"
                         zIndex="20"
+                      /> */}
+                      <AiOutlineRight
+                        className="arrowright"
+                        color="#FFFFFF"
+                        zIndex="99"
                       />
                       <Input
                         className="btn-submit"
@@ -178,7 +182,6 @@ export default function Footer() {
                         bgColor="#9C4FFF"
                         marginLeft="-10"
                         zIndex="10"
-                        cursor="pointer"
                       />
                     </InputGroup>
                   </InputGroup>
@@ -198,9 +201,7 @@ export default function Footer() {
             </Box>
           </Box>
         </Flex>
-        <Center paddingTop="7" color="#9CA3AF">
-          © 2022 Predictor. All rights reserved.
-        </Center>
+        <Center paddingTop="7">© 2022 Predictor. All rights reserved.</Center>
       </Flex>
     </>
   );

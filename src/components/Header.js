@@ -136,6 +136,7 @@ export default function Header({ links = [] }) {
       backgroundColor="#1A1A1A"
       px={4}
       py={2}
+      zIndex="50"
     >
       <Flex
         h={16}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Flex, Container } from '@chakra-ui/layout';
 import { Spinner } from '@chakra-ui/react';
 import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react';
+import heroBg from '../components/assets/Herobg.png';
 
 export default function PageLoading() {
   return (
