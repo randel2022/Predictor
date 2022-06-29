@@ -163,7 +163,10 @@ export default function Footer() {
                       bgColor="white"
                       focusBorderColor="none"
                     />
-                    <InputGroup w="30%" className="inputbtn">
+                    <InputGroup
+                      w={{ base: '45%', md: '30%', lg: '30%' }}
+                      className="inputbtn"
+                    >
                       {/* <InputRightElement
                         pointerEvents="none"
                         children={<AiOutlineRight color="gray.300" />}

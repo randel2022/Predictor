@@ -147,27 +147,40 @@ export default function Header({ links = [] }) {
         flexDirection={{ base: 'row', md: 'row', lg: 'row' }}
         // bgColor="red"
       >
-        {/* <IconButton
+        <IconButton
           size={'md'}
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          icon={
+            isOpen ? (
+              <CloseIcon color="white" />
+            ) : (
+              <HamburgerIcon color="white" marginTop="-3px" />
+            )
+          }
+          bgColor="#9C4FFF"
+          focusBorderColor="none"
           aria-label={'Open Menu'}
           display={{ md: 'none' }}
           onClick={isOpen ? onClose : onOpen}
-        /> */}
+        />
 
         <Flex
           alignItems={'center'}
           justifyContent={{ base: 'start', md: 'start', lg: 'start' }}
-          w={{ base: '33%', md: '33%', lg: '33%' }}
+          w={{ base: '50%', md: '33%', lg: '33%' }}
         >
           <Image
             height="auto"
-            w={{ base: '70px', md: '120px', lg: '120px' }}
+            w={{ base: '95px', md: '120px', lg: '120px' }}
             src={logoIcon}
           />
         </Flex>
 
-        <Flex alignItems={'center'} justifyContent={'center'} w="33%">
+        <Flex
+          display={{ base: 'none', md: 'block', lg: 'block' }}
+          alignItems={'center'}
+          justifyContent={'center'}
+          w="33%"
+        >
           <Link
             fontSize={{ base: '10', md: 'sm', lg: 'md' }}
             paddingStart="3"
@@ -223,7 +236,7 @@ export default function Header({ links = [] }) {
             icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
             onClick={toggleColorMode}
           /> */}
-          <Box display={{ base: 'flex', md: 'flex' }}>
+          <Box display="flex" justifyContent="end">
             {!connected ? (
               // <Button color={'black'} onClick={connect}>
               //   Connect Wallet
@@ -264,7 +277,7 @@ export default function Header({ links = [] }) {
               </Flex>
             ) : (
               <Menu>
-                <MenuButton as={Button} cursor={'pointer'} minW={0}>
+                <MenuButton as={Button} cursor={'pointer'} minW={0} w="30%">
                   <Text
                     maxW="300px"
                     overflow="hidden"
@@ -307,24 +320,78 @@ export default function Header({ links = [] }) {
               </Button>
             ) : (
               <Menu>
-                <MenuButton as={Button} cursor={'pointer'} minW={0}>
-                  <Text
+                <MenuButton
+                  as={Button}
+                  cursor={'pointer'}
+                  minW={0}
+                  bgColor="#1A1A1A"
+                >
+                  {/* <Text
                     maxW="300px"
                     overflow="hidden"
                     whiteSpace="nowrap"
                     textOverflow="ellipsis"
                   >
                     {activeAccount?.address}
-                  </Text>
+                  </Text> */}
+                  <Flex
+                    alignItems={'center'}
+                    justifyContent={'center'}
+                    w="100%"
+                  >
+                    <Link
+                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                      paddingStart="3"
+                      paddingEnd="3"
+                      colorScheme="blue"
+                      href="/"
+                      className="header"
+                    >
+                      Marketplace
+                    </Link>
+                    <Link
+                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                      paddingStart="3"
+                      paddingEnd="3"
+                      colorScheme="blue"
+                      href="/Portfolio"
+                      textAlign="center"
+                      className="header"
+                    >
+                      Portfolio
+                    </Link>
+                    <Link
+                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                      paddingStart="3"
+                      paddingEnd="3"
+                      colorScheme="blue"
+                      href="/mypreds"
+                      textAlign="center"
+                      className="header"
+                    >
+                      Predictions
+                    </Link>
+                    <Link
+                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                      paddingStart="3"
+                      paddingEnd="3"
+                      colorScheme="blue"
+                      href="/Whitelist"
+                      textAlign="center"
+                      className="header"
+                    >
+                      WhitelistMe
+                    </Link>
+                  </Flex>
                 </MenuButton>
-                <MenuList>
+                {/* <MenuList>
                   <MenuItem color="black" onClick={() => history('/mypreds')}>
                     My Predictions
                   </MenuItem>
                   <MenuItem color="black" onClick={disconnect}>
                     Disconnect
                   </MenuItem>
-                </MenuList>
+                </MenuList> */}
               </Menu>
             )}
           </Stack>
