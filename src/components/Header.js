@@ -271,8 +271,9 @@ export default function Header({ links = [] }) {
                   fontSize={{ base: '10', md: 'md', lg: 'md' }}
                   className="header"
                   padding="10px"
+                  bgColor="white"
                 >
-                  Connect Wallets
+                  Connect Wallet
                 </Button>
               </Flex>
             ) : (
