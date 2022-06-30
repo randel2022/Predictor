@@ -238,32 +238,7 @@ export default function Header({ links = [] }) {
           /> */}
           <Box display="flex" justifyContent="end">
             {!connected ? (
-              // <Button color={'black'} onClick={connect}>
-              //   Connect Wallet
-              // </Button>
               <Flex alignItems={'center'} justifyContent={'end'}>
-                {/* <Link
-                  fontSize="1xl"
-                  paddingStart="3"
-                  paddingEnd="3"
-                  colorScheme="blue"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  fontSize="1xl"
-                  px="10"
-                  paddingTop="2"
-                  paddingBottom="2"
-                  borderRadius="15"
-                  colorScheme="blue"
-                  href="/Portfolio"
-                  bgColor={'white'}
-                  color={'black'}
-                >
-                  Sign Up
-                </Link> */}
-
                 <Button
                   borderRadius="15"
                   color={'black'}
