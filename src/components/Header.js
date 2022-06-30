@@ -272,7 +272,7 @@ export default function Header({ links = [] }) {
                   className="header"
                   padding="10px"
                 >
-                  Connect Wallet
+                  Connect Wallets
                 </Button>
               </Flex>
             ) : (
@@ -315,10 +315,6 @@ export default function Header({ links = [] }) {
         <Box pb={4} display={{ md: 'none' }}>
           <Stack as={'nav'} spacing={4}>
             {!connected ? (
-              <Button color={'black'} onClick={connect}>
-                Connect Wallet
-              </Button>
-            ) : (
               <Menu>
                 <MenuButton
                   as={Button}
@@ -326,14 +322,6 @@ export default function Header({ links = [] }) {
                   minW={0}
                   bgColor="#1A1A1A"
                 >
-                  {/* <Text
-                    maxW="300px"
-                    overflow="hidden"
-                    whiteSpace="nowrap"
-                    textOverflow="ellipsis"
-                  >
-                    {activeAccount?.address}
-                  </Text> */}
                   <Flex
                     alignItems={'center'}
                     justifyContent={'center'}
@@ -384,14 +372,65 @@ export default function Header({ links = [] }) {
                     </Link>
                   </Flex>
                 </MenuButton>
-                {/* <MenuList>
-                  <MenuItem color="black" onClick={() => history('/mypreds')}>
-                    My Predictions
-                  </MenuItem>
-                  <MenuItem color="black" onClick={disconnect}>
-                    Disconnect
-                  </MenuItem>
-                </MenuList> */}
+              </Menu>
+            ) : (
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  cursor={'pointer'}
+                  minW={0}
+                  bgColor="#1A1A1A"
+                >
+                  <Flex
+                    alignItems={'center'}
+                    justifyContent={'center'}
+                    w="100%"
+                  >
+                    <Link
+                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                      paddingStart="3"
+                      paddingEnd="3"
+                      colorScheme="blue"
+                      href="/"
+                      className="header"
+                    >
+                      Marketplace
+                    </Link>
+                    <Link
+                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                      paddingStart="3"
+                      paddingEnd="3"
+                      colorScheme="blue"
+                      href="/Portfolio"
+                      textAlign="center"
+                      className="header"
+                    >
+                      Portfolio
+                    </Link>
+                    <Link
+                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                      paddingStart="3"
+                      paddingEnd="3"
+                      colorScheme="blue"
+                      href="/mypreds"
+                      textAlign="center"
+                      className="header"
+                    >
+                      Predictions
+                    </Link>
+                    <Link
+                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                      paddingStart="3"
+                      paddingEnd="3"
+                      colorScheme="blue"
+                      href="/Whitelist"
+                      textAlign="center"
+                      className="header"
+                    >
+                      WhitelistMe
+                    </Link>
+                  </Flex>
+                </MenuButton>
               </Menu>
             )}
           </Stack>
