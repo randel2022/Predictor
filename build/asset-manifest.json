@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "./static/css/main.20bd116e.chunk.css",
-    "main.js": "./static/js/main.30319d1f.chunk.js",
-    "main.js.map": "./static/js/main.30319d1f.chunk.js.map",
+    "main.css": "./static/css/main.99c2471d.chunk.css",
+    "main.js": "./static/js/main.68ca83de.chunk.js",
+    "main.js.map": "./static/js/main.68ca83de.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.35522b20.js",
     "runtime-main.js.map": "./static/js/runtime-main.35522b20.js.map",
     "static/js/2.07e21014.chunk.js": "./static/js/2.07e21014.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.b3e0fe2c.chunk.js": "./static/js/3.b3e0fe2c.chunk.js",
     "static/js/3.b3e0fe2c.chunk.js.map": "./static/js/3.b3e0fe2c.chunk.js.map",
     "index.html": "./index.html",
-    "static/css/main.20bd116e.chunk.css.map": "./static/css/main.20bd116e.chunk.css.map",
+    "static/css/main.99c2471d.chunk.css.map": "./static/css/main.99c2471d.chunk.css.map",
     "static/js/2.07e21014.chunk.js.LICENSE.txt": "./static/js/2.07e21014.chunk.js.LICENSE.txt",
     "static/media/Blog.e9eddaa0.png": "./static/media/Blog.e9eddaa0.png",
     "static/media/BlogImage.1ed0a0f7.png": "./static/media/BlogImage.1ed0a0f7.png",
@@ -24,9 +24,9 @@
     "static/media/Predictions-Background.4c014538.png": "./static/media/Predictions-Background.4c014538.png",
     "static/media/Privacy-Background.1278ebb8.png": "./static/media/Privacy-Background.1278ebb8.png",
     "static/media/Redeem-Background.fe558f01.png": "./static/media/Redeem-Background.fe558f01.png",
-    "static/media/Telegram.75d40076.svg": "./static/media/Telegram.75d40076.svg",
+    "static/media/Telegram.08b2de8d.svg": "./static/media/Telegram.08b2de8d.svg",
     "static/media/Terms.474e0b05.png": "./static/media/Terms.474e0b05.png",
-    "static/media/Twitter.aa30bebc.svg": "./static/media/Twitter.aa30bebc.svg",
+    "static/media/Twitter.18b6f403.svg": "./static/media/Twitter.18b6f403.svg",
     "static/media/Whitelistme-Background.b06e4304.png": "./static/media/Whitelistme-Background.b06e4304.png",
     "static/media/lazyphone.c30ea932.png": "./static/media/lazyphone.c30ea932.png",
     "static/media/phone-purple.6a0b0f22.png": "./static/media/phone-purple.6a0b0f22.png",
@@ -35,7 +35,7 @@
   "entrypoints": [
     "static/js/runtime-main.35522b20.js",
     "static/js/2.07e21014.chunk.js",
-    "static/css/main.20bd116e.chunk.css",
-    "static/js/main.30319d1f.chunk.js"
+    "static/css/main.99c2471d.chunk.css",
+    "static/js/main.68ca83de.chunk.js"
   ]
 }
