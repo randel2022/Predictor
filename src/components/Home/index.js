@@ -442,7 +442,13 @@ export default function Home() {
                 <Center color="black">Status</Center>
               </Box>
             </Box>
-            <Box display="flex" flexDirection="column" flexWrap="wrap" w="100%">
+            <Box
+              display="flex"
+              flexDirection="column"
+              flexWrap="wrap"
+              w="100%"
+              marginTop="5"
+            >
               {completedArray.map((pred, i) => {
                 return (
                   <Box
@@ -453,22 +459,26 @@ export default function Home() {
                     borderBottom="1px solid"
                     borderColor="gray"
                     flexDirection="row"
-                    padding="20px"
-                    margin="10px"
+                    padding={{ base: '0px', md: '20px', lg: '20px' }}
+                    margin={{ base: '0px', md: '10px', lg: '10px' }}
                   >
                     <Box
                       display="flex"
                       alignItems="center"
                       flexWrap="wrap"
                       w="100%"
-                      flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+                      flexDirection={{ base: 'row', md: 'row', lg: 'row' }}
+                      // bgColor="red"
+                      marginTop={{ base: '8px', md: '0px', lg: '0px' }}
+                      marginBottom={{ base: '8px', md: '0px', lg: '0px' }}
                     >
                       <Box
-                        w={{ base: '30%', md: '5%', lg: '7%' }}
+                        w={{ base: '20%', md: '5%', lg: '7%' }}
                         display="flex"
                         justifyContent="center"
                         flexDirection="column"
                         alignItems="center"
+                        // bgColor="pink"
                       >
                         <Text
                           py="3"
@@ -485,18 +495,29 @@ export default function Home() {
                       </Box>
 
                       <Box
-                        w={{ base: '100%', md: '55%', lg: '50%' }}
-                        paddingEnd={{ base: '0', md: '10', lg: '10' }}
-                        paddingStart={{ base: '0', md: '3', lg: '3' }}
+                        w={{ base: '50%', md: '55%', lg: '50%' }}
+                        paddingEnd={{ base: '2', md: '10', lg: '10' }}
+                        paddingStart={{ base: '2', md: '3', lg: '3' }}
+                        // bgColor="red"
                       >
-                        <Text color="white" cursor="pointer">
+                        <Text
+                          color="white"
+                          cursor="pointer"
+                          fontSize={{ base: 'xs', md: 'md', lg: 'md' }}
+                        >
                           {' '}
                           {pred.value.predictionName}{' '}
                         </Text>
                       </Box>
 
-                      <Box w="40%">
-                        <Center color={'#6EFB57'}>
+                      <Box
+                        w="30%"
+                        // bgColor="yellow"
+                      >
+                        <Center
+                          color={'#6EFB57'}
+                          fontSize={{ base: 'xs', md: 'md', lg: 'md' }}
+                        >
                           {pred.value.predictionStatus}
                         </Center>
                       </Box>

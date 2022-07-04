@@ -147,7 +147,10 @@ export default function Footer() {
             </Flex>
           </Box>
 
-          <Box w={{ base: '100%', md: '50%', lg: '50%' }}>
+          <Box
+            w={{ base: '100%', md: '50%', lg: '50%' }}
+            marginTop={{ base: '20px', md: '0px', lg: '0px' }}
+          >
             <Box w="100%">
               <Heading as="h4" size="sm">
                 Subcribe to our newsletter
@@ -158,7 +161,7 @@ export default function Footer() {
                     <Input
                       className="email"
                       type="text"
-                      placeholder="Enter Email Address here..."
+                      placeholder="Enter Email Address..."
                       w="70%"
                       bgColor="white"
                       focusBorderColor="none"
@@ -183,7 +186,7 @@ export default function Footer() {
                         type="submit"
                         value="Subscribe"
                         bgColor="#9C4FFF"
-                        marginLeft="-10"
+                        marginLeft={{ base: '-2', md: '-10', lg: '-10' }}
                         zIndex="10"
                       />
                     </InputGroup>

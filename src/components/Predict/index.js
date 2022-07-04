@@ -152,52 +152,54 @@ export default function Predict() {
   };
 
   React.useEffect(async () => {
-    const _ = await predictions.get(id).then((value) => {
-      return value;
-    });
-    const contract = await wallet.at(CONTRACT_ADDRESS);
-    const storage = await contract.storage();
-    const snapshot = await storage.predictionVoteSnapshot
-      .get(id)
-      .then((value) => {
+    if (predictions) {
+      const _ = await predictions.get(id).then((value) => {
         return value;
       });
-    const snapshotList = [];
-
-    for (let pred of snapshot.keys()) {
-      if (pred != 'Total') {
-        snapshotList.push({
-          id: pred,
-          value: Math.round(
-            (snapshot.get(pred) * 100) / snapshot.get('Total')
-          ).toString(),
+      const contract = await wallet.at(CONTRACT_ADDRESS);
+      const storage = await contract.storage();
+      const snapshot = await storage.predictionVoteSnapshot
+        .get(id)
+        .then((value) => {
+          return value;
         });
+      const snapshotList = [];
+
+      for (let pred of snapshot.keys()) {
+        if (pred != 'Total') {
+          snapshotList.push({
+            id: pred,
+            value: Math.round(
+              (snapshot.get(pred) * 100) / snapshot.get('Total')
+            ).toString(),
+          });
+        }
+
+        console.log(snapshotList);
       }
 
-      console.log(snapshotList);
+      let volume = (snapshot.get('Total') / 100).toString();
+      console.log('volume :', volume);
+
+      setData({
+        prediction: _.predictionName,
+        lastDate:
+          new Date(_.endTime).toLocaleDateString() +
+          ' ' +
+          new Date(_.endTime).toLocaleTimeString(),
+        key: id,
+        ref: _.predictionRef,
+        result: _.predictionVoteResult,
+        pstatus: _.predictionStatus,
+        options: _.predictionOptions,
+        snap: snapshotList,
+        Volume: volume,
+
+        disclosure:
+          "Predictor is for informational and educational purposes only. We take no custody of anyone's money or cryptocurrency. Predictor displays existing markets live on the Tezos blockchain and is a graphical user interface for both visualizing data and market trends from on-chain activity, and interacting with said smart contracts directly via your Web 3 enabled wallet.",
+      });
     }
-
-    let volume = (snapshot.get('Total') / 100).toString();
-    console.log('volume :', volume);
-
-    setData({
-      prediction: _.predictionName,
-      lastDate:
-        new Date(_.endTime).toLocaleDateString() +
-        ' ' +
-        new Date(_.endTime).toLocaleTimeString(),
-      key: id,
-      ref: _.predictionRef,
-      result: _.predictionVoteResult,
-      pstatus: _.predictionStatus,
-      options: _.predictionOptions,
-      snap: snapshotList,
-      Volume: volume,
-
-      disclosure:
-        "Predictor is for informational and educational purposes only. We take no custody of anyone's money or cryptocurrency. Predictor displays existing markets live on the Tezos blockchain and is a graphical user interface for both visualizing data and market trends from on-chain activity, and interacting with said smart contracts directly via your Web 3 enabled wallet.",
-    });
-  }, []);
+  }, [predictions]);
 
   return data ? (
     <Container
@@ -211,7 +213,7 @@ export default function Predict() {
       display="flex"
       flexDir="column"
       justifyContent="center"
-      padding="0 15% 0 15%"
+      px={{ base: '7%', md: '15%', lg: '15%' }}
     >
       <Accordion allowToggle margin="6" className="accordion">
         <AccordionItem
@@ -234,15 +236,20 @@ export default function Predict() {
           borderRadius="lg"
           overflow="hidden"
           display="flex"
-          flexDirection="row"
+          flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
           flexWrap="wrap"
           w="100%"
+          gap="5"
         >
-          <Flex w="30%">
+          <Flex w={{ base: '100%', md: '30%', lg: '30%' }}>
             <Text fontSize="lg">Prediction id: {data.ref} </Text>
           </Flex>
 
-          <Flex w="70%" flexDirection="column">
+          <Flex
+            w={{ base: '100%', md: '70%', lg: '70%' }}
+            flexDirection="column"
+            gap="5"
+          >
             <Text
               fontSize="lg"
               fontWeight="bold"

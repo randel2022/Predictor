@@ -58,6 +58,10 @@ input:focus {
     margin-right: 5px;
   }
 
+  .arrowright {
+    left: 75%;
+  }
+
   .footer {
     font-size: 10px;
     margin-right: auto !important;
