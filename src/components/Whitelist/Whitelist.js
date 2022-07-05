@@ -86,8 +86,8 @@ const Whitelist = () => {
             className="mainfont"
             as="h2"
             fontWeight="semibold"
-            size="4xl"
-            textAlign="left"
+            fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
+            textAlign={{ base: 'center', md: 'left', lg: 'left' }}
           >
             Whitelistme
           </Heading>

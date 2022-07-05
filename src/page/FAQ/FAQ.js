@@ -68,7 +68,7 @@ const FAQ = () => {
             className="mainfont"
             as="h2"
             fontWeight="semibold"
-            size="4xl"
+            fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
             textAlign="left"
           >
             FAQs
@@ -86,7 +86,7 @@ const FAQ = () => {
                 className="mainfont"
                 as="h3"
                 fontWeight="semibold"
-                size="3xl"
+                fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
                 textAlign="center"
               >
                 Services
@@ -133,7 +133,7 @@ const FAQ = () => {
                 className="mainfont"
                 as="h3"
                 fontWeight="semibold"
-                size="3xl"
+                fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
                 textAlign="center"
               >
                 Services

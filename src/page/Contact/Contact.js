@@ -71,7 +71,7 @@ const Contact = () => {
             className="mainfont"
             as="h2"
             fontWeight="semibold"
-            size="4xl"
+            fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
             textAlign={{ base: 'center', md: 'left', lg: 'left' }}
           >
             Talk To Us

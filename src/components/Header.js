@@ -290,7 +290,14 @@ export default function Header({ links = [] }) {
           <Stack as={'nav'} spacing={4}>
             {!connected ? (
               <Box cursor={'pointer'} minW={0} bgColor="#1A1A1A">
-                <Flex alignItems={'center'} justifyContent={'center'} w="100%">
+                <Flex
+                  alignItems={'center'}
+                  justifyContent={'center'}
+                  w="100%"
+                  flexDirection="column"
+                  gap="5"
+                  marginTop="2"
+                >
                   <Link
                     fontSize={{ base: '10', md: 'sm', lg: 'md' }}
                     paddingStart="3"

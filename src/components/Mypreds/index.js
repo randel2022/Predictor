@@ -314,7 +314,13 @@ export default function MyPreds() {
         flexDirection="column"
         w="100%"
       >
-        <Heading className="mainfont" as="h2" fontWeight="semibold" size="4xl">
+        <Heading
+          className="mainfont"
+          as="h2"
+          fontWeight="semibold"
+          fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
+          textAlign={{ base: 'center', md: 'left', lg: 'left' }}
+        >
           Prediction
         </Heading>
         <Box display="flex" justifyContent="center">

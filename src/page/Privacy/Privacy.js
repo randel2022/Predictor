@@ -61,7 +61,7 @@ export default function Privacy() {
             className="mainfont"
             as="h2"
             fontWeight="semibold"
-            size="4xl"
+            fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
           >
             Privacy Policys
           </Heading>

@@ -56,12 +56,13 @@ const Terms = () => {
           height="auto"
           flexDirection="column"
           w="100%"
+          gap="10"
         >
           <Heading
             className="mainfont"
             as="h2"
             fontWeight="semibold"
-            size="4xl"
+            fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
           >
             Terms of Services
           </Heading>
