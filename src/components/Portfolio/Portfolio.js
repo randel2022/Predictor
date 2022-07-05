@@ -114,7 +114,7 @@ export default function Portfolio({ links = [] }) {
 
   return (
     <Box
-      px={20}
+      px={{ base: '5', md: '20', lg: '20' }}
       display="flex"
       alignItems="center"
       justifyContent="center"
@@ -123,20 +123,46 @@ export default function Portfolio({ links = [] }) {
       bgPosition="center"
       bgSize="cover"
       w="100%"
+      flexWrap="wrap"
     >
       <Flex
         justifyContent={'space-between'}
         height="60vh"
         flexDirection="column"
         w="100%"
+        flexWrap="wrap"
       >
-        <Heading className="mainfont" as="h2" fontWeight="semibold" size="4xl">
+        <Heading
+          className="mainfont"
+          as="h2"
+          fontWeight="semibold"
+          size="4xl"
+          textAlign={{ base: 'center', md: 'left' }}
+        >
           Portfolio
         </Heading>
-        <Flex alignItems={'center'} justifyContent="center">
-          <Box display={{ base: 'none', md: 'flex' }}>
+        <Flex
+          alignItems={'center'}
+          justifyContent="center"
+          w="100%"
+          flexWrap="wrap"
+          px={{ base: '10', md: '0', lg: '0' }}
+        >
+          <Box
+            display={{ base: 'flex', md: 'flex' }}
+            flexWrap="wrap"
+            w={{ base: '100%', md: '32%', lg: '32%' }}
+          >
             {!connected ? (
-              <Box padding="20" bgColor="#180F2Bed" borderRadius="10">
+              <Box
+                padding="20"
+                bgColor="#180F2Bed"
+                borderRadius="10"
+                w="100%"
+                flexWrap="wrap"
+                display="flex"
+                justifyContent="center"
+              >
                 <Button
                   onClick={connect}
                   color="black"

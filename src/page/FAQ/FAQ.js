@@ -44,38 +44,44 @@ const FAQ = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      height="100vh"
+      height="auto"
       bgImage={privacyBG}
       bgPosition="center"
       bgSize="cover"
       w="100%"
       maxWidth="100%"
-      px="20"
+      px={{ base: '10', md: '20', lg: '20' }}
+      py="40"
     >
       {loading ? (
         <PageLoading />
       ) : (
         <Flex
           justifyContent={'space-between'}
-          height="60vh"
+          height="auto"
           flexDirection="column"
           w="100%"
+          flexWrap="nowrap"
+          gap="10"
         >
           <Heading
             className="mainfont"
             as="h2"
             fontWeight="semibold"
             size="4xl"
+            textAlign="left"
           >
             FAQs
           </Heading>
           <Flex
-            alignItems={'center'}
+            alignItems="center"
             justifyContent="center"
             flexDirection="column"
-            px="60"
+            display="flex"
+            w="100%"
+            gap="10"
           >
-            <Box w="100%" marginBottom="20">
+            <Box w="100%">
               <Heading
                 className="mainfont"
                 as="h3"
@@ -83,13 +89,13 @@ const FAQ = () => {
                 size="3xl"
                 textAlign="center"
               >
-                Primary Care
+                Services
               </Heading>
               <Accordion w="100%" defaultIndex={[0]} allowMultiple>
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box flex="1" textAlign="left" _expanded="false">
+                      <Box flex="1" textAlign="left">
                         Section 1 title
                       </Box>
                       <AccordionIcon />

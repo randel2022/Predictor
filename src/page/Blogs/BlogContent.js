@@ -46,7 +46,7 @@ const BlogContent = () => {
       bgSize="cover"
       w="100%"
       maxWidth="100%"
-      px="20"
+      px={{ base: '5', md: '20', lg: '20' }}
       py="50"
     >
       {loading ? (
@@ -63,7 +63,7 @@ const BlogContent = () => {
           <Box
             height="30vh"
             bgColor="#180F2B"
-            w="40%"
+            w={{ base: '100%', md: '40%', lg: '40%' }}
             display="flex"
             className="main"
             borderRadius="30"
@@ -121,7 +121,7 @@ const BlogContent = () => {
             ></Box>
           </Box>
 
-          <Box px="100">
+          <Box px={{ base: '10', md: '100', lg: '100' }}>
             <Text>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -160,11 +160,16 @@ const BlogContent = () => {
             </Text>
           </Box>
 
-          <Box w="100%" display="flex" gap="7">
+          <Box
+            w="100%"
+            display="flex"
+            gap="7"
+            flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+          >
             <Box
               height="30vh"
               bgColor="#180F2B"
-              w="33%"
+              w={{ base: '100%', md: '33%', lg: '33%' }}
               display="flex"
               className="main"
               borderRadius="30"
@@ -225,7 +230,7 @@ const BlogContent = () => {
             <Box
               height="30vh"
               bgColor="#180F2B"
-              w="33%"
+              w={{ base: '100%', md: '33%', lg: '33%' }}
               display="flex"
               className="main"
               borderRadius="30"
@@ -286,7 +291,7 @@ const BlogContent = () => {
             <Box
               height="30vh"
               bgColor="#180F2B"
-              w="33%"
+              w={{ base: '100%', md: '33%', lg: '33%' }}
               display="flex"
               className="main"
               borderRadius="30"

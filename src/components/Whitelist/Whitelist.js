@@ -73,7 +73,7 @@ const Whitelist = () => {
         bgImage={Background}
         bgPosition="center"
         bgSize="cover"
-        px="20"
+        px={{ base: '0', md: '20', lg: '20' }}
       >
         <Box
           display="flex"
@@ -96,7 +96,7 @@ const Whitelist = () => {
               display="flex"
               justifyContent="center"
               bgColor="#180F2B"
-              w="40%"
+              w={{ base: '80%', md: '40%', lg: '40%' }}
               flexDirection="column"
               padding="10"
               borderRadius="20"

@@ -289,7 +289,7 @@ export default function Header({ links = [] }) {
         <Box pb={4} display={{ md: 'none' }}>
           <Stack as={'nav'} spacing={4}>
             {!connected ? (
-              <Box as={Button} cursor={'pointer'} minW={0} bgColor="#1A1A1A">
+              <Box cursor={'pointer'} minW={0} bgColor="#1A1A1A">
                 <Flex alignItems={'center'} justifyContent={'center'} w="100%">
                   <Link
                     fontSize={{ base: '10', md: 'sm', lg: 'md' }}
@@ -337,64 +337,53 @@ export default function Header({ links = [] }) {
                 </Flex>
               </Box>
             ) : (
-              <Menu>
-                <MenuButton
-                  as={Button}
-                  cursor={'pointer'}
-                  minW={0}
-                  bgColor="#1A1A1A"
-                >
-                  <Flex
-                    alignItems={'center'}
-                    justifyContent={'center'}
-                    w="100%"
+              <Box minW={0} bgColor="#1A1A1A">
+                <Flex alignItems={'center'} justifyContent={'center'} w="100%">
+                  <Link
+                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                    paddingStart="3"
+                    paddingEnd="3"
+                    colorScheme="blue"
+                    href="/"
+                    className="header"
                   >
-                    <Link
-                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
-                      paddingStart="3"
-                      paddingEnd="3"
-                      colorScheme="blue"
-                      href="/"
-                      className="header"
-                    >
-                      Marketplace
-                    </Link>
-                    <Link
-                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
-                      paddingStart="3"
-                      paddingEnd="3"
-                      colorScheme="blue"
-                      href="/Portfolio"
-                      textAlign="center"
-                      className="header"
-                    >
-                      Portfolio
-                    </Link>
-                    <Link
-                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
-                      paddingStart="3"
-                      paddingEnd="3"
-                      colorScheme="blue"
-                      href="/mypreds"
-                      textAlign="center"
-                      className="header"
-                    >
-                      Predictions
-                    </Link>
-                    <Link
-                      fontSize={{ base: '10', md: 'sm', lg: 'md' }}
-                      paddingStart="3"
-                      paddingEnd="3"
-                      colorScheme="blue"
-                      href="/Whitelist"
-                      textAlign="center"
-                      className="header"
-                    >
-                      WhitelistMe
-                    </Link>
-                  </Flex>
-                </MenuButton>
-              </Menu>
+                    Marketplace
+                  </Link>
+                  <Link
+                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                    paddingStart="3"
+                    paddingEnd="3"
+                    colorScheme="blue"
+                    href="/Portfolio"
+                    textAlign="center"
+                    className="header"
+                  >
+                    Portfolio
+                  </Link>
+                  <Link
+                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                    paddingStart="3"
+                    paddingEnd="3"
+                    colorScheme="blue"
+                    href="/mypreds"
+                    textAlign="center"
+                    className="header"
+                  >
+                    Predictions
+                  </Link>
+                  <Link
+                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                    paddingStart="3"
+                    paddingEnd="3"
+                    colorScheme="blue"
+                    href="/Whitelist"
+                    textAlign="center"
+                    className="header"
+                  >
+                    WhitelistMe
+                  </Link>
+                </Flex>
+              </Box>
             )}
           </Stack>
         </Box>

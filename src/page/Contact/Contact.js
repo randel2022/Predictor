@@ -56,7 +56,7 @@ const Contact = () => {
       bgSize="cover"
       w="100%"
       maxWidth="100%"
-      px="20"
+      px={{ base: '10', md: '20', lg: '20' }}
     >
       {loading ? (
         <PageLoading />
@@ -72,6 +72,7 @@ const Contact = () => {
             as="h2"
             fontWeight="semibold"
             size="4xl"
+            textAlign={{ base: 'center', md: 'left', lg: 'left' }}
           >
             Talk To Us
           </Heading>

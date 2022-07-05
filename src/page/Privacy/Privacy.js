@@ -38,22 +38,24 @@ export default function Privacy() {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      height="100vh"
+      height="auto"
       bgImage={privacyBG}
       bgPosition="center"
       bgSize="cover"
       w="100%"
       maxWidth="100%"
-      px="20"
+      padding={{ base: '10', md: '20', lg: '20' }}
+      flexWrap="wrap"
     >
       {loading ? (
         <PageLoading />
       ) : (
         <Flex
           justifyContent={'space-between'}
-          height="60vh"
+          height="auto"
           flexDirection="column"
           w="100%"
+          gap="10"
         >
           <Heading
             className="mainfont"
@@ -67,6 +69,7 @@ export default function Privacy() {
             alignItems={'center'}
             justifyContent="center"
             flexDirection="column"
+            flexWrap="wrap"
           >
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque

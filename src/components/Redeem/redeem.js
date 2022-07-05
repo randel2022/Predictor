@@ -73,7 +73,7 @@ const Redeem = () => {
         bgImage={redeemBg}
         bgPosition="center"
         bgSize="cover"
-        px="20"
+        px={{ base: '10', md: '20', lg: '20' }}
       >
         <Box
           display="flex"

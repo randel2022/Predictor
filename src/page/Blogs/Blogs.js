@@ -47,7 +47,7 @@ const How = () => {
       bgSize="cover"
       w="100%"
       maxWidth="100%"
-      px="20"
+      px={{ base: '5', md: '20', lg: '20' }}
     >
       {loading ? (
         <PageLoading />
@@ -57,6 +57,7 @@ const How = () => {
           height="auto"
           flexDirection="column"
           alignItems="center"
+          display="flex"
           w="100%"
           gap="10"
           py="40"
@@ -68,8 +69,8 @@ const How = () => {
             flexDirection="row"
             bgColor="#180F2B"
             borderRadius="30"
-            w="40%"
-            height="30vh"
+            w={{ base: '100%', md: '40%', lg: '40%' }}
+            height={{ base: '35vh', md: '40vh', lg: '40vh' }}
             className="main"
           >
             <Box
@@ -130,8 +131,8 @@ const How = () => {
             flexDirection="row"
             bgColor="#180F2B"
             borderRadius="30"
-            w="40%"
-            height="30vh"
+            w={{ base: '100%', md: '40%', lg: '40%' }}
+            height={{ base: '35vh', md: '40vh', lg: '40vh' }}
             className="main"
           >
             <Box
@@ -192,8 +193,8 @@ const How = () => {
             flexDirection="row"
             bgColor="#180F2B"
             borderRadius="30"
-            w="40%"
-            height="30vh"
+            w={{ base: '100%', md: '40%', lg: '40%' }}
+            height={{ base: '35vh', md: '40vh', lg: '40vh' }}
             className="main"
           >
             <Box
@@ -254,8 +255,8 @@ const How = () => {
             flexDirection="row"
             bgColor="#180F2B"
             borderRadius="30"
-            w="40%"
-            height="30vh"
+            w={{ base: '100%', md: '40%', lg: '40%' }}
+            height={{ base: '35vh', md: '40vh', lg: '40vh' }}
             className="main"
           >
             <Box

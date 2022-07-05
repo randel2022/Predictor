@@ -39,22 +39,24 @@ const How = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      height="100vh"
+      height="auto"
       bgImage={Background}
       bgPosition="center"
       bgSize="cover"
       w="100%"
       maxWidth="100%"
-      px="20"
+      py={{ base: '10', md: '120', lg: '120' }}
+      px={{ base: '10', md: '20', lg: '20' }}
     >
       {loading ? (
         <PageLoading />
       ) : (
         <Flex
           justifyContent={'space-between'}
-          height="60vh"
+          height="auto"
           flexDirection="column"
           w="100%"
+          gap="5"
         >
           <Heading
             className="mainfont"

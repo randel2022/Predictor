@@ -180,10 +180,22 @@ const AddNewPrediction = () => {
     alert('Prediction Created!');
   };
   return (
-    <Box display="flex" justifyContent="center">
+    <Box
+      display="flex"
+      justifyContent="center"
+      w={{ base: '100%', md: '32%', lg: '32%' }}
+    >
       <Popover>
         <PopoverTrigger>
-          <Box padding="20" bgColor="#180F2Bed" borderRadius="10">
+          <Box
+            padding="20"
+            bgColor="#180F2Bed"
+            borderRadius="10"
+            w={{ base: '100%', md: '100%', lg: '100%' }}
+            display="flex"
+            flexWrap="wrap"
+            justifyContent="center"
+          >
             <Button bgColor="white" color="black" px="20" borderRadius="20">
               Add New Predictions
             </Button>
@@ -284,7 +296,7 @@ export default function MyPreds() {
 
   return myPreds ? (
     <Container
-      px={20}
+      px={{ base: '8', md: '20', lg: '20' }}
       display="flex"
       alignItems="center"
       justifyContent="center"
@@ -303,7 +315,7 @@ export default function MyPreds() {
         w="100%"
       >
         <Heading className="mainfont" as="h2" fontWeight="semibold" size="4xl">
-          Predictions
+          Prediction
         </Heading>
         <Box display="flex" justifyContent="center">
           <AddNewPrediction />
