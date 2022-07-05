@@ -20,8 +20,8 @@ export default function PageLoading() {
         justifyContent="center"
         bgGradient="linear(to-r, #181125, #25203a)"
         borderRadius="10"
-        w="40%"
-        padding="20"
+        w={{ base: '100%', md: '40%', lg: '40%' }}
+        padding={{ base: '5', md: '20', lg: '20' }}
         height="auto"
       >
         <Box

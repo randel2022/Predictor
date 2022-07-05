@@ -206,7 +206,7 @@ export default function Predict() {
       maxWidth="100vw"
       width="auto"
       bgGradient="linear(to-r, #25203a, #181125)"
-      height="150vh"
+      height="auto"
       bgImage={heroPurple}
       bgPosition="center"
       bgSize="cover"
@@ -214,6 +214,7 @@ export default function Predict() {
       flexDir="column"
       justifyContent="center"
       px={{ base: '7%', md: '15%', lg: '15%' }}
+      py={{ base: '10', md: '20', lg: '20' }}
     >
       <Accordion allowToggle margin="6" className="accordion">
         <AccordionItem

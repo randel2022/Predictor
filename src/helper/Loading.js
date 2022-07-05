@@ -108,7 +108,12 @@ export default function Loading() {
           />
         </Box>
       </Box>
-      <Flex w="100%" px="20" marginTop="50" justifyContent="space-between">
+      <Flex
+        w="100%"
+        px={{ base: '5', md: '20', lg: '20' }}
+        marginTop="50"
+        justifyContent="space-between"
+      >
         <Box
           padding="6"
           w="30%"
@@ -141,7 +146,12 @@ export default function Loading() {
         </Box>
       </Flex>
 
-      <Flex w="100%" px="20" justifyContent="space-between" marginTop="20">
+      <Flex
+        w="100%"
+        px={{ base: '5', md: '20', lg: '20' }}
+        justifyContent="space-between"
+        marginTop="20"
+      >
         <Box
           padding="6"
           w="100%"
