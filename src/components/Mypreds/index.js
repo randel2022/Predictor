@@ -188,7 +188,8 @@ const AddNewPrediction = () => {
       <Popover>
         <PopoverTrigger>
           <Box
-            padding="20"
+            py="20"
+            px={{ base: '10', md: '20', lg: '20' }}
             bgColor="#180F2Bed"
             borderRadius="10"
             w={{ base: '100%', md: '100%', lg: '100%' }}

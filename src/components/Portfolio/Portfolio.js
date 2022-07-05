@@ -168,6 +168,7 @@ export default function Portfolio({ links = [] }) {
                   color="black"
                   px="20"
                   borderRadius="20"
+                  bgColor="white"
                 >
                   Connect Wallet
                 </Button>
