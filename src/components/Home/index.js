@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import './index.css';
 import {
   Box,
@@ -37,8 +37,49 @@ import phonePurple from '../assets/phone-purple.png';
 import Loading from '../../helper/Loading';
 import PageLoading from '../../helper/PageLoading';
 
+const pageSizes = [5, 10, 15, 20, 50, 100];
+
 export default function Home() {
-  const { predictionsArray } = React.useContext(PredictionContext);
+  const { predictionsArray: data = [] } = React.useContext(PredictionContext);
+  const [paginatedData, setPaginatedData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(5);
+
+  // useEffect(() => {
+  //   fetch('https://random-data-api.com/api/cannabis/random_cannabis?size=100')
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const withIndex = data.map((item, i) => ({
+  //         rowCount: i,
+  //         ...item,
+  //       }));
+  //       setData(withIndex);
+  //     });
+  // }, []);
+
+  const totalRecords = useMemo(
+    () => Math.round(data.length / pageSize, 0),
+    [data, pageSize]
+  );
+
+  useEffect(() => {
+    const skipItems = (currentPage - 1) * pageSize;
+    const skip = data.filter(({ rowCount }) => rowCount > skipItems - 1);
+    const take = skip.slice(0, pageSize);
+    setPaginatedData(take);
+  }, [data, pageSize, currentPage]);
+
+  const style = {
+    border: '1px solid',
+    borderCollapse: 'collapse',
+    padding: 5,
+  };
+
+  const [posts, setPosts] = useState([]);
+  const [error, setError] = useState('');
+
+  // const { predictionsArray } = React.useContext(PredictionContext);
+
   const history = useNavigate();
   const colors = {
     bg: useColorModeValue('blue.100', 'blue.900'),
@@ -53,10 +94,10 @@ export default function Home() {
     }, 3000);
   }, []);
 
-  const inProgressArray = predictionsArray.filter(function (prediction) {
+  const inProgressArray = data.filter(function (prediction) {
     return prediction.value.predictionStatus == 'Prediction In-Progress';
   });
-  const completedArray = predictionsArray.filter(function (prediction) {
+  const completedArray = data.filter(function (prediction) {
     return prediction.value.predictionStatus != 'Prediction In-Progress';
   });
 
@@ -67,7 +108,6 @@ export default function Home() {
       className="main-container"
       height="auto"
       maxHeight="1000vh"
-      // paddingTop="10vh"
       paddingBottom="15vh"
       paddingStart="0"
       paddingEnd="0"
@@ -99,7 +139,7 @@ export default function Home() {
                 fontWeight="semibold"
                 size="4xl"
               >
-                Predict your Finances
+                Predict to EARN
               </Heading>
               <Text color="gray" marginTop="7">
                 dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -273,154 +313,7 @@ export default function Home() {
                   </Box>
                 );
               })}
-
-              {inProgressArray.map((pred, i) => {
-                return (
-                  <Box
-                    key={i}
-                    onClick={() => history('/predict/' + pred.id)}
-                    display="flex"
-                    w={{ base: '100%', md: '29%', lg: '29%' }}
-                    borderRadius="10px"
-                    flexDirection="row"
-                    padding="20px"
-                    backgroundColor="#180F2B"
-                    marginBottom="4vh"
-                    height="25vh"
-                    alignItems="center"
-                  >
-                    <Box display="flex" flexDirection="row" flexWrap="wrap">
-                      <Box w="20%" display="flex" alignItems="center">
-                        <Text
-                          py="3"
-                          px="2"
-                          borderRadius="60%"
-                          backgroundColor={'#9C4FFF'}
-                          fontWeight="bold"
-                          border="1px solid"
-                          borderColor="#22EF01"
-                          fontSize="xs"
-                          cursor="pointer"
-                        >
-                          ID:
-                          {pred.value.predictionRef}
-                        </Text>
-                      </Box>
-
-                      <Box w="80%">
-                        <Text
-                          color={'#CEB0F5'}
-                          fontSize="lg"
-                          fontWeight={'bold'}
-                          paddingStart="2"
-                          cursor="pointer"
-                        >
-                          {' '}
-                          {pred.value.predictionName}{' '}
-                        </Text>
-                        <Text paddingStart="2" paddingTop="3" fontSize="sm">
-                          <b>Status:</b> {pred.value.predictionStatus}
-                        </Text>
-                      </Box>
-                    </Box>
-                  </Box>
-                );
-              })}
-
-              {inProgressArray.map((pred, i) => {
-                return (
-                  <Box
-                    key={i}
-                    onClick={() => history('/predict/' + pred.id)}
-                    display="flex"
-                    w={{ base: '100%', md: '29%', lg: '29%' }}
-                    borderRadius="10px"
-                    flexDirection="row"
-                    padding="20px"
-                    backgroundColor="#180F2B"
-                    marginBottom="4vh"
-                    height="25vh"
-                    alignItems="center"
-                  >
-                    <Box display="flex" flexDirection="row" flexWrap="wrap">
-                      <Box w="20%" display="flex" alignItems="center">
-                        <Text
-                          py="3"
-                          px="2"
-                          borderRadius="60%"
-                          backgroundColor={'#9C4FFF'}
-                          fontWeight="bold"
-                          border="1px solid"
-                          borderColor="#22EF01"
-                          fontSize="xs"
-                          cursor="pointer"
-                        >
-                          ID:
-                          {pred.value.predictionRef}
-                        </Text>
-                      </Box>
-
-                      <Box w="80%">
-                        <Text
-                          color={'#CEB0F5'}
-                          fontSize="lg"
-                          fontWeight={'bold'}
-                          paddingStart="2"
-                          cursor="pointer"
-                        >
-                          {' '}
-                          {pred.value.predictionName}{' '}
-                        </Text>
-                        <Text paddingStart="2" paddingTop="3" fontSize="sm">
-                          <b>Status:</b> {pred.value.predictionStatus}
-                        </Text>
-                      </Box>
-                    </Box>
-                  </Box>
-                );
-              })}
             </Box>
-
-            {/* <Box w="100%" display="flex" marginTop="20vh">
-              <Box w="33.33%">
-                <InputGroup className="label">
-                  <Input
-                    className="email"
-                    type="text"
-                    placeholder="Search Predictions..."
-                    bgColor="white"
-                    focusBorderColor="none"
-                    padding="0px"
-                    color="black"
-                    _placeholder={{ color: 'black' }}
-                  />
-                  <InputRightElement
-                    pointerEvents="none"
-                    children={<AiOutlineSearch color="black" />}
-                    fontize="lg"
-                    zIndex="20"
-                  />
-                </InputGroup>
-              </Box>
-              <Box w="33.33%" paddingStart="3" paddingEnd="3">
-                <Select placeholder="CATEGORY" color="black" bgColor="white">
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
-                </Select>
-              </Box>
-              <Box w="33.33%">
-                <Select
-                  placeholder="SORT BY: VOLUME"
-                  color="black"
-                  bgColor="white"
-                >
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
-                </Select>
-              </Box>
-            </Box> */}
 
             <Box
               display="flex"
@@ -468,7 +361,6 @@ export default function Home() {
                       flexWrap="wrap"
                       w="100%"
                       flexDirection={{ base: 'row', md: 'row', lg: 'row' }}
-                      // bgColor="red"
                       marginTop={{ base: '8px', md: '0px', lg: '0px' }}
                       marginBottom={{ base: '8px', md: '0px', lg: '0px' }}
                     >
@@ -478,7 +370,6 @@ export default function Home() {
                         justifyContent="center"
                         flexDirection="column"
                         alignItems="center"
-                        // bgColor="pink"
                       >
                         <Text
                           py="3"
@@ -498,7 +389,6 @@ export default function Home() {
                         w={{ base: '50%', md: '55%', lg: '50%' }}
                         paddingEnd={{ base: '2', md: '10', lg: '10' }}
                         paddingStart={{ base: '2', md: '3', lg: '3' }}
-                        // bgColor="red"
                       >
                         <Text
                           color="white"
@@ -510,10 +400,7 @@ export default function Home() {
                         </Text>
                       </Box>
 
-                      <Box
-                        w="30%"
-                        // bgColor="yellow"
-                      >
+                      <Box w="30%">
                         <Center
                           color={'#6EFB57'}
                           fontSize={{ base: 'xs', md: 'md', lg: 'md' }}
@@ -532,7 +419,7 @@ export default function Home() {
               marginTop="6vh"
               w="100%"
             >
-              <Button
+              {/* <Button
                 bgColor="#3B3A3A"
                 color="white"
                 px="4"
@@ -542,9 +429,9 @@ export default function Home() {
                 className="h-btn"
               >
                 <HiOutlineArrowSmLeft fontSize="22" />
-              </Button>
+              </Button> */}
 
-              <Box display="flex" alignItems="center">
+              {/* <Box display="flex" alignItems="center">
                 <Text px="3">Page</Text>
                 <Button
                   bgColor="#3B3A3A"
@@ -558,9 +445,9 @@ export default function Home() {
                   64
                 </Button>
                 <Text px="3">of 835</Text>
-              </Box>
+              </Box> */}
 
-              <Button
+              {/* <Button
                 bgColor="#3B3A3A"
                 color="white"
                 px="4"
@@ -570,8 +457,65 @@ export default function Home() {
                 className="h-btn"
               >
                 <HiOutlineArrowSmRight fontSize="22" />
-              </Button>
+              </Button> */}
             </Flex>
+
+            <div className="App">
+              <div
+                style={{
+                  display: 'flex',
+                  gap: 10,
+                  marginBottom: 10,
+                }}
+              >
+                <button
+                  onClick={() =>
+                    currentPage <= 1 ? 1 : setCurrentPage(currentPage - 1)
+                  }
+                >
+                  prev
+                </button>
+                <span>
+                  {currentPage} / {totalRecords}
+                </span>
+                <button
+                  onClick={() =>
+                    currentPage < totalRecords &&
+                    setCurrentPage(currentPage + 1)
+                  }
+                >
+                  next
+                </button>
+                <select onChange={(e) => setPageSize(e.target.value)}>
+                  {pageSizes.map((size) => (
+                    <option value={size}>{size}</option>
+                  ))}
+                </select>
+              </div>
+
+              <table style={style}>
+                <thead>
+                  <tr>
+                    {Object.keys(data[0] ?? []).map((key) => (
+                      <th key={key} style={style}>
+                        {key.replace('_', ' ').toUpperCase()}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {paginatedData.map((item) => (
+                    <tr key={item.rowCount}>
+                      {Object.entries(item).map(([key, value]) => (
+                        <td key={key} style={style}>
+                          {value}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </Box>
         </Box>
       )}

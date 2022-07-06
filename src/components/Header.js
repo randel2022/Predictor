@@ -137,6 +137,7 @@ export default function Header({ links = [] }) {
       px={4}
       py={2}
       zIndex="50"
+      sx={{ position: '-webkit-sticky', position: 'sticky', top: '0' }}
     >
       <Flex
         h={16}
