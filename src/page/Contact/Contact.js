@@ -77,21 +77,11 @@ const Contact = () => {
             Talk To Us
           </Heading>
           <Flex justifyContent="center" flexDirection="row" alignItems="center">
-            <Link>
-              <Image
-                height="70px"
-                px="6"
-                src={twitter}
-                href="https://twitter.com/"
-              />
+            <Link href="https://twitter.com/DaoPredictor">
+              <Image height="70px" px="6" src={twitter} />
             </Link>
-            <Link>
-              <Image
-                height="70px"
-                px="6"
-                src={telegram}
-                href="https://web.telegram.org/"
-              />
+            <Link href="https://t.me/predictor_tez">
+              <Image height="70px" px="6" src={telegram} />
             </Link>
           </Flex>
         </Flex>

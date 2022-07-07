@@ -33,52 +33,16 @@ import { HiOutlineArrowSmLeft, HiOutlineArrowSmRight } from 'react-icons/hi';
 import HeroBg from '../assets/Herobg.png';
 import heroPurple from '../assets/Homepage-bg-purple.png';
 import phonePurple from '../assets/phone-purple.png';
+import tezo from '../assets/tezo.png';
 
 import Loading from '../../helper/Loading';
 import PageLoading from '../../helper/PageLoading';
 
-const pageSizes = [5, 10, 15, 20, 50, 100];
-
 export default function Home() {
-  const { predictionsArray: data = [] } = React.useContext(PredictionContext);
-  const [paginatedData, setPaginatedData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(5);
+  const { predictionsArray } = React.useContext(PredictionContext);
+  const [page, setPage] = useState(1);
 
-  // useEffect(() => {
-  //   fetch('https://random-data-api.com/api/cannabis/random_cannabis?size=100')
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       const withIndex = data.map((item, i) => ({
-  //         rowCount: i,
-  //         ...item,
-  //       }));
-  //       setData(withIndex);
-  //     });
-  // }, []);
-
-  const totalRecords = useMemo(
-    () => Math.round(data.length / pageSize, 0),
-    [data, pageSize]
-  );
-
-  useEffect(() => {
-    const skipItems = (currentPage - 1) * pageSize;
-    const skip = data.filter(({ rowCount }) => rowCount > skipItems - 1);
-    const take = skip.slice(0, pageSize);
-    setPaginatedData(take);
-  }, [data, pageSize, currentPage]);
-
-  const style = {
-    border: '1px solid',
-    borderCollapse: 'collapse',
-    padding: 5,
-  };
-
-  const [posts, setPosts] = useState([]);
-  const [error, setError] = useState('');
-
-  // const { predictionsArray } = React.useContext(PredictionContext);
+  const offset = 7;
 
   const history = useNavigate();
   const colors = {
@@ -94,12 +58,20 @@ export default function Home() {
     }, 3000);
   }, []);
 
-  const inProgressArray = data.filter(function (prediction) {
+  const inProgressArray = predictionsArray.filter(function (prediction) {
     return prediction.value.predictionStatus == 'Prediction In-Progress';
   });
-  const completedArray = data.filter(function (prediction) {
+  const completedArray = predictionsArray.filter(function (prediction) {
     return prediction.value.predictionStatus != 'Prediction In-Progress';
   });
+
+  const totalPage = () => {
+    return Math.ceil(completedArray.length / offset);
+  };
+
+  console.log(page * offset - offset, ' START');
+
+  console.log(page * offset, ' END');
 
   return (
     <Container
@@ -141,10 +113,19 @@ export default function Home() {
               >
                 Predict to EARN
               </Heading>
-              <Text color="gray" marginTop="7">
-                dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor.
-              </Text>
+              <Flex
+                alignItems="center"
+                justifyContent="start"
+                height="auto"
+                marginTop="7"
+              >
+                <Text color="gray">
+                  Decentralized Prediction Markets on Tezo
+                </Text>
+
+                <Image src={tezo} height="6vh" width="6vh" />
+              </Flex>
+
               <Box
                 display="flex"
                 justifyContent="space-between"
@@ -153,15 +134,15 @@ export default function Home() {
               >
                 <Box display="flex" alignItems="center">
                   <AiFillCheckCircle color="#9C4FFF" fontSize="21" />
-                  &nbsp;&nbsp;<p>100% Guarantee</p>
+                  &nbsp;&nbsp;<p>Decentralized</p>
                 </Box>
                 <Box display="flex" alignItems="center">
                   <AiFillCheckCircle color="#9C4FFF" fontSize="21" />
-                  &nbsp;&nbsp;<p>Safe Payment</p>
+                  &nbsp;&nbsp;<p>Tez Payment</p>
                 </Box>
                 <Box display="flex" alignItems="center">
                   <AiFillCheckCircle color="#9C4FFF" fontSize="21" />
-                  &nbsp;&nbsp;<p>24/7 Support</p>
+                  &nbsp;&nbsp;<p>24/7 availability</p>
                 </Box>
               </Box>
               <Box
@@ -176,11 +157,12 @@ export default function Home() {
                   color="#343538"
                   borderRadius="15"
                   textAlign="center"
+                  href="#featured"
                 >
                   Get Started
                 </Link>
                 <Box display="flex" alignItems="center" justifyContent="center">
-                  <Link py="3" paddingStart="10" paddingEnd="3">
+                  <Link py="3" href="/How" paddingStart="10" paddingEnd="3">
                     Learn more
                   </Link>
                   <FaLongArrowAltRight fontSize="20" paddingTop="20" />
@@ -247,6 +229,7 @@ export default function Home() {
             paddingStart={{ base: '5vh', md: '25vh', lg: '25vh' }}
             paddingEnd={{ base: '5vh', md: '25vh', lg: '25vh' }}
             paddingTop="6vh"
+            id="featured"
           >
             <Heading as="h3" fontWeight="semibold" margin="0px" size="lg">
               FEATURED MARKETS
@@ -261,7 +244,7 @@ export default function Home() {
               justifyContent="space-between"
               marginTop="5vh"
             >
-              {inProgressArray.map((pred, i) => {
+              {inProgressArray.slice(0, 3).map((pred, i) => {
                 return (
                   <Box
                     key={i}
@@ -273,8 +256,9 @@ export default function Home() {
                     padding="20px"
                     backgroundColor="#180F2B"
                     marginBottom="4vh"
-                    height="25vh"
+                    height="auto"
                     alignItems="center"
+                    flexWrap="wrap"
                   >
                     <Box display="flex" flexDirection="row" flexWrap="wrap">
                       <Box w="20%" display="flex" alignItems="center">
@@ -298,7 +282,6 @@ export default function Home() {
                         <Text
                           color={'#CEB0F5'}
                           fontSize="lg"
-                          fontWeight={'bold'}
                           paddingStart="2"
                           cursor="pointer"
                         >
@@ -342,76 +325,78 @@ export default function Home() {
               w="100%"
               marginTop="5"
             >
-              {completedArray.map((pred, i) => {
-                return (
-                  <Box
-                    key={i}
-                    onClick={() => history('/predict/' + pred.id)}
-                    display="flex"
-                    maxWidth="100%"
-                    borderBottom="1px solid"
-                    borderColor="gray"
-                    flexDirection="row"
-                    padding={{ base: '0px', md: '20px', lg: '20px' }}
-                    margin={{ base: '0px', md: '10px', lg: '10px' }}
-                  >
+              {completedArray
+                .slice(page * offset - offset, page * offset)
+                .map((pred, i) => {
+                  return (
                     <Box
+                      key={i}
+                      onClick={() => history('/predict/' + pred.id)}
                       display="flex"
-                      alignItems="center"
-                      flexWrap="wrap"
-                      w="100%"
-                      flexDirection={{ base: 'row', md: 'row', lg: 'row' }}
-                      marginTop={{ base: '8px', md: '0px', lg: '0px' }}
-                      marginBottom={{ base: '8px', md: '0px', lg: '0px' }}
+                      maxWidth="100%"
+                      borderBottom="1px solid"
+                      borderColor="gray"
+                      flexDirection="row"
+                      padding={{ base: '0px', md: '20px', lg: '20px' }}
+                      margin={{ base: '0px', md: '10px', lg: '10px' }}
                     >
                       <Box
-                        w={{ base: '20%', md: '5%', lg: '7%' }}
                         display="flex"
-                        justifyContent="center"
-                        flexDirection="column"
                         alignItems="center"
+                        flexWrap="wrap"
+                        w="100%"
+                        flexDirection={{ base: 'row', md: 'row', lg: 'row' }}
+                        marginTop={{ base: '8px', md: '0px', lg: '0px' }}
+                        marginBottom={{ base: '8px', md: '0px', lg: '0px' }}
                       >
-                        <Text
-                          py="3"
-                          px="2"
-                          borderRadius="50%"
-                          backgroundColor={'#9C4FFF'}
-                          fontWeight="bold"
-                          border="1px solid"
-                          borderColor="#22EF01"
-                          fontSize="xs"
+                        <Box
+                          w={{ base: '20%', md: '5%', lg: '7%' }}
+                          display="flex"
+                          justifyContent="center"
+                          flexDirection="column"
+                          alignItems="center"
                         >
-                          ID:{pred.value.predictionRef}
-                        </Text>
-                      </Box>
+                          <Text
+                            py="3"
+                            px="2"
+                            borderRadius="50%"
+                            backgroundColor={'#9C4FFF'}
+                            fontWeight="bold"
+                            border="1px solid"
+                            borderColor="#22EF01"
+                            fontSize="xs"
+                          >
+                            ID:{pred.value.predictionRef}
+                          </Text>
+                        </Box>
 
-                      <Box
-                        w={{ base: '50%', md: '55%', lg: '50%' }}
-                        paddingEnd={{ base: '2', md: '10', lg: '10' }}
-                        paddingStart={{ base: '2', md: '3', lg: '3' }}
-                      >
-                        <Text
-                          color="white"
-                          cursor="pointer"
-                          fontSize={{ base: 'xs', md: 'md', lg: 'md' }}
+                        <Box
+                          w={{ base: '50%', md: '55%', lg: '50%' }}
+                          paddingEnd={{ base: '2', md: '10', lg: '10' }}
+                          paddingStart={{ base: '2', md: '3', lg: '3' }}
                         >
-                          {' '}
-                          {pred.value.predictionName}{' '}
-                        </Text>
-                      </Box>
+                          <Text
+                            color="white"
+                            cursor="pointer"
+                            fontSize={{ base: 'xs', md: 'md', lg: 'md' }}
+                          >
+                            {' '}
+                            {pred.value.predictionName}{' '}
+                          </Text>
+                        </Box>
 
-                      <Box w="30%">
-                        <Center
-                          color={'#6EFB57'}
-                          fontSize={{ base: 'xs', md: 'md', lg: 'md' }}
-                        >
-                          {pred.value.predictionStatus}
-                        </Center>
+                        <Box w="30%">
+                          <Center
+                            color={'#6EFB57'}
+                            fontSize={{ base: 'xs', md: 'md', lg: 'md' }}
+                          >
+                            {pred.value.predictionStatus}
+                          </Center>
+                        </Box>
                       </Box>
                     </Box>
-                  </Box>
-                );
-              })}
+                  );
+                })}
             </Box>
             <Flex
               justifyContent="center"
@@ -419,7 +404,7 @@ export default function Home() {
               marginTop="6vh"
               w="100%"
             >
-              {/* <Button
+              <Button
                 bgColor="#3B3A3A"
                 color="white"
                 px="4"
@@ -427,11 +412,14 @@ export default function Home() {
                 borderColor="white"
                 border="1px solid"
                 className="h-btn"
+                onClick={() => {
+                  setPage(page <= 1 ? 1 : page - 1);
+                }}
               >
                 <HiOutlineArrowSmLeft fontSize="22" />
-              </Button> */}
+              </Button>
 
-              {/* <Box display="flex" alignItems="center">
+              <Box display="flex" alignItems="center">
                 <Text px="3">Page</Text>
                 <Button
                   bgColor="#3B3A3A"
@@ -442,12 +430,12 @@ export default function Home() {
                   border="1px solid"
                   className="h-btn"
                 >
-                  64
+                  {page}
                 </Button>
-                <Text px="3">of 835</Text>
-              </Box> */}
+                <Text px="3">of {totalPage()}</Text>
+              </Box>
 
-              {/* <Button
+              <Button
                 bgColor="#3B3A3A"
                 color="white"
                 px="4"
@@ -455,74 +443,16 @@ export default function Home() {
                 borderColor="white"
                 border="1px solid"
                 className="h-btn"
-              >
-                <HiOutlineArrowSmRight fontSize="22" />
-              </Button> */}
-            </Flex>
-
-            <div className="App">
-              <div
-                style={{
-                  display: 'flex',
-                  gap: 10,
-                  marginBottom: 10,
+                onClick={() => {
+                  setPage(page >= totalPage() - 1 ? totalPage() : page + 1);
                 }}
               >
-                <button
-                  onClick={() =>
-                    currentPage <= 1 ? 1 : setCurrentPage(currentPage - 1)
-                  }
-                >
-                  prev
-                </button>
-                <span>
-                  {currentPage} / {totalRecords}
-                </span>
-                <button
-                  onClick={() =>
-                    currentPage < totalRecords &&
-                    setCurrentPage(currentPage + 1)
-                  }
-                >
-                  next
-                </button>
-                <select onChange={(e) => setPageSize(e.target.value)}>
-                  {pageSizes.map((size) => (
-                    <option value={size}>{size}</option>
-                  ))}
-                </select>
-              </div>
-
-              <table style={style}>
-                <thead>
-                  <tr>
-                    {Object.keys(data[0] ?? []).map((key) => (
-                      <th key={key} style={style}>
-                        {key.replace('_', ' ').toUpperCase()}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {paginatedData.map((item) => (
-                    <tr key={item.rowCount}>
-                      {Object.entries(item).map(([key, value]) => (
-                        <td key={key} style={style}>
-                          {value}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                <HiOutlineArrowSmRight fontSize="22" />
+              </Button>
+            </Flex>
           </Box>
         </Box>
       )}
     </Container>
   );
 }
-
-const FeaturedMarket = () => {
-  return <Text>Text here</Text>;
-};

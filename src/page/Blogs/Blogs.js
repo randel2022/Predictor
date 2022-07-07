@@ -87,9 +87,10 @@ const How = () => {
                   fontSize="3xl"
                   textAlign="left"
                   lineHeight="1"
-                  href="/BlogContent"
+                  href="https://medium.com/@karthi1908/predictor-c90398056061"
+                  zIndex="999"
                 >
-                  Why Prediction Markets are Good for Society
+                  Getting Started with Predictor
                 </Link>
               </Box>
 
@@ -103,8 +104,6 @@ const How = () => {
                 >
                   Predict<span className="or">or</span>
                 </Text>
-
-                <Text fontSize="xs">By: Lorem Ipsum</Text>
               </Box>
             </Box>
             <Box
@@ -121,6 +120,7 @@ const How = () => {
               bgPosition="center"
               bgSize="cover"
               className="imageblog"
+              zIndex="1"
             ></Box>
           </Box>
 
@@ -149,9 +149,9 @@ const How = () => {
                   fontSize="3xl"
                   textAlign="left"
                   lineHeight="1"
-                  href="/BlogContent"
+                  href="https://medium.com/coinmonks/predictor-da7efb0163ca"
                 >
-                  Why Prediction Markets are Good for Society
+                  The Decentralised Prediction Markets on Tezos
                 </Link>
               </Box>
 
@@ -165,8 +165,6 @@ const How = () => {
                 >
                   Predict<span className="or">or</span>
                 </Text>
-
-                <Text fontSize="xs">By: Lorem Ipsum</Text>
               </Box>
             </Box>
             <Box
@@ -183,6 +181,7 @@ const How = () => {
               bgPosition="center"
               bgSize="cover"
               className="imageblog"
+              zIndex="1"
             ></Box>
           </Box>
 
@@ -211,9 +210,9 @@ const How = () => {
                   fontSize="3xl"
                   textAlign="left"
                   lineHeight="1"
-                  href="/BlogContent"
+                  href="https://medium.com/@karthi1908/predictor-d01e6c67de0e"
                 >
-                  Why Prediction Markets are Good for Society
+                  How to buy / trade predictions on Predictor?
                 </Link>
               </Box>
 
@@ -227,8 +226,6 @@ const How = () => {
                 >
                   Predict<span className="or">or</span>
                 </Text>
-
-                <Text fontSize="xs">By: Lorem Ipsum</Text>
               </Box>
             </Box>
             <Box
@@ -245,68 +242,7 @@ const How = () => {
               bgPosition="center"
               bgSize="cover"
               className="imageblog"
-            ></Box>
-          </Box>
-
-          <Box
-            display="flex"
-            alignItems={'left'}
-            justifyContent="center"
-            flexDirection="row"
-            bgColor="#180F2B"
-            borderRadius="30"
-            w={{ base: '100%', md: '40%', lg: '40%' }}
-            height={{ base: '35vh', md: '40vh', lg: '40vh' }}
-            className="main"
-          >
-            <Box
-              className="title"
-              w="48%"
-              display="flex"
-              gap="5"
-              flexDirection="column"
-            >
-              <Box>
-                <Link
-                  className="mainfont"
-                  fontWeight="semibold"
-                  fontSize="3xl"
-                  textAlign="left"
-                  lineHeight="1"
-                  href="/BlogContent"
-                >
-                  Why Prediction Markets are Good for Society
-                </Link>
-              </Box>
-
-              <Box display="flex" gap="2" flexDirection="column">
-                <Text
-                  className="mainfont"
-                  as="h2"
-                  fontWeight="semibold"
-                  size="md"
-                  textAlign="left"
-                >
-                  Predict<span className="or">or</span>
-                </Text>
-
-                <Text fontSize="xs">By: Lorem Ipsum</Text>
-              </Box>
-            </Box>
-            <Box
-              gap="4"
-              w="50%"
-              display="flex"
-              alignItems="start"
-              flexDirection="column"
-              justifyContent="center"
-            ></Box>
-            <Box
-              w="50%"
-              bgImage={ImageBlog}
-              bgPosition="center"
-              bgSize="cover"
-              className="imageblog"
+              zIndex="1"
             ></Box>
           </Box>
         </Flex>

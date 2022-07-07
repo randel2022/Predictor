@@ -185,7 +185,7 @@ const AddNewPrediction = () => {
       justifyContent="center"
       w={{ base: '100%', md: '32%', lg: '32%' }}
     >
-      <Popover>
+      <Popover position="relative">
         <PopoverTrigger>
           <Box
             py="20"
@@ -202,7 +202,13 @@ const AddNewPrediction = () => {
             </Button>
           </Box>
         </PopoverTrigger>
-        <PopoverContent padding="4" bgColor="#1A1A1A">
+        <PopoverContent
+          padding="4"
+          bgColor="#1A1A1A"
+          position="absolute"
+          top="-300"
+          left="-160"
+        >
           <form onSubmit={submit}>
             <FormControl>
               <FormLabel htmlFor="prediction">Prediction</FormLabel>
@@ -250,7 +256,7 @@ const AddNewPrediction = () => {
                 </FormControl>
               );
             })}
-            <Button type="submit" bgColor="#9C4FFF">
+            <Button marginTop="5" type="submit" bgColor="#9C4FFF">
               Submit
             </Button>
           </form>

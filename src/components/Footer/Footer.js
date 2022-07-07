@@ -68,14 +68,14 @@ export default function Footer() {
           >
             Contact Us
           </Link>
-          <Link
+          {/* <Link
             px={{ base: '0', md: '5', lg: '5' }}
             fontSize={{ md: 'sm', lg: 'sm' }}
             href="/Privacy"
             className="links"
           >
             Privacy Policy
-          </Link>
+          </Link> */}
           <Link
             px={{ base: '0', md: '5', lg: '5' }}
             fontSize={{ md: 'sm', lg: 'sm' }}
@@ -120,7 +120,7 @@ export default function Footer() {
           flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
         >
           <Box
-            w={{ base: '100%', md: '50%', lg: '50%' }}
+            w={{ base: '100%', md: '100%', lg: '100%' }}
             paddingEnd={{ base: '0', md: '20', lg: '20' }}
           >
             <Flex flexDirection="column">
@@ -130,27 +130,22 @@ export default function Footer() {
               <Text className="footer" fontSize={{ md: 'sm', lg: 'sm' }}>
                 The Predictor website (“Site”) is for informational and
                 educational purposes only. The Site displays existing markets
-                deployed on the Polygon blockchain and is a graphical user
+                deployed on the Tezos blockchain and is a graphical user
                 interface for both visualizing data from on-chain activity and
-                interacting with smart contracts directly from your own Polygon
-                wallet. Adventure One QSS Inc. takes no custody of users' crypto
-                assets and does not host any markets. None of the material on
-                the Site is intended to be, nor does it constitute, a
-                solicitation, recommendation or offer to buy or sell any
-                security, commodity interest, derivative, financial product or
-                instrument. Users are responsible for complying with all
-                applicable laws and should conduct their own analysis and
-                consult with professional advisors prior to entering into any
-                smart contracts. Trading is not available to Restricted Persons,
-                including US Persons. See our Terms of Use.
+                interacting with smart contracts directly from your own Tezos
+                wallet. Predictor takes no custody of users' crypto assets and
+                does not host any markets. None of the material on the Site is
+                intended to be, nor does it constitute, a solicitation,
+                recommendation or offer to buy or sell any security, commodity
+                interest, derivative, financial product or instrument. Users are
+                responsible for complying with all applicable laws and should
+                conduct their own analysis and consult with professional
+                advisors prior to entering into any smart contracts.
               </Text>
             </Flex>
           </Box>
 
-          <Box
-            w={{ base: '100%', md: '50%', lg: '50%' }}
-            marginTop={{ base: '20px', md: '0px', lg: '0px' }}
-          >
+          {/* <Box w={{ base: '100%', md: '50%', lg: '50%' }} marginTop={{ base: '20px', md: '0px', lg: '0px' }}>
             <Box w="100%">
               <Heading as="h4" size="sm">
                 Subcribe to our newsletter
@@ -170,12 +165,6 @@ export default function Footer() {
                       w={{ base: '45%', md: '30%', lg: '30%' }}
                       className="inputbtn"
                     >
-                      {/* <InputRightElement
-                        pointerEvents="none"
-                        children={<AiOutlineRight color="gray.300" />}
-                        size="xs"
-                        zIndex="20"
-                      /> */}
                       <AiOutlineRight
                         className="arrowright"
                         color="#FFFFFF"
@@ -205,7 +194,7 @@ export default function Footer() {
                 events that matter most to you.
               </Text>
             </Box>
-          </Box>
+          </Box> */}
         </Flex>
         <Center paddingTop="7">© 2022 Predictor. All rights reserved.</Center>
       </Flex>

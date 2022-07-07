@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './How.css';
 import { useWallet } from '../../helper/WalletContext';
 import Background from '../../components/assets/How.png';
@@ -23,6 +23,7 @@ import {
   Button,
   Select,
   bgImage,
+  Link,
 } from '@chakra-ui/react';
 
 const How = () => {
@@ -52,8 +53,8 @@ const How = () => {
         <PageLoading />
       ) : (
         <Flex
-          justifyContent={'space-between'}
-          height="auto"
+          justifyContent={'start'}
+          height="100vh"
           flexDirection="column"
           w="100%"
           gap="5"
@@ -67,55 +68,24 @@ const How = () => {
             How It Works
           </Heading>
           <Flex
-            alignItems={'center'}
+            alignItems={'start'}
             justifyContent="center"
             flexDirection="column"
           >
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              velit nisi, pretium ut lacinia in, elementum id enim. Curabitur
-              aliquet quam id dui posuere blandit. Pellentesque in ipsum id orci
-              porta dapibus. Vivamus suscipit tortor eget felis porttitor
-              volutpat. Pellentesque in ipsum id orci porta dapibus. Quisque
-              velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum
-              congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Curabitur non nulla sit amet nisl tempus
-              convallis quis ac lectus. Vestibulum ac diam sit amet quam
-              vehicula elementum sed sit amet dui. Donec sollicitudin molestie
-              malesuada. Curabitur non nulla sit amet nisl tempus convallis quis
-              ac lectus. Pellentesque in ipsum id orci porta dapibus. Vivamus
-              suscipit tortor eget felis porttitor volutpat. Pellentesque in
-              ipsum id orci porta dapibus. Quisque velit nisi, pretium ut
-              lacinia in, elementum id enim. Donec rutrum congue leo eget
-              malesuada. Pellentesque in ipsum id orci porta dapibus. Vivamus
-              suscipit tortor eget felis porttitor volutpat. Pellentesque in
-              ipsum id orci porta dapibus. Quisque velit nisi, pretium ut
-              lacinia in, elementum id enim. Donec rutrum congue leo eget
-              malesuada. Lorem ipsum dolor sit amet, consectetur
-            </p>
+            <Link
+              fontSize="2xl"
+              href="https://medium.com/@karthi1908/predictor-c90398056061"
+            >
+              Getting started with Predictor
+            </Link>
             <br></br>
 
-            <p>
-              adipiscing elit. Curabitur non nulla sit amet nisl tempus
-              convallis quis ac lectus. Vestibulum ac diam sit amet quam
-              vehicula elementum sed sit amet dui. Donec sollicitudin molestie
-              malesuada. Curabitur non nulla sit amet nisl tempus convallis quis
-              ac lectus. Pellentesque in ipsum id orci porta dapibus. Vivamus
-              suscipit tortor eget felis porttitor volutpat. Pellentesque in
-              ipsum id orci porta dapibus. Quisque velit nisi, pretium ut
-              lacinia in, elementum id enim. Donec rutrum congue leo eget
-              malesuada. Lorem ipsum dolor sit amet. Pellentesque in ipsum id
-              orci porta dapibus. Vivamus suscipit tortor eget felis porttitor
-              volutpat. Pellentesque in ipsum id orci porta dapibus. Quisque
-              velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum
-              congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Curabitur non nulla sit amet nisl tempus
-              convallis quis ac lectus. Vestibulum ac diam sit amet quam
-              vehicula elementum sed sit amet dui. Donec sollicitudin molestie
-              malesuada. Curabitur non nulla sit amet nisl tempus convallis quis
-              ac lectus. din molestie malesuada. Curabitur non nulla sit amet
-              nisl tempus convallis quis ac lectus.
-            </p>
+            <Link
+              fontSize="2xl"
+              href="https://medium.com/@karthi1908/predictor-d01e6c67de0e"
+            >
+              How to buy / trade predictions on Predictor?
+            </Link>
           </Flex>
         </Flex>
       )}

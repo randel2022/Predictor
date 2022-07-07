@@ -45,7 +45,7 @@ import {
 import { TezosToolkit, MichelCodecPacker, compose } from '@taquito/taquito';
 import Loading from '../helper/Loading';
 import SignIn from './SignIn/signin';
-import logoIcon from './assets/logo.png';
+import logoIcon from './assets/PredictorBeta.png';
 
 const Redeem = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -137,7 +137,7 @@ export default function Header({ links = [] }) {
       px={4}
       py={2}
       zIndex="50"
-      sx={{ position: '-webkit-sticky', position: 'sticky', top: '0' }}
+      // sx={{ position: '-webkit-sticky', position: 'sticky', top: '0' }}
     >
       <Flex
         h={16}
@@ -169,11 +169,13 @@ export default function Header({ links = [] }) {
           justifyContent={{ base: 'start', md: 'start', lg: 'start' }}
           w={{ base: '50%', md: '33%', lg: '33%' }}
         >
-          <Image
-            height="auto"
-            w={{ base: '95px', md: '120px', lg: '120px' }}
-            src={logoIcon}
-          />
+          <Link href="/">
+            <Image
+              height="auto"
+              w={{ base: '95px', md: '120px', lg: '150px' }}
+              src={logoIcon}
+            />
+          </Link>
         </Flex>
 
         <Flex

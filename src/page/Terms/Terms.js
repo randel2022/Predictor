@@ -64,7 +64,7 @@ const Terms = () => {
             fontWeight="semibold"
             fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
           >
-            Terms of Services
+            Terms of Use
           </Heading>
           <Flex
             alignItems={'center'}
@@ -72,49 +72,38 @@ const Terms = () => {
             flexDirection="column"
           >
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              velit nisi, pretium ut lacinia in, elementum id enim. Curabitur
-              aliquet quam id dui posuere blandit. Pellentesque in ipsum id orci
-              porta dapibus. Vivamus suscipit tortor eget felis porttitor
-              volutpat. Pellentesque in ipsum id orci porta dapibus. Quisque
-              velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum
-              congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Curabitur non nulla sit amet nisl tempus
-              convallis quis ac lectus. Vestibulum ac diam sit amet quam
-              vehicula elementum sed sit amet dui. Donec sollicitudin molestie
-              malesuada. Curabitur non nulla sit amet nisl tempus convallis quis
-              ac lectus. Pellentesque in ipsum id orci porta dapibus. Vivamus
-              suscipit tortor eget felis porttitor volutpat. Pellentesque in
-              ipsum id orci porta dapibus. Quisque velit nisi, pretium ut
-              lacinia in, elementum id enim. Donec rutrum congue leo eget
-              malesuada. Pellentesque in ipsum id orci porta dapibus. Vivamus
-              suscipit tortor eget felis porttitor volutpat. Pellentesque in
-              ipsum id orci porta dapibus. Quisque velit nisi, pretium ut
-              lacinia in, elementum id enim. Donec rutrum congue leo eget
-              malesuada. Lorem ipsum dolor sit amet, consectetur
+              Predictor is a decentralized prediction market platform that
+              people can use to create predictions and trade FA2 tokens which is
+              made up of free, public, open-source or source-available software
+              including a set of smart contracts that are deployed on the Tezos
+              Blockchain. Your use of the Predictor platform involves various
+              risks, including, but not limited to, losses while digital assets
+              are being supplied to the Predictor protocol and losses due to the
+              fluctuation of prices of tokens in a trading pair or liquidity
+              pool. Before using the Predictor , you should review the relevant
+              documentation to make sure you understand how the Predictor works.
+              Additionally, just as you can access email protocols such as SMTP
+              through multiple email clients, you can access the Predictor
+              through various web or mobile interfaces. You are responsible for
+              doing your own diligence on those interfaces to understand the
+              fees and risks they present.
             </p>
             <br></br>
 
             <p>
-              adipiscing elit. Curabitur non nulla sit amet nisl tempus
-              convallis quis ac lectus. Vestibulum ac diam sit amet quam
-              vehicula elementum sed sit amet dui. Donec sollicitudin molestie
-              malesuada. Curabitur non nulla sit amet nisl tempus convallis quis
-              ac lectus. Pellentesque in ipsum id orci porta dapibus. Vivamus
-              suscipit tortor eget felis porttitor volutpat. Pellentesque in
-              ipsum id orci porta dapibus. Quisque velit nisi, pretium ut
-              lacinia in, elementum id enim. Donec rutrum congue leo eget
-              malesuada. Lorem ipsum dolor sit amet. Pellentesque in ipsum id
-              orci porta dapibus. Vivamus suscipit tortor eget felis porttitor
-              volutpat. Pellentesque in ipsum id orci porta dapibus. Quisque
-              velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum
-              congue leo eget malesuada. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Curabitur non nulla sit amet nisl tempus
-              convallis quis ac lectus. Vestibulum ac diam sit amet quam
-              vehicula elementum sed sit amet dui. Donec sollicitudin molestie
-              malesuada. Curabitur non nulla sit amet nisl tempus convallis quis
-              ac lectus. din molestie malesuada. Curabitur non nulla sit amet
-              nisl tempus convallis quis ac lectus.
+              AS DESCRIBED IN THE PREDICTOR LICENSES, THE PREDICTOR IS PROVIDED
+              "AS IS", AT YOUR OWN RISK, AND WITHOUT WARRANTIES OF ANY KIND. The
+              Predictor does not provide, own, or control the Predictor
+              platform, which is run by smart contracts deployed on the Tezos
+              blockchain. No developer or entity involved in creating the
+              Predictor will be liable for any claims or damages whatsoever
+              associated with your use, inability to use, or your interaction
+              with other users of, the Predictor protocol, including any direct,
+              indirect, incidental, special, exemplary, punitive or
+              consequential damages, or loss of profits, cryptocurrencies,
+              tokens, or anything else of value. <br></br>
+              <br></br>By using this websites and the derived platforms, you
+              accept and agree to the above terms
             </p>
           </Flex>
         </Flex>
