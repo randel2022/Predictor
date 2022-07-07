@@ -91,7 +91,8 @@ const Whitelist = () => {
           >
             Whitelistme
           </Heading>
-          <Flex justifyContent="center">
+
+          {/* <Flex justifyContent="center">
             <Box
               display="flex"
               justifyContent="center"
@@ -139,7 +140,7 @@ const Whitelist = () => {
                 </Box>
               </Box>
             </Box>
-          </Flex>
+          </Flex> */}
         </Box>
       </Container>
     </>
