@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.99c2471d.chunk.css",
-    "main.js": "/static/js/main.28de557c.chunk.js",
-    "main.js.map": "/static/js/main.28de557c.chunk.js.map",
+    "main.css": "/static/css/main.b906d9d5.chunk.css",
+    "main.js": "/static/js/main.952d265a.chunk.js",
+    "main.js.map": "/static/js/main.952d265a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.4fd9eb69.js",
     "runtime-main.js.map": "/static/js/runtime-main.4fd9eb69.js.map",
-    "static/js/2.07e21014.chunk.js": "/static/js/2.07e21014.chunk.js",
-    "static/js/2.07e21014.chunk.js.map": "/static/js/2.07e21014.chunk.js.map",
+    "static/js/2.6f8520c2.chunk.js": "/static/js/2.6f8520c2.chunk.js",
+    "static/js/2.6f8520c2.chunk.js.map": "/static/js/2.6f8520c2.chunk.js.map",
     "static/js/3.b3e0fe2c.chunk.js": "/static/js/3.b3e0fe2c.chunk.js",
     "static/js/3.b3e0fe2c.chunk.js.map": "/static/js/3.b3e0fe2c.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.99c2471d.chunk.css.map": "/static/css/main.99c2471d.chunk.css.map",
-    "static/js/2.07e21014.chunk.js.LICENSE.txt": "/static/js/2.07e21014.chunk.js.LICENSE.txt",
+    "static/css/main.b906d9d5.chunk.css.map": "/static/css/main.b906d9d5.chunk.css.map",
+    "static/js/2.6f8520c2.chunk.js.LICENSE.txt": "/static/js/2.6f8520c2.chunk.js.LICENSE.txt",
     "static/media/Blog.e9eddaa0.png": "/static/media/Blog.e9eddaa0.png",
     "static/media/BlogImage.1ed0a0f7.png": "/static/media/BlogImage.1ed0a0f7.png",
     "static/media/Contact-Background.057434d5.png": "/static/media/Contact-Background.057434d5.png",
@@ -30,12 +30,13 @@
     "static/media/Whitelistme-Background.b06e4304.png": "/static/media/Whitelistme-Background.b06e4304.png",
     "static/media/lazyphone.c30ea932.png": "/static/media/lazyphone.c30ea932.png",
     "static/media/phone-purple.6a0b0f22.png": "/static/media/phone-purple.6a0b0f22.png",
-    "static/media/phone.b064c002.png": "/static/media/phone.b064c002.png"
+    "static/media/phone.b064c002.png": "/static/media/phone.b064c002.png",
+    "static/media/tezo.ee19d7ef.png": "/static/media/tezo.ee19d7ef.png"
   },
   "entrypoints": [
     "static/js/runtime-main.4fd9eb69.js",
-    "static/js/2.07e21014.chunk.js",
-    "static/css/main.99c2471d.chunk.css",
-    "static/js/main.28de557c.chunk.js"
+    "static/js/2.6f8520c2.chunk.js",
+    "static/css/main.b906d9d5.chunk.css",
+    "static/js/main.952d265a.chunk.js"
   ]
 }
