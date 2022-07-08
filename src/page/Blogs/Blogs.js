@@ -89,6 +89,7 @@ const How = () => {
                   lineHeight="1"
                   href="https://medium.com/@karthi1908/predictor-c90398056061"
                   zIndex="999"
+                  _focus={{ outline: 'none' }}
                 >
                   Getting Started with Predictor
                 </Link>
@@ -150,6 +151,7 @@ const How = () => {
                   textAlign="left"
                   lineHeight="1"
                   href="https://medium.com/coinmonks/predictor-da7efb0163ca"
+                  _focus={{ outline: 'none' }}
                 >
                   The Decentralised Prediction Markets on Tezos
                 </Link>
@@ -211,6 +213,7 @@ const How = () => {
                   textAlign="left"
                   lineHeight="1"
                   href="https://medium.com/@karthi1908/predictor-d01e6c67de0e"
+                  _focus={{ outline: 'none' }}
                 >
                   How to buy / trade predictions on Predictor?
                 </Link>

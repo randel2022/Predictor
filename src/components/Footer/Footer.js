@@ -65,6 +65,7 @@ export default function Footer() {
             fontSize={{ md: 'sm', lg: 'sm' }}
             href="/Contact"
             className="links"
+            _focus={{ outline: 'none' }}
           >
             Contact Us
           </Link>
@@ -81,6 +82,7 @@ export default function Footer() {
             fontSize={{ md: 'sm', lg: 'sm' }}
             href="/Terms"
             className="links"
+            _focus={{ outline: 'none' }}
           >
             Terms of Use
           </Link>
@@ -89,6 +91,7 @@ export default function Footer() {
             fontSize={{ md: 'sm', lg: 'sm' }}
             href="/How"
             className="links"
+            _focus={{ outline: 'none' }}
           >
             How it Works
           </Link>
@@ -97,6 +100,7 @@ export default function Footer() {
             fontSize={{ md: 'sm', lg: 'sm' }}
             href="/FAQ"
             className="links"
+            _focus={{ outline: 'none' }}
           >
             FAQs
           </Link>
@@ -105,6 +109,7 @@ export default function Footer() {
             fontSize={{ md: 'sm', lg: 'sm' }}
             href="/Blogs"
             className="links"
+            _focus={{ outline: 'none' }}
           >
             Blogs
           </Link>

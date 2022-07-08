@@ -159,6 +159,7 @@ export default function Home() {
                   textAlign="center"
                   href="#featured"
                   className="links"
+                  _focus={{ outline: 'none' }}
                 >
                   Get Started
                 </Link>
@@ -169,6 +170,7 @@ export default function Home() {
                     paddingStart="10"
                     paddingEnd="3"
                     className="links"
+                    _focus={{ outline: 'none' }}
                   >
                     Learn more
                   </Link>
@@ -419,6 +421,7 @@ export default function Home() {
                 borderColor="white"
                 border="1px solid"
                 className="h-btn"
+                _focus={{ outline: 'none' }}
                 onClick={() => {
                   setPage(page <= 1 ? 1 : page - 1);
                 }}
@@ -436,6 +439,7 @@ export default function Home() {
                   borderColor="white"
                   border="1px solid"
                   className="h-btn"
+                  _focus={{ outline: 'none' }}
                 >
                   {page}
                 </Button>
@@ -450,6 +454,7 @@ export default function Home() {
                 borderColor="white"
                 border="1px solid"
                 className="h-btn"
+                _focus={{ outline: 'none' }}
                 onClick={() => {
                   setPage(page >= totalPage() - 1 ? totalPage() : page + 1);
                 }}

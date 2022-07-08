@@ -230,6 +230,7 @@ const AddNewPrediction = () => {
             position="absolute"
             top="-300"
             left="-160"
+            _focus={{ outline: 'red' }}
           >
             <form onSubmit={submit}>
               <FormControl>

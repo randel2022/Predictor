@@ -45,7 +45,7 @@ import {
 import { TezosToolkit, MichelCodecPacker, compose } from '@taquito/taquito';
 import Loading from '../helper/Loading';
 import SignIn from './SignIn/signin';
-import logoIcon from './assets/PredictorBeta.png';
+import logoIcon from './assets/beta2.png';
 
 const Redeem = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -162,6 +162,7 @@ export default function Header({ links = [] }) {
           aria-label={'Open Menu'}
           display={{ md: 'none' }}
           onClick={isOpen ? onClose : onOpen}
+          _focus={{ outline: 'none' }}
         />
 
         <Flex
@@ -169,7 +170,7 @@ export default function Header({ links = [] }) {
           justifyContent={{ base: 'start', md: 'start', lg: 'start' }}
           w={{ base: '50%', md: '33%', lg: '33%' }}
         >
-          <Link href="/">
+          <Link href="/" _focus={{ outline: 'none' }}>
             <Image
               height="auto"
               w={{ base: '95px', md: '120px', lg: '150px' }}
@@ -191,6 +192,7 @@ export default function Header({ links = [] }) {
             colorScheme="blue"
             href="/"
             className="header"
+            _focus={{ outline: 'none' }}
           >
             Marketplace
           </Link>
@@ -202,6 +204,7 @@ export default function Header({ links = [] }) {
             href="/Portfolio"
             textAlign="center"
             className="header"
+            _focus={{ outline: 'none' }}
           >
             Portfolio
           </Link>
@@ -213,6 +216,7 @@ export default function Header({ links = [] }) {
             href="/mypreds"
             textAlign="center"
             className="header"
+            _focus={{ outline: 'none' }}
           >
             Predictions
           </Link>
@@ -224,6 +228,7 @@ export default function Header({ links = [] }) {
             href="/Whitelist"
             textAlign="center"
             className="header"
+            _focus={{ outline: 'none' }}
           >
             WhitelistMe
           </Link>
@@ -250,6 +255,7 @@ export default function Header({ links = [] }) {
                   className="header"
                   padding="10px"
                   bgColor="white"
+                  _focus={{ outline: 'none' }}
                 >
                   Connect Wallet
                 </Button>
@@ -268,16 +274,32 @@ export default function Header({ links = [] }) {
                   </Text>
                 </MenuButton>
                 <MenuList>
-                  <MenuItem color="black" onClick={() => history('/mypreds')}>
+                  <MenuItem
+                    color="black"
+                    onClick={() => history('/mypreds')}
+                    _focus={{ outline: 'none' }}
+                  >
                     My Predictions
                   </MenuItem>
-                  <MenuItem color="black" onClick={whiteListProposer}>
+                  <MenuItem
+                    color="black"
+                    onClick={whiteListProposer}
+                    _focus={{ outline: 'none' }}
+                  >
                     Whitelist Me
                   </MenuItem>
-                  <MenuItem color="black" onClick={disconnect}>
+                  <MenuItem
+                    color="black"
+                    onClick={disconnect}
+                    _focus={{ outline: 'none' }}
+                  >
                     Disconnect
                   </MenuItem>
-                  <MenuItem color="black" onClick={() => history('/redeem')}>
+                  <MenuItem
+                    color="black"
+                    onClick={() => history('/redeem')}
+                    _focus={{ outline: 'none' }}
+                  >
                     Redeem
                   </MenuItem>
                   <></>
@@ -308,8 +330,9 @@ export default function Header({ links = [] }) {
                     colorScheme="blue"
                     href="/"
                     className="header"
+                    _focus={{ outline: 'none' }}
                   >
-                    Marketplaces
+                    Marketplace
                   </Link>
                   <Link
                     fontSize={{ base: '10', md: 'sm', lg: 'md' }}
@@ -319,6 +342,7 @@ export default function Header({ links = [] }) {
                     href="/Portfolio"
                     textAlign="center"
                     className="header"
+                    _focus={{ outline: 'none' }}
                   >
                     Portfolio
                   </Link>
@@ -330,6 +354,7 @@ export default function Header({ links = [] }) {
                     href="/mypreds"
                     textAlign="center"
                     className="header"
+                    _focus={{ outline: 'none' }}
                   >
                     Predictions
                   </Link>
@@ -341,6 +366,7 @@ export default function Header({ links = [] }) {
                     href="/Whitelist"
                     textAlign="center"
                     className="header"
+                    _focus={{ outline: 'none' }}
                   >
                     WhitelistMe
                   </Link>
@@ -348,7 +374,14 @@ export default function Header({ links = [] }) {
               </Box>
             ) : (
               <Box minW={0} bgColor="#1A1A1A">
-                <Flex alignItems={'center'} justifyContent={'center'} w="100%">
+                <Flex
+                  alignItems={'center'}
+                  justifyContent={'center'}
+                  w="100%"
+                  flexDirection="column"
+                  marginTop="3"
+                  gap="3"
+                >
                   <Link
                     fontSize={{ base: '10', md: 'sm', lg: 'md' }}
                     paddingStart="3"
