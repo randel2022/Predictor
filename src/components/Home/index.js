@@ -120,7 +120,7 @@ export default function Home() {
                 marginTop="7"
               >
                 <Text color="gray">
-                  Decentralized Prediction Markets on Tezo
+                  Decentralized Prediction Markets on Tezos
                 </Text>
 
                 <Image src={tezo} height="6vh" width="6vh" />
@@ -158,11 +158,18 @@ export default function Home() {
                   borderRadius="15"
                   textAlign="center"
                   href="#featured"
+                  className="links"
                 >
                   Get Started
                 </Link>
                 <Box display="flex" alignItems="center" justifyContent="center">
-                  <Link py="3" href="/How" paddingStart="10" paddingEnd="3">
+                  <Link
+                    py="3"
+                    href="/How"
+                    paddingStart="10"
+                    paddingEnd="3"
+                    className="links"
+                  >
                     Learn more
                   </Link>
                   <FaLongArrowAltRight fontSize="20" paddingTop="20" />
@@ -244,7 +251,7 @@ export default function Home() {
               justifyContent="space-between"
               marginTop="5vh"
             >
-              {inProgressArray.slice(0, 3).map((pred, i) => {
+              {inProgressArray.map((pred, i) => {
                 return (
                   <Box
                     key={i}
@@ -256,7 +263,7 @@ export default function Home() {
                     padding="20px"
                     backgroundColor="#180F2B"
                     marginBottom="4vh"
-                    height="auto"
+                    height="30vh"
                     alignItems="center"
                     flexWrap="wrap"
                   >
@@ -303,8 +310,8 @@ export default function Home() {
               flexDirection="row"
               flexWrap="wrap"
               w="100%"
-              paddingStart="10"
-              paddingEnd="10"
+              paddingStart={{ base: '3', md: '10', lg: '10' }}
+              paddingEnd={{ base: '3', md: '10', lg: '10' }}
               paddingTop="5"
               paddingBottom="5"
               bgColor="white"
