@@ -1,4 +1,4 @@
-import { NetworkType, Network , DAppClient} from '@airgap/beacon-sdk';
+import { NetworkType, Network, DAppClient } from '@airgap/beacon-sdk';
 import React from 'react';
 import { beaconWallet } from './tezos';
 
@@ -21,12 +21,13 @@ const useWallet = () => {
       const req = await beaconWallet.client.requestPermissions({
         network: {
           type: 'mainnet',
-	  rpcUrl: 'https://mainnet.api.tez.ie'
+          rpcUrl: 'https://mainnet.api.tez.ie',
         },
       });
       if (req) {
         setActiveAccount(req.accountInfo);
         setConnected(true);
+        window.location.reload();
       }
     }
   };
@@ -34,6 +35,7 @@ const useWallet = () => {
   const disconnect = () => {
     beaconWallet.client.clearActiveAccount();
     setConnected(false);
+    window.location.reload();
   };
 
   return { connect, disconnect, activeAccount, connected };

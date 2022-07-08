@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PredictionContext from '../../helper/PredictionContext';
 import portfolioBG from '../assets/Predictions-Background.png';
 import {

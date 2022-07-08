@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
+
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './Portfolio.css';
 import { useWallet } from '../../helper/WalletContext';
