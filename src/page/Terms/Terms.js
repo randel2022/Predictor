@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './Terms.css';
 import { useWallet } from '../../helper/WalletContext';
-import Background from '../../components/assets/Terms.png';
+import Background from '../../components/assets/TermsUse.png';
 import PageLoading from '../../helper/PageLoading';
 import {
   Box,
