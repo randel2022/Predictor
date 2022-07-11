@@ -246,7 +246,7 @@ export default function Home() {
 
             <Box
               display="flex"
-              flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+              flexDirection={{ base: 'column', md: 'column', lg: 'row' }}
               flexWrap="wrap"
               w="100%"
               alignItems="center"
@@ -259,7 +259,7 @@ export default function Home() {
                     key={i}
                     onClick={() => history('/predict/' + pred.id)}
                     display="flex"
-                    w={{ base: '100%', md: '29%', lg: '29%' }}
+                    w={{ base: '100%', md: '100%', lg: '29%' }}
                     borderRadius="10px"
                     flexDirection="row"
                     padding="20px"
@@ -293,6 +293,7 @@ export default function Home() {
                           fontSize="lg"
                           paddingStart="2"
                           cursor="pointer"
+                          className="predictionName"
                         >
                           {' '}
                           {pred.value.predictionName}{' '}
