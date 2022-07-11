@@ -358,8 +358,8 @@ export default function Home() {
                         flexWrap="wrap"
                         w="100%"
                         flexDirection={{ base: 'row', md: 'row', lg: 'row' }}
-                        marginTop={{ base: '8px', md: '0px', lg: '0px' }}
-                        marginBottom={{ base: '8px', md: '0px', lg: '0px' }}
+                        marginTop={{ base: '12px', md: '0px', lg: '0px' }}
+                        marginBottom={{ base: '12px', md: '0px', lg: '0px' }}
                       >
                         <Box
                           w={{ base: '20%', md: '5%', lg: '7%' }}
