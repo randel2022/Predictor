@@ -320,11 +320,14 @@ export default function Home() {
               borderRadius="10"
               marginTop="20"
             >
-              <Box w="50%">
+              <Box w={{ base: '60%', md: '50%', lg: '50%' }}>
                 <Text color="black">Market</Text>
               </Box>
-              <Box w="50%">
+              <Box w={{ base: '40%', md: '50%', lg: '40%' }}>
                 <Center color="black">Status</Center>
+              </Box>
+              <Box w="10%" display={{ base: 'none', md: 'block', lg: 'block' }}>
+                <Center color="black">Results</Center>
               </Box>
             </Box>
             <Box
