@@ -99,3 +99,33 @@
 .links:focus {
   outline: none !important;
 }
+
+@media only screen and (max-width: 1188px) and (min-width: 992px) {
+  .predictionName {
+    font-size: 13px !important;
+  }
+
+  .topBox {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    width: 32% !important;
+  }
+
+  .circle {
+    margin-left: 5px;
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+}
+
+@media only screen and (max-width: 1143px) and (min-width: 992px) {
+  .phoneImg {
+    height: 605px !important;
+  }
+
+  .HeroSection {
+    padding-bottom: 10vh !important;
+  }
+}

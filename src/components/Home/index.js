@@ -92,16 +92,18 @@ export default function Home() {
           <Box
             display="flex"
             width="100%"
-            paddingStart={{ base: '5vh', md: '25vh', lg: '25vh' }}
-            paddingEnd={{ base: '5vh', md: '25vh', lg: '25vh' }}
-            paddingTop="10vh"
+            paddingStart={{ base: '5vw', md: '15vw', lg: '12vw' }}
+            paddingEnd={{ base: '5vw', md: '15vw', lg: '12vw' }}
+            paddingTop="15vh"
+            paddingBottom="5vh"
             bgImage={heroPurple}
             bgPosition="center"
             bgSize="cover"
-            flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+            flexDirection={{ base: 'column', md: 'column', lg: 'row' }}
+            className="HeroSection"
           >
             <Box
-              w={{ base: 'auto', md: '55%', lg: '55%' }}
+              w={{ base: 'auto', md: '100%', lg: '55%' }}
               display="flex"
               flexDirection={{ base: 'column', md: 'column', lg: 'column' }}
             >
@@ -219,7 +221,7 @@ export default function Home() {
               </Box>
             </Box>
             <Box
-              w={{ base: '100%', md: '45%', lg: '45%' }}
+              w={{ base: '100%', md: '100%', lg: '45%' }}
               display="flex"
               justifyContent="center"
             >
@@ -228,6 +230,7 @@ export default function Home() {
                 objectFit="cover"
                 marginTop={{ base: '0px', md: '-100px', lg: '-100px' }}
                 src={phonePurple}
+                className="phoneImg"
               />
             </Box>
           </Box>
@@ -265,11 +268,18 @@ export default function Home() {
                     padding="20px"
                     backgroundColor="#180F2B"
                     marginBottom="4vh"
-                    height="30vh"
+                    height="32vh"
                     alignItems="center"
                     flexWrap="wrap"
+                    px="5"
+                    className="topBox"
                   >
-                    <Box display="flex" flexDirection="row" flexWrap="wrap">
+                    <Box
+                      display="flex"
+                      flexDirection="row"
+                      flexWrap="wrap"
+                      height="auto"
+                    >
                       <Box w="20%" display="flex" alignItems="center">
                         <Text
                           py="3"
@@ -281,13 +291,18 @@ export default function Home() {
                           borderColor="#22EF01"
                           fontSize="xs"
                           cursor="pointer"
+                          className="circle"
                         >
                           ID:
                           {pred.value.predictionRef}
                         </Text>
                       </Box>
 
-                      <Box w="80%">
+                      <Box
+                        w="80%"
+                        className="predBox"
+                        // bgColor="green"
+                      >
                         <Text
                           color={'#CEB0F5'}
                           fontSize="lg"
@@ -298,7 +313,12 @@ export default function Home() {
                           {' '}
                           {pred.value.predictionName}{' '}
                         </Text>
-                        <Text paddingStart="2" paddingTop="3" fontSize="sm">
+                        <Text
+                          paddingStart="2"
+                          paddingTop="3"
+                          fontSize="sm"
+                          className="predictionName"
+                        >
                           <b>Status:</b> {pred.value.predictionStatus}
                         </Text>
                       </Box>

@@ -168,22 +168,23 @@ export default function Header({ links = [] }) {
         <Flex
           alignItems={'center'}
           justifyContent={{ base: 'start', md: 'start', lg: 'start' }}
-          w={{ base: '50%', md: '33%', lg: '33%' }}
+          w={{ base: '50%', md: '20%', lg: '20%' }}
         >
           <Link href="/" _focus={{ outline: 'none' }}>
             <Image
               height="auto"
-              w={{ base: '95px', md: '120px', lg: '150px' }}
+              w={{ base: '95px', md: '100px', lg: '150px' }}
               src={logoIcon}
             />
           </Link>
         </Flex>
 
         <Flex
-          display={{ base: 'none', md: 'block', lg: 'block' }}
+          display={{ base: 'none', md: 'flex', lg: 'flex' }}
           alignItems={'center'}
           justifyContent={'center'}
-          w="33%"
+          flex
+          w="40%"
         >
           <Link
             fontSize={{ base: '10', md: 'sm', lg: 'md' }}
@@ -194,7 +195,7 @@ export default function Header({ links = [] }) {
             className="header"
             _focus={{ outline: 'none' }}
           >
-            Marketplace
+            Marketplaces
           </Link>
           <Link
             fontSize={{ base: '10', md: 'sm', lg: 'md' }}
@@ -236,7 +237,7 @@ export default function Header({ links = [] }) {
 
         <Flex
           alignItems={'center'}
-          w="33%"
+          w="20%"
           justifyContent={{ base: 'end', md: 'end', lg: 'end' }}
         >
           {/* <IconButton
