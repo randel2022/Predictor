@@ -298,11 +298,7 @@ export default function Home() {
                         </Text>
                       </Box>
 
-                      <Box
-                        w="80%"
-                        className="predBox"
-                        // bgColor="green"
-                      >
+                      <Box w="80%" className="predBox">
                         <Text
                           color={'#CEB0F5'}
                           fontSize="lg"
