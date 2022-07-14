@@ -105,6 +105,7 @@ export default function Loading() {
             objectFit="cover"
             marginTop={{ base: '0px', md: '-100px', lg: '-100px' }}
             src={phoneLazy}
+            zIndex="10"
           />
         </Box>
       </Box>

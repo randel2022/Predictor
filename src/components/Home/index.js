@@ -37,6 +37,7 @@ import tezo from '../assets/tezo.png';
 
 import Loading from '../../helper/Loading';
 import PageLoading from '../../helper/PageLoading';
+import PageLoading3 from '../../helper/PageLoading3';
 
 export default function Home() {
   const { predictionsArray } = React.useContext(PredictionContext);

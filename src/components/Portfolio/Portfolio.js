@@ -284,6 +284,9 @@ const PortfolioComponent = () => {
           // padding="10"
           borderRadius="10"
           paddingTop="12"
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
         >
           <Text color="white" textAlign="center">
             Portfolio Details
@@ -300,20 +303,33 @@ const PortfolioComponent = () => {
                   <Box
                     key={i}
                     display="flex"
-                    maxWidth="400px"
-                    flexDirection="row"
+                    w="300px"
+                    flexDirection="column"
                     border="0px solid"
                     borderRadius="15px"
                     padding="5px"
-                    margin="5px"
+                    // margin="5px"
+                    gap="7"
+                    // top="10px"
+                    // bgColor="green"
                   >
-                    <Text color={colors.text}>
-                      Token id &nbsp;: &nbsp; {pred.id} &nbsp; |&nbsp;
-                    </Text>
-                    <Text color={colors.text}>
-                      Balance &nbsp; : &nbsp; {pred.balance}&emsp;
-                    </Text>
-                    <Redeem1 tokenID={pred.id} />
+                    <Flex
+                      flexDirection="column"
+                      justifyContent="center"
+                      // bgColor="red"
+                      marginTop="30px"
+                    >
+                      <Text color="white">
+                        Token id &nbsp;: &nbsp; {pred.id} &nbsp;
+                        {/* |&nbsp; */}
+                      </Text>
+                      <Text color="white">
+                        Balance &nbsp; : &nbsp; {pred.balance}&emsp;
+                      </Text>
+                    </Flex>
+                    <Center>
+                      <Redeem1 tokenID={pred.id} />
+                    </Center>
                   </Box>
                 );
               })}
@@ -344,16 +360,18 @@ const Redeem1 = (tokenID) => {
   return (
     <Popover returnFocusOnClose={false} placement="right" closeOnBlur={false}>
       <PopoverTrigger>
-        <Button bg={colors.bg} textColor={colors.text}>
+        <Button bgColor="#9C4FFF" color="white">
           Redeem
         </Button>
       </PopoverTrigger>
-      <PopoverContent textColor={colors.text}>
-        <PopoverHeader fontWeight="semibold">Redeem Token</PopoverHeader>
-        <PopoverBody>
+      <PopoverContent textColor={colors.text} bgColor="#1A1A1A">
+        <PopoverHeader fontWeight="semibold" color="white">
+          Redeem Token
+        </PopoverHeader>
+        <PopoverBody gap="10">
           <form onSubmit={submit}>
             <FormControl>
-              <FormLabel htmlFor="tokenID">
+              <FormLabel htmlFor="tokenID" color="white">
                 Token Id : {tokenID.tokenID.toString()}{' '}
               </FormLabel>
             </FormControl>
@@ -363,9 +381,13 @@ const Redeem1 = (tokenID) => {
                 type="number"
                 name="amount"
                 placeholder="Amount"
+                _placeholder={{ color: 'white' }}
+                _focus={{ color: 'white' }}
               />
             </FormControl>
-            <Button type="submit">Redeem</Button>
+            <Button type="submit" marginTop="5">
+              Redeem
+            </Button>
           </form>
         </PopoverBody>
       </PopoverContent>

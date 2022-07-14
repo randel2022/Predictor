@@ -136,7 +136,7 @@ export default function Header({ links = [] }) {
       backgroundColor="#1A1A1A"
       px={4}
       py={2}
-      zIndex="50"
+      zIndex="9999"
       // sx={{ position: '-webkit-sticky', position: 'sticky', top: '0' }}
     >
       <Flex
