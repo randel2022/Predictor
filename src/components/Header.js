@@ -221,18 +221,6 @@ export default function Header({ links = [] }) {
           >
             Predictions
           </Link>
-          <Link
-            fontSize={{ base: '10', md: 'sm', lg: 'md' }}
-            paddingStart="3"
-            paddingEnd="3"
-            colorScheme="blue"
-            href="/Whitelist"
-            textAlign="center"
-            className="header"
-            _focus={{ outline: 'none' }}
-          >
-            WhitelistMe
-          </Link>
         </Flex>
 
         <Flex
@@ -359,18 +347,6 @@ export default function Header({ links = [] }) {
                   >
                     Predictions
                   </Link>
-                  <Link
-                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
-                    paddingStart="3"
-                    paddingEnd="3"
-                    colorScheme="blue"
-                    href="/Whitelist"
-                    textAlign="center"
-                    className="header"
-                    _focus={{ outline: 'none' }}
-                  >
-                    WhitelistMe
-                  </Link>
                 </Flex>
               </Box>
             ) : (
@@ -414,17 +390,6 @@ export default function Header({ links = [] }) {
                     className="header"
                   >
                     Predictions
-                  </Link>
-                  <Link
-                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
-                    paddingStart="3"
-                    paddingEnd="3"
-                    colorScheme="blue"
-                    href="/Whitelist"
-                    textAlign="center"
-                    className="header"
-                  >
-                    WhitelistMe
                   </Link>
                 </Flex>
               </Box>

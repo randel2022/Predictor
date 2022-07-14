@@ -38,3 +38,18 @@ export default function PageLoading() {
     </Container>
   );
 }
+
+const pageLoading2 = () => {
+  return (
+    <Box
+      padding="6"
+      w="100%"
+      boxShadow="lg"
+      bgGradient="linear(to-r, #2d2d40, #eaeaeb)"
+      borderRadius="10px"
+    >
+      <SkeletonCircle size="10" />
+      <SkeletonText mt="4" noOfLines={4} spacing="4" />
+    </Box>
+  );
+};

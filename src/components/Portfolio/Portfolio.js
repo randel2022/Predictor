@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import PageLoading from '../../helper/PageLoading2';
+
 import { useNavigate } from 'react-router-dom';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -104,6 +106,14 @@ export default function Portfolio({ links = [] }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { connect, disconnect, activeAccount, connected } = useWallet();
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   const whiteListProposer = async () => {
     const contract = await wallet.at(CONTRACT_ADDRESS);
     const op1 = await contract.methods
@@ -129,7 +139,7 @@ export default function Portfolio({ links = [] }) {
     >
       <Flex
         justifyContent={'space-between'}
-        height="60vh"
+        height="47vh"
         flexDirection="column"
         w="100%"
         flexWrap="wrap"
@@ -155,7 +165,9 @@ export default function Portfolio({ links = [] }) {
             flexWrap="wrap"
             w={{ base: '100%', md: '32%', lg: '32%' }}
           >
-            {!connected ? (
+            {loading ? (
+              <PageLoading />
+            ) : !connected ? (
               <Box
                 padding="20"
                 bgColor="#180F2Bed"
@@ -222,6 +234,7 @@ const PortfolioComponent = () => {
   };
   const { connect, disconnect, activeAccount, connected } = useWallet();
   const [data, setData] = React.useState(null);
+
   let ledger = [];
   React.useEffect(async () => {
     if (!connected) {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PageLoading from '../../helper/PageLoading2';
 import PredictionContext from '../../helper/PredictionContext';
 import portfolioBG from '../assets/Predictions-Background.png';
 import {
@@ -293,6 +294,14 @@ const AddNewPrediction = () => {
 };
 
 export default function MyPreds() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   const { predictionsArray } = React.useContext(PredictionContext);
   const { connected, connect, activeAccount } = useWallet();
   const [myPreds, setMyPreds] = React.useState([]);
@@ -354,10 +363,20 @@ export default function MyPreds() {
           fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
           textAlign={{ base: 'center', md: 'left', lg: 'left' }}
         >
-          Prediction
+          Predictions
         </Heading>
         <Box display="flex" justifyContent="center">
-          <AddNewPrediction />
+          {loading ? (
+            <Box
+              display={{ base: 'flex', md: 'flex' }}
+              flexWrap="wrap"
+              w={{ base: '100%', md: '32%', lg: '32%' }}
+            >
+              <PageLoading />
+            </Box>
+          ) : (
+            <AddNewPrediction />
+          )}
         </Box>
 
         <Box display="flex" flexDirection="row" flexWrap="wrap">
