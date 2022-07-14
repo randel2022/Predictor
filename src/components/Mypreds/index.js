@@ -236,19 +236,37 @@ const AddNewPrediction = () => {
             <form onSubmit={submit}>
               <FormControl>
                 <FormLabel htmlFor="prediction">Prediction</FormLabel>
-                <Input name="prediction" id="prediction"></Input>
+                <Input
+                  name="prediction"
+                  id="prediction"
+                  _focus={{ color: 'white' }}
+                ></Input>
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="resultRef">Result Reference</FormLabel>
-                <Input name="resultRef" id="resultRef"></Input>
+                <Input
+                  name="resultRef"
+                  id="resultRef"
+                  _focus={{ color: 'white' }}
+                ></Input>
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="start">Start</FormLabel>
-                <Input type="datetime-local" name="start" id="start"></Input>
+                <Input
+                  type="datetime-local"
+                  name="start"
+                  id="start"
+                  _focus={{ color: 'white' }}
+                ></Input>
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="end">End</FormLabel>
-                <Input type="datetime-local" name="end" id="end"></Input>
+                <Input
+                  type="datetime-local"
+                  name="end"
+                  id="end"
+                  _focus={{ color: 'white' }}
+                ></Input>
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="number_options">
@@ -262,6 +280,7 @@ const AddNewPrediction = () => {
                   name="number_options"
                   id="number_options"
                   type="number"
+                  _focus={{ color: 'white' }}
                 ></Input>
               </FormControl>
               {[...Array(num).keys()].map((i) => {
@@ -278,6 +297,7 @@ const AddNewPrediction = () => {
                       }
                       name={`option_${i}`}
                       id={`option_${i}`}
+                      _focus={{ color: 'white' }}
                     ></Input>
                   </FormControl>
                 );

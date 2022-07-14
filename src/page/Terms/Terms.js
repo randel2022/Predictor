@@ -103,7 +103,7 @@ const Terms = () => {
               consequential damages, or loss of profits, cryptocurrencies,
               tokens, or anything else of value. <br></br>
               <br></br>By using this websites and the derived platforms, you
-              accept and agree to the above terms
+              accept and agree to the above terms.
             </p>
           </Flex>
         </Flex>

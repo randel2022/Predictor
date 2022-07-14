@@ -13,6 +13,7 @@ import {
   Box,
   Flex,
   HStack,
+  Center,
   Container,
   IconButton,
   Button,
@@ -138,9 +139,13 @@ export default function Portfolio({ links = [] }) {
       flexWrap="wrap"
     >
       <Flex
-        justifyContent={'space-between'}
+        justifyContent={{
+          base: 'center',
+          md: 'space-between',
+          lg: 'space-between',
+        }}
         height="47vh"
-        flexDirection="column"
+        flexDirection="row"
         w="100%"
         flexWrap="wrap"
       >
@@ -149,16 +154,17 @@ export default function Portfolio({ links = [] }) {
           as="h2"
           fontWeight="semibold"
           fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
-          textAlign={{ base: 'center', md: 'left' }}
         >
           Portfolio
         </Heading>
-        <Flex
-          alignItems={'center'}
+        <Box
+          alignItems="center"
           justifyContent="center"
           w="100%"
           flexWrap="wrap"
-          px={{ base: '10', md: '0', lg: '0' }}
+          px={{ base: '3', md: '0', lg: '0' }}
+          // bgColor="pink"
+          display="flex"
         >
           <Box
             display={{ base: 'flex', md: 'flex' }}
@@ -191,7 +197,7 @@ export default function Portfolio({ links = [] }) {
               <PortfolioComponent />
             )}
           </Box>
-        </Flex>
+        </Box>
       </Flex>
 
       {isOpen ? (
@@ -273,10 +279,11 @@ const PortfolioComponent = () => {
       <Box w="100%">
         <Box
           bgColor="#180F2B"
-          w="500px"
+          w={{ base: 'auto', md: '100%', lg: '100%' }}
           h="300px"
-          padding="10"
+          // padding="10"
           borderRadius="10"
+          paddingTop="12"
         >
           <Text color="white" textAlign="center">
             Portfolio Details
