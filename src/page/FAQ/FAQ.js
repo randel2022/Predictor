@@ -96,16 +96,17 @@ const FAQ = () => {
                   <h2>
                     <AccordionButton>
                       <Box flex="1" textAlign="left">
-                        Section 1 title
+                        What is Predictor?
                       </Box>
                       <AccordionIcon />
                     </AccordionButton>
                   </h2>
                   <AccordionPanel pb={4}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    It is a decentralized prediction market platform that people
+                    can use to create predictions and trade FA2 tokens. The
+                    Predictor is intended for the dissemination of information
+                    and education. The Site displays live markets deployed on
+                    the Tezos blockchain.
                   </AccordionPanel>
                 </AccordionItem>
 
@@ -113,46 +114,53 @@ const FAQ = () => {
                   <h2>
                     <AccordionButton>
                       <Box flex="1" textAlign="left">
-                        Section 2 title
+                        What is FA2 Tokens?
                       </Box>
                       <AccordionIcon />
                     </AccordionButton>
                   </h2>
                   <AccordionPanel pb={4}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Tezos has its own token standard, known as the Tezos Coin
+                    Standard (or TCS). The TCS defines how tokens can be
+                    transferred between accounts and how they can interact with
+                    smart contracts. To simplify, FA2 Token is a token standard
+                    on Tezos.
+                  </AccordionPanel>
+                </AccordionItem>
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Box flex="1" textAlign="left">
+                        What is Tezos Blockchain?
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    Tezos is a public blockchain that supports smart contracts
+                    and decentralized applications.
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion>
             </Box>
 
             <Box w="100%">
-              <Heading
-                className="mainfont"
-                as="h3"
-                fontWeight="semibold"
-                fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
-                textAlign="center"
-              >
-                Services
-              </Heading>
               <Accordion w="100%" defaultIndex={[0]} allowMultiple>
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
                       <Box flex="1" textAlign="left">
-                        Section 1 title
+                        How does the Predictor work?
                       </Box>
                       <AccordionIcon />
                     </AccordionButton>
                   </h2>
                   <AccordionPanel pb={4}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    The Predictor does not host any market but only to provide
+                    the interface to view available markets. The Predictor is
+                    intended for the dissemination of information and education.
+                    The Site displays live markets deployed on the Tezos
+                    blockchain.
                   </AccordionPanel>
                 </AccordionItem>
 
@@ -160,16 +168,55 @@ const FAQ = () => {
                   <h2>
                     <AccordionButton>
                       <Box flex="1" textAlign="left">
-                        Section 2 title
+                        What are information market platforms?
                       </Box>
                       <AccordionIcon />
                     </AccordionButton>
                   </h2>
                   <AccordionPanel pb={4}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Information market platforms are online marketplaces that
+                    allow users to buy and sell information products.
+                    Information products can include anything from e-books and
+                    courses to software and templates.
+                  </AccordionPanel>
+                </AccordionItem>
+
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Box flex="1" textAlign="left">
+                        What are some tips viewing information on market
+                        platforms?
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    Here are some tips for viewing information on market
+                    platforms: <br></br>-Check the reviews of the platform
+                    before purchasing anything. <br></br>-Make sure the platform
+                    you choose has a good reputation. <br></br>-Only buy from
+                    reputable sellers. <br></br>-Be careful of scams.
+                  </AccordionPanel>
+                </AccordionItem>
+
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Box flex="1" textAlign="left">
+                        Are there any other considerations I should keep in
+                        mind?
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    Users are responsible for ensuring that they comply with all
+                    applicable laws and should do their own research before
+                    creating any smart contracts. <br></br>This FAQ is meant to
+                    provide general information about information market
+                    platforms. If you have specific questions about a particular
+                    platform, please contact the platform directly.
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion>
