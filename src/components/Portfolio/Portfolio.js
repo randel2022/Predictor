@@ -281,7 +281,6 @@ const PortfolioComponent = () => {
           bgColor="#180F2B"
           w={{ base: 'auto', md: '100%', lg: '100%' }}
           h="300px"
-          // padding="10"
           borderRadius="10"
           paddingTop="12"
           display="flex"
@@ -308,10 +307,7 @@ const PortfolioComponent = () => {
                     border="0px solid"
                     borderRadius="15px"
                     padding="5px"
-                    // margin="5px"
                     gap="7"
-                    // top="10px"
-                    // bgColor="green"
                   >
                     <Flex
                       flexDirection="column"
