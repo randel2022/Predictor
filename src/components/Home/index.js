@@ -451,7 +451,7 @@ export default function Home() {
               </Button>
 
               <Box display="flex" alignItems="center">
-                <Text px="3">Page</Text>
+                <Text px="3">Page/s</Text>
                 <Button
                   bgColor="#3B3A3A"
                   color="white"
