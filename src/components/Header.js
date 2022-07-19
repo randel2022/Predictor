@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { extendTheme } from '@chakra-ui/react';
 
 import {
   Box,
@@ -8,6 +9,7 @@ import {
   Container,
   IconButton,
   Button,
+  Image,
   Menu,
   MenuButton,
   MenuList,
@@ -17,6 +19,7 @@ import {
   Stack,
   useColorMode,
   Text,
+  Link,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -41,6 +44,8 @@ import {
 } from '../helper/tezos';
 import { TezosToolkit, MichelCodecPacker, compose } from '@taquito/taquito';
 import Loading from '../helper/Loading';
+import SignIn from './SignIn/signin';
+import logoIcon from './assets/beta2.png';
 
 const Redeem = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -58,12 +63,22 @@ const Redeem = () => {
     alert('Redemption Completed!');
   };
 
+  const theme = extendTheme({
+    textStyles: {
+      h1: {
+        fontSize: ['10px'],
+      },
+    },
+  });
+
   return (
     <>
-      <MenuItem onClick={onOpen}>Redeem</MenuItem>
+      <MenuItem onClick={onOpen} color="black">
+        Redeem
+      </MenuItem>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bgColor="#1A1A1A">
           <ModalHeader>Redeem Token</ModalHeader>
           <ModalBody>
             <form onSubmit={submit}>
@@ -73,17 +88,23 @@ const Redeem = () => {
                   type="number"
                   name="tokenId"
                   placeholder="Token ID"
+                  _placeholder={{ color: 'white' }}
                 ></Input>
               </FormControl>
-              <FormControl>
+              <FormControl marginTop="5">
                 <Input
                   required
                   type="number"
                   name="amount"
                   placeholder="Amount"
+                  _placeholder={{ color: 'white' }}
                 />
               </FormControl>
-              <Button type="submit">Redeem</Button>
+              <Flex justifyContent="center" marginTop="5">
+                <Button type="submit" bgColor="#9C4FFF">
+                  Redeem
+                </Button>
+              </Flex>
             </form>
           </ModalBody>
         </ModalContent>
@@ -110,55 +131,167 @@ export default function Header({ links = [] }) {
 
   return (
     <Box
-      color={useColorModeValue('purple', 'white')}
-      bg={useColorModeValue('purple.100', 'purple.900')}
+      color={'white'}
+      // bg={useColorModeValue('222737', '222737')}
+      backgroundColor="#1A1A1A"
       px={4}
+      py={2}
+      zIndex="9999"
+      // sx={{ position: '-webkit-sticky', position: 'sticky', top: '0' }}
     >
-      <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+      <Flex
+        h={16}
+        alignItems={'center'}
+        justifyContent={'space-between'}
+        px={{ base: '0', md: '20', lg: '20' }}
+        paddingBottom={{ base: '0', md: '0', lg: '0' }}
+        flexDirection={{ base: 'row', md: 'row', lg: 'row' }}
+        // bgColor="red"
+      >
         <IconButton
           size={'md'}
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          icon={
+            isOpen ? (
+              <CloseIcon color="white" />
+            ) : (
+              <HamburgerIcon color="white" marginTop="-3px" />
+            )
+          }
+          bgColor="#9C4FFF"
+          focusBorderColor="none"
           aria-label={'Open Menu'}
           display={{ md: 'none' }}
           onClick={isOpen ? onClose : onOpen}
+          _focus={{ outline: 'none' }}
         />
 
-        <HStack spacing={8} alignItems={'center'}>
-          <Box></Box>
-        </HStack>
-        <Text fontSize="3xl" colorScheme="blue" fontWeight="bold">
-          Predictor
-        </Text>
+        <Flex
+          alignItems={'center'}
+          justifyContent={{ base: 'start', md: 'start', lg: 'start' }}
+          w={{ base: '50%', md: '20%', lg: '20%' }}
+        >
+          <Link href="/" _focus={{ outline: 'none' }}>
+            <Image
+              height="auto"
+              w={{ base: '95px', md: '100px', lg: '150px' }}
+              src={logoIcon}
+            />
+          </Link>
+        </Flex>
 
-        <Flex alignItems={'center'}>
-          <IconButton
+        <Flex
+          display={{ base: 'none', md: 'flex', lg: 'flex' }}
+          alignItems={'center'}
+          justifyContent={'center'}
+          flex
+          w="40%"
+        >
+          <Link
+            fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+            paddingStart="3"
+            paddingEnd="3"
+            colorScheme="blue"
+            href="/"
+            className="header"
+            _focus={{ outline: 'none' }}
+          >
+            Marketplaces
+          </Link>
+          <Link
+            fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+            paddingStart="3"
+            paddingEnd="3"
+            colorScheme="blue"
+            href="/Portfolio"
+            textAlign="center"
+            className="header"
+            _focus={{ outline: 'none' }}
+          >
+            Portfolio
+          </Link>
+          <Link
+            fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+            paddingStart="3"
+            paddingEnd="3"
+            colorScheme="blue"
+            href="/mypreds"
+            textAlign="center"
+            className="header"
+            _focus={{ outline: 'none' }}
+          >
+            Predictions
+          </Link>
+        </Flex>
+
+        <Flex
+          alignItems={'center'}
+          w="20%"
+          justifyContent={{ base: 'end', md: 'end', lg: 'end' }}
+        >
+          {/* <IconButton
             marginRight="10px"
             icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
             onClick={toggleColorMode}
-          />
-          <Box display={{ base: 'none', md: 'flex' }}>
+          /> */}
+          <Box display="flex" justifyContent="end">
             {!connected ? (
-              <Button onClick={connect}>Connect Wallet</Button>
+              <Flex alignItems={'center'} justifyContent={'end'}>
+                <Button
+                  borderRadius="15"
+                  color={'black'}
+                  onClick={connect}
+                  fontSize={{ base: '10', md: 'md', lg: 'md' }}
+                  className="header"
+                  padding="10px"
+                  bgColor="white"
+                  _focus={{ outline: 'none' }}
+                >
+                  Connect Wallet
+                </Button>
+              </Flex>
             ) : (
               <Menu>
-                <MenuButton as={Button} cursor={'pointer'} minW={0}>
+                <MenuButton as={Button} cursor={'pointer'} minW={0} w="30%">
                   <Text
                     maxW="300px"
                     overflow="hidden"
                     whiteSpace="nowrap"
                     textOverflow="ellipsis"
+                    color="black"
                   >
                     {activeAccount?.address}
                   </Text>
                 </MenuButton>
                 <MenuList>
-                  <MenuItem onClick={() => history('/mypreds')}>
+                  <MenuItem
+                    color="black"
+                    onClick={() => history('/mypreds')}
+                    _focus={{ outline: 'none' }}
+                  >
                     My Predictions
                   </MenuItem>
-                  <MenuItem onClick={whiteListProposer}>Whitelist Me</MenuItem>
-                  <MenuItem onClick={disconnect}>Disconnect</MenuItem>
-                  <Portfolio />
-                  <Redeem />
+                  <MenuItem
+                    color="black"
+                    onClick={whiteListProposer}
+                    _focus={{ outline: 'none' }}
+                  >
+                    Whitelist Me
+                  </MenuItem>
+                  <MenuItem
+                    color="black"
+                    onClick={disconnect}
+                    _focus={{ outline: 'none' }}
+                  >
+                    Disconnect
+                  </MenuItem>
+                  <MenuItem
+                    color="black"
+                    onClick={() => history('/redeem')}
+                    _focus={{ outline: 'none' }}
+                  >
+                    Redeem
+                  </MenuItem>
+                  <></>
                 </MenuList>
               </Menu>
             )}
@@ -170,26 +303,96 @@ export default function Header({ links = [] }) {
         <Box pb={4} display={{ md: 'none' }}>
           <Stack as={'nav'} spacing={4}>
             {!connected ? (
-              <Button onClick={connect}>Connect Wallet</Button>
-            ) : (
-              <Menu>
-                <MenuButton as={Button} cursor={'pointer'} minW={0}>
-                  <Text
-                    maxW="300px"
-                    overflow="hidden"
-                    whiteSpace="nowrap"
-                    textOverflow="ellipsis"
+              <Box cursor={'pointer'} minW={0} bgColor="#1A1A1A">
+                <Flex
+                  alignItems={'center'}
+                  justifyContent={'center'}
+                  w="100%"
+                  flexDirection="column"
+                  gap="5"
+                  marginTop="2"
+                >
+                  <Link
+                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                    paddingStart="3"
+                    paddingEnd="3"
+                    colorScheme="blue"
+                    href="/"
+                    className="header"
+                    _focus={{ outline: 'none' }}
                   >
-                    {activeAccount?.address}
-                  </Text>
-                </MenuButton>
-                <MenuList>
-                  <MenuItem onClick={() => history('/mypreds')}>
-                    My Predictions
-                  </MenuItem>
-                  <MenuItem onClick={disconnect}>Disconnect</MenuItem>
-                </MenuList>
-              </Menu>
+                    Marketplace
+                  </Link>
+                  <Link
+                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                    paddingStart="3"
+                    paddingEnd="3"
+                    colorScheme="blue"
+                    href="/Portfolio"
+                    textAlign="center"
+                    className="header"
+                    _focus={{ outline: 'none' }}
+                  >
+                    Portfolio
+                  </Link>
+                  <Link
+                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                    paddingStart="3"
+                    paddingEnd="3"
+                    colorScheme="blue"
+                    href="/mypreds"
+                    textAlign="center"
+                    className="header"
+                    _focus={{ outline: 'none' }}
+                  >
+                    Predictions
+                  </Link>
+                </Flex>
+              </Box>
+            ) : (
+              <Box minW={0} bgColor="#1A1A1A">
+                <Flex
+                  alignItems={'center'}
+                  justifyContent={'center'}
+                  w="100%"
+                  flexDirection="column"
+                  marginTop="3"
+                  gap="3"
+                >
+                  <Link
+                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                    paddingStart="3"
+                    paddingEnd="3"
+                    colorScheme="blue"
+                    href="/"
+                    className="header"
+                  >
+                    Marketplace
+                  </Link>
+                  <Link
+                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                    paddingStart="3"
+                    paddingEnd="3"
+                    colorScheme="blue"
+                    href="/Portfolio"
+                    textAlign="center"
+                    className="header"
+                  >
+                    Portfolio
+                  </Link>
+                  <Link
+                    fontSize={{ base: '10', md: 'sm', lg: 'md' }}
+                    paddingStart="3"
+                    paddingEnd="3"
+                    colorScheme="blue"
+                    href="/mypreds"
+                    textAlign="center"
+                    className="header"
+                  >
+                    Predictions
+                  </Link>
+                </Flex>
+              </Box>
             )}
           </Stack>
         </Box>
@@ -197,94 +400,6 @@ export default function Header({ links = [] }) {
     </Box>
   );
 }
-
-const Portfolio = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const colors = {
-    bg: useColorModeValue('purple.100', 'purple.700'),
-    text: useColorModeValue('blue', 'white'),
-  };
-  const { connect, disconnect, activeAccount, connected } = useWallet();
-  const [data, setData] = React.useState(null);
-  let ledger = [];
-  React.useEffect(async () => {
-    if (!connected) {
-      await connect();
-    }
-    if (activeAccount) {
-      console.log(activeAccount);
-      console.log(activeAccount.address);
-      const tokenContract = await Tezos.contract.at(TOKEN_ADDRESS);
-      const tokenStore = await tokenContract.storage();
-      const tokenLedger = tokenStore.ledger;
-      console.log(tokenLedger);
-      let tokens = tokenStore.all_tokens.toString().split(',').map(Number);
-      console.log(tokens);
-
-      for (let tokenId = tokens.length - 1; tokenId >= 0; tokenId--) {
-        console.log(tokenId, tokens[tokenId]);
-        await tokenLedger
-          .get([activeAccount.address, tokens[tokenId]])
-          .then((value) => {
-            if (value > 0) {
-              ledger.push({ id: tokens[tokenId], balance: value.toString() });
-            }
-          })
-          .catch((error) =>
-            console.log(`Error: ${tokens[tokenId]} ${activeAccount.address}`)
-          );
-        console.log(ledger);
-      }
-
-      setData(ledger);
-    }
-  }, [activeAccount]);
-  return data ? (
-    <>
-      <MenuItem onClick={onOpen}>Portfolio</MenuItem>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Portfolio Details</ModalHeader>
-          <ModalBody>
-            <Text color={colors.text}>
-              {' '}
-              <b> Portfolio </b>{' '}
-            </Text>
-
-            <Box display="flex" flexDirection="column" flexWrap="wrap">
-              {data.map((pred, i) => {
-                return (
-                  <Box
-                    key={i}
-                    //onClick={}
-                    display="flex"
-                    maxWidth="400px"
-                    flexDirection="row"
-                    border="0px solid"
-                    borderRadius="15px"
-                    padding="5px"
-                    margin="5px"
-                  >
-                    <Text color={colors.text}>
-                      Token id &nbsp;: &nbsp; {pred.id} &nbsp; |&nbsp;
-                    </Text>
-                    <Text color={colors.text}>
-                      Balance &nbsp; : &nbsp; {pred.balance}&emsp;
-                    </Text>
-                    <Redeem1 tokenID={pred.id} />
-                  </Box>
-                );
-              })}
-            </Box>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-    </>
-  ) : (
-    <Loading />
-  );
-};
 
 const Redeem1 = (tokenID) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -326,7 +441,9 @@ const Redeem1 = (tokenID) => {
                 placeholder="Amount"
               />
             </FormControl>
-            <Button type="submit">Redeem</Button>
+            <Button color="black" type="submit">
+              Redeem
+            </Button>
           </form>
         </PopoverBody>
       </PopoverContent>
