@@ -280,9 +280,11 @@ const PortfolioComponent = () => {
         <Box
           bgColor="#180F2B"
           w={{ base: 'auto', md: '100%', lg: '100%' }}
-          h="300px"
           borderRadius="10"
-          paddingTop="12"
+          paddingTop="100px"
+          paddingBottom="100px"
+          paddingLeft="50px"
+          paddingRight="50px"
           display="flex"
           flexDirection="column"
           alignItems="center"

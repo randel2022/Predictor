@@ -62,17 +62,27 @@ export default function Home() {
   const inProgressArray = predictionsArray.filter(function (prediction) {
     return prediction.value.predictionStatus == 'Prediction In-Progress';
   });
-  const completedArray = predictionsArray.filter(function (prediction) {
-    return prediction.value.predictionStatus != 'Prediction In-Progress';
-  });
+  const completedArray = predictionsArray
+    .sort((a, b) => b - a)
+    .filter(function (prediction) {
+      return prediction.value.predictionStatus != 'Prediction In-Progress';
+    });
 
   const totalPage = () => {
     return Math.ceil(completedArray.length / offset);
   };
 
-  console.log(page * offset - offset, ' START');
+  // const desArray = predictionsArray.filter((function (prediction) {
+  //   return predictionsArray.sort((a, b) => b - a));
+  // };
 
-  console.log(page * offset, ' END');
+  // console.log(desArray);
+
+  // console.log(page * offset - offset, ' START');
+
+  // console.log(page * offset, ' END');
+
+  c;
 
   return (
     <Container
@@ -451,7 +461,7 @@ export default function Home() {
               </Button>
 
               <Box display="flex" alignItems="center">
-                <Text px="3">Page/s</Text>
+                <Text px="3">Page</Text>
                 <Button
                   bgColor="#3B3A3A"
                   color="white"
