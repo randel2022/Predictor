@@ -82,8 +82,6 @@ export default function Home() {
 
   // console.log(page * offset, ' END');
 
-  c;
-
   return (
     <Container
       width="auto"
