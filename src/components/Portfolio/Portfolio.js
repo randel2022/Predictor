@@ -156,7 +156,7 @@ export default function Portfolio({ links = [] }) {
           fontWeight="semibold"
           fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
         >
-          Portfolio
+          Portfolios
         </Heading>
         <Box
           alignItems="center"
@@ -170,7 +170,8 @@ export default function Portfolio({ links = [] }) {
           <Box
             display={{ base: 'flex', md: 'flex' }}
             flexWrap="wrap"
-            w={{ base: '100%', md: '32%', lg: '32%' }}
+            w={{ base: '100%', md: '32%', lg: '45%' }}
+            className="box-div"
           >
             {loading ? (
               <PageLoading />
@@ -210,7 +211,7 @@ export default function Portfolio({ links = [] }) {
               <Menu>
                 <MenuButton as={Button} cursor={'pointer'} minW={0}>
                   <Text
-                    maxW="300px"
+                    maxW="40%"
                     overflow="hidden"
                     whiteSpace="nowrap"
                     textOverflow="ellipsis"
@@ -279,13 +280,14 @@ const PortfolioComponent = () => {
     data && (
       <Box w="100%">
         <Box
+          marginTop="4vh"
           bgColor="#180F2B"
           w={{ base: 'auto', md: '100%', lg: '100%' }}
           borderRadius="10"
           paddingTop="100px"
           paddingBottom="100px"
-          paddingLeft="50px"
-          paddingRight="50px"
+          paddingLeft="20px"
+          paddingRight="20px"
           display="flex"
           flexDirection="column"
           alignItems="center"
@@ -299,36 +301,42 @@ const PortfolioComponent = () => {
               <b> Portfolio </b>{' '}
             </Text>
 
-            <Box display="flex" flexDirection="column" flexWrap="wrap">
+            <Box
+              display="flex"
+              flexDirection="column"
+              flexWrap="wrap"
+              alignItems="center"
+            >
               {data.map((pred, i) => {
                 return (
                   <Box
                     key={i}
                     display="flex"
-                    w="300px"
+                    w="90%"
                     flexDirection="column"
                     border="0px solid"
                     borderRadius="15px"
                     padding="5px"
-                    gap="7"
+                    marginBottom="1vh"
+                    marginTop="3vh"
                   >
                     <Flex
-                      flexDirection="column"
+                      flexDirection="row"
                       justifyContent="center"
-                      // bgColor="red"
-                      marginTop="30px"
+                      alignItems="center"
+                      py="5"
+                      px="3"
                     >
-                      <Text color="white">
+                      <Text color="white" textAlign="center">
                         Token id &nbsp;: &nbsp; {pred.id} &nbsp;
-                        {/* |&nbsp; */}
                       </Text>
-                      <Text color="white">
+                      <Text color="white" textAlign="center">
                         Balance &nbsp; : &nbsp; {pred.balance}&emsp;
                       </Text>
+                      <Box>
+                        <Redeem1 tokenID={pred.id} px="2" />
+                      </Box>
                     </Flex>
-                    <Center>
-                      <Redeem1 tokenID={pred.id} />
-                    </Center>
                   </Box>
                 );
               })}

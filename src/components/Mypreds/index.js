@@ -233,9 +233,9 @@ const AddNewPrediction = () => {
           <PopoverContent
             padding="4"
             bgColor="#1A1A1A"
-            // position="absolute"
-            top="-300"
-            left="-160"
+            // position="relative"
+            // top="-300"
+            // left="-160"
             _focus={{ outline: 'red' }}
           >
             <form onSubmit={submit}>
@@ -367,12 +367,13 @@ export default function MyPreds() {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      height="auto"
+      height="100vh"
       bgImage={portfolioBG}
       bgPosition="center"
       bgSize="cover"
       w="100%"
       maxWidth="100%"
+      className="main-container"
     >
       <Box
         display="flex"
