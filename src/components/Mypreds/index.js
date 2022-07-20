@@ -208,7 +208,12 @@ const AddNewPrediction = () => {
           </Button>
         </Box>
       ) : (
-        <Popover position="relative">
+        <Popover
+          position="relative"
+          display="flex"
+          flexWrap="wrap"
+          height="auto"
+        >
           <PopoverTrigger>
             <Box
               py="20"
@@ -228,7 +233,7 @@ const AddNewPrediction = () => {
           <PopoverContent
             padding="4"
             bgColor="#1A1A1A"
-            position="absolute"
+            // position="absolute"
             top="-300"
             left="-160"
             _focus={{ outline: 'red' }}
@@ -362,7 +367,7 @@ export default function MyPreds() {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      height="100vh"
+      height="auto"
       bgImage={portfolioBG}
       bgPosition="center"
       bgSize="cover"
@@ -372,9 +377,9 @@ export default function MyPreds() {
       <Box
         display="flex"
         justifyContent={'space-between'}
-        height="60vh"
-        flexDirection="column"
+        py={{ base: '10vh', md: '35vh', lg: '35vh' }}
         w="100%"
+        flexDirection="column"
       >
         <Heading
           className="mainfont"

@@ -131,7 +131,7 @@ export default function Portfolio({ links = [] }) {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      height="100vh"
+      height="auto"
       bgImage={portfolioBG}
       bgPosition="center"
       bgSize="cover"
@@ -144,10 +144,11 @@ export default function Portfolio({ links = [] }) {
           md: 'space-between',
           lg: 'space-between',
         }}
-        height="47vh"
         flexDirection="row"
+        py={{ base: '10vh', md: '35vh', lg: '35vh' }}
         w="100%"
         flexWrap="wrap"
+        // bgColor="red"
       >
         <Heading
           className="mainfont"
