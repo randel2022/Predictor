@@ -62,14 +62,29 @@ export default function Home() {
   const inProgressArray = predictionsArray.filter(function (prediction) {
     return prediction.value.predictionStatus == 'Prediction In-Progress';
   });
-  const completedArray = predictionsArray
-    .sort((a, b) => b - a)
-    .filter(function (prediction) {
-      return prediction.value.predictionStatus != 'Prediction In-Progress';
-    });
+  const completedArray = () => {
+    if (predictionsArray) {
+      return predictionsArray
+        .sort((a, b) => b.value.predictionRef - a.value.predictionRef)
+        .filter(function (prediction) {
+          return prediction.value.predictionStatus != 'Prediction In-Progress';
+        });
+    } else {
+      return [];
+    }
+    // return predictionsArray
+    //   ? predictionsArray
+    //       .sort((a, b) => b.value.predictionRef - a.value.predictionRef)
+    //       .filter(function (prediction) {
+    //         return (
+    //           prediction.value.predictionStatus != 'Prediction In-Progress'
+    //         );
+    //       })
+    //   : [];
+  };
 
   const totalPage = () => {
-    return Math.ceil(completedArray.length / offset);
+    return Math.ceil(completedArray()?.length / offset);
   };
 
   // console.log(page * offset - offset, ' START');
@@ -357,7 +372,7 @@ export default function Home() {
               w="100%"
               marginTop="5"
             >
-              {completedArray
+              {completedArray()
                 .slice(page * offset - offset, page * offset)
                 .map((pred, i) => {
                   return (
