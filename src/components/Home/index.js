@@ -72,12 +72,6 @@ export default function Home() {
     return Math.ceil(completedArray.length / offset);
   };
 
-  // const desArray = predictionsArray.filter((function (prediction) {
-  //   return predictionsArray.sort((a, b) => b - a));
-  // };
-
-  // console.log(desArray);
-
   // console.log(page * offset - offset, ' START');
 
   // console.log(page * offset, ' END');
