@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import PageLoading from '../../helper/PageLoading2';
+import React from 'react';
 import PredictionContext from '../../helper/PredictionContext';
-import portfolioBG from '../assets/Predictions-Background.png';
 import {
   Box,
   Button,
@@ -11,7 +9,6 @@ import {
   Input,
   NumberInput,
   Popover,
-  Heading,
   PopoverBody,
   PopoverContent,
   PopoverHeader,
@@ -93,7 +90,7 @@ const AddPredRes = ({ pred }) => {
 
 const UpdatePredStatus = ({ pred }) => {
   const colors = {
-    bg: "useColorModeValue('blue.200', 'blue.700')",
+    bg: useColorModeValue('blue.200', 'blue.700'),
     text: useColorModeValue('blue', 'white'),
   };
 
@@ -159,7 +156,6 @@ const AddNewPrediction = () => {
   const [num, setNum] = React.useState(0);
   // const { connected, connect, activeAccount } = useWallet();
   const [options, setOptions] = React.useState({});
-  const { connect, disconnect, activeAccount, connected } = useWallet();
 
   const submit = async (e) => {
     e.preventDefault();
@@ -182,151 +178,66 @@ const AddNewPrediction = () => {
     alert('Prediction Created!');
   };
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      w={{ base: '100%', md: '32%', lg: '32%' }}
-    >
-      {!connected ? (
-        <Box
-          padding="20"
-          bgColor="#180F2Bed"
-          borderRadius="10"
-          w="100%"
-          flexWrap="wrap"
-          display="flex"
-          justifyContent="center"
-        >
-          <Button
-            onClick={connect}
-            color="black"
-            px="20"
-            borderRadius="20"
-            bgColor="white"
-          >
-            Connect Wallet
-          </Button>
-        </Box>
-      ) : (
-        <Popover
-          position="relative"
-          display="flex"
-          flexWrap="wrap"
-          height="auto"
-        >
-          <PopoverTrigger>
-            <Box
-              py="20"
-              px={{ base: '10', md: '20', lg: '20' }}
-              bgColor="#180F2Bed"
-              borderRadius="10"
-              w={{ base: '100%', md: '100%', lg: '100%' }}
-              display="flex"
-              flexWrap="wrap"
-              justifyContent="center"
-            >
-              <Button bgColor="white" color="black" px="20" borderRadius="20">
-                Add New Predictions
-              </Button>
-            </Box>
-          </PopoverTrigger>
-          <PopoverContent
-            padding="4"
-            bgColor="#1A1A1A"
-            // position="relative"
-            // top="-300"
-            // left="-160"
-            _focus={{ outline: 'red' }}
-          >
-            <form onSubmit={submit}>
+    <Popover>
+      <PopoverTrigger>
+        <Button>Add New Prediction</Button>
+      </PopoverTrigger>
+      <PopoverContent padding="4">
+        <form onSubmit={submit}>
+          <FormControl>
+            <FormLabel htmlFor="prediction">Prediction</FormLabel>
+            <Input name="prediction" id="prediction"></Input>
+          </FormControl>
+          <FormControl>
+            <FormLabel htmlFor="resultRef">Result Reference</FormLabel>
+            <Input name="resultRef" id="resultRef"></Input>
+          </FormControl>
+          <FormControl>
+            <FormLabel htmlFor="start">Start</FormLabel>
+            <Input type="datetime-local" name="start" id="start"></Input>
+          </FormControl>
+          <FormControl>
+            <FormLabel htmlFor="end">End</FormLabel>
+            <Input type="datetime-local" name="end" id="end"></Input>
+          </FormControl>
+          <FormControl>
+            <FormLabel htmlFor="number_options">Number of Options</FormLabel>
+            <Input
+              onChange={(e) => {
+                console.log(e);
+                setNum(parseInt(e.target.value) || 0);
+              }}
+              name="number_options"
+              id="number_options"
+              type="number"
+            ></Input>
+          </FormControl>
+          {[...Array(num).keys()].map((i) => {
+            return (
               <FormControl>
-                <FormLabel htmlFor="prediction">Prediction</FormLabel>
+                <FormLabel htmlFor={'option_' + i}>Option {i}</FormLabel>
                 <Input
-                  name="prediction"
-                  id="prediction"
-                  _focus={{ color: 'white' }}
+                  onChange={(e) =>
+                    setOptions((options) => {
+                      var opt = options;
+                      opt[`option_${i}`] = e.target.value;
+                      return opt;
+                    })
+                  }
+                  name={`option_${i}`}
+                  id={`option_${i}`}
                 ></Input>
               </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="resultRef">Result Reference</FormLabel>
-                <Input
-                  name="resultRef"
-                  id="resultRef"
-                  _focus={{ color: 'white' }}
-                ></Input>
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="start">Start</FormLabel>
-                <Input
-                  type="datetime-local"
-                  name="start"
-                  id="start"
-                  _focus={{ color: 'white' }}
-                ></Input>
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="end">End</FormLabel>
-                <Input
-                  type="datetime-local"
-                  name="end"
-                  id="end"
-                  _focus={{ color: 'white' }}
-                ></Input>
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="number_options">
-                  Number of Options
-                </FormLabel>
-                <Input
-                  onChange={(e) => {
-                    console.log(e);
-                    setNum(parseInt(e.target.value) || 0);
-                  }}
-                  name="number_options"
-                  id="number_options"
-                  type="number"
-                  _focus={{ color: 'white' }}
-                ></Input>
-              </FormControl>
-              {[...Array(num).keys()].map((i) => {
-                return (
-                  <FormControl>
-                    <FormLabel htmlFor={'option_' + i}>Option {i}</FormLabel>
-                    <Input
-                      onChange={(e) =>
-                        setOptions((options) => {
-                          var opt = options;
-                          opt[`option_${i}`] = e.target.value;
-                          return opt;
-                        })
-                      }
-                      name={`option_${i}`}
-                      id={`option_${i}`}
-                      _focus={{ color: 'white' }}
-                    ></Input>
-                  </FormControl>
-                );
-              })}
-              <Button marginTop="5" type="submit" bgColor="#9C4FFF">
-                Submit
-              </Button>
-            </form>
-          </PopoverContent>
-        </Popover>
-      )}
-    </Box>
+            );
+          })}
+          <Button type="submit">Submit</Button>
+        </form>
+      </PopoverContent>
+    </Popover>
   );
 };
 
 export default function MyPreds() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
-
   const { predictionsArray } = React.useContext(PredictionContext);
   const { connected, connect, activeAccount } = useWallet();
   const [myPreds, setMyPreds] = React.useState([]);
@@ -363,68 +274,33 @@ export default function MyPreds() {
 
   return myPreds ? (
     <Container
-      px={{ base: '8', md: '20', lg: '20' }}
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      height="100vh"
-      bgImage={portfolioBG}
-      bgPosition="center"
-      bgSize="cover"
-      w="100%"
-      maxWidth="100%"
-      className="main-container"
+      width="auto"
+      maxWidth="100vw"
+      bg={colors.bg}
+      height="auto"
+      maxHeight="100vh"
+      padding="10vh"
     >
-      <Box
-        display="flex"
-        justifyContent={'space-between'}
-        py={{ base: '10vh', md: '35vh', lg: '35vh' }}
-        w="100%"
-        flexDirection="column"
-      >
-        <Heading
-          className="mainfont"
-          as="h2"
-          fontWeight="semibold"
-          fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
-          textAlign={{ base: 'center', md: 'left', lg: 'left' }}
-        >
-          Predictions
-        </Heading>
-        <Box display="flex" justifyContent="center">
-          {loading ? (
+      <AddNewPrediction />
+      <Box display="flex" flexDirection="row" flexWrap="wrap">
+        {myPreds.map((pred, i) => {
+          return (
             <Box
-              display={{ base: 'flex', md: 'flex' }}
-              flexWrap="wrap"
-              w={{ base: '100%', md: '32%', lg: '32%' }}
+              key={i}
+              // onClick={}
+              display="flex"
+              maxWidth="300px"
+              border="1px solid"
+              borderRadius="15px"
+              padding="20px"
+              margin="10px"
             >
-              <PageLoading />
+              <Text color={colors.text}>{pred.predictionName}</Text>
+              <UpdatePredStatus pred={pred} />
+              <AddPredRes pred={pred} />
             </Box>
-          ) : (
-            <AddNewPrediction />
-          )}
-        </Box>
-
-        <Box display="flex" flexDirection="row" flexWrap="wrap">
-          {myPreds.map((pred, i) => {
-            return (
-              <Box
-                key={i}
-                // onClick={}
-                display="flex"
-                maxWidth="300px"
-                border="1px solid"
-                borderRadius="15px"
-                padding="20px"
-                margin="10px"
-              >
-                <Text color={colors.text}>{pred.predictionName}</Text>
-                <UpdatePredStatus pred={pred} />
-                <AddPredRes pred={pred} />
-              </Box>
-            );
-          })}
-        </Box>
+          );
+        })}
       </Box>
     </Container>
   ) : (
@@ -473,15 +349,15 @@ const Portfolio = () => {
   }, [activeAccount]);
   return data ? (
     <Container
-      width="100%"
+      width="auto"
       maxWidth="100vw"
-      // bg={colors.bg}
-      bgColor="red"
+      bg={colors.bg}
       height="auto"
       maxHeight="100vh"
+      padding="10vh"
     >
       <Text color={colors.text}>Portfolio</Text>
-      <Box display="flex" flexDirection="column" flexWrap="wrap" bgColor="blue">
+      <Box display="flex" flexDirection="column" flexWrap="wrap">
         {data.map((pred, i) => {
           return (
             <Box
