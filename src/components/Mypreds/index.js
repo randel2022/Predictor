@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Component, useEffect } from 'react';
 import PredictionContext from '../../helper/PredictionContext';
+import './index.css';
+import portfolioBG from '../assets/Predictions-Background.png';
 import {
   Box,
   Button,
@@ -18,6 +20,10 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  CloseButton,
+  Flex,
+  Center,
+  Heading,
 } from '@chakra-ui/react';
 import { useWallet } from '../../helper/WalletContext';
 import Loading from '../../helper/Loading';
@@ -27,6 +33,8 @@ import {
   Tezos,
   TOKEN_ADDRESS,
 } from '../../helper/tezos';
+
+import { useState } from 'react';
 
 const AddPredRes = ({ pred }) => {
   const colors = {
@@ -49,18 +57,20 @@ const AddPredRes = ({ pred }) => {
   return (
     <Popover returnFocusOnClose={false} placement="right" closeOnBlur={false}>
       <PopoverTrigger>
-        <Button bg={colors.bg} textColor={colors.text} marginLeft="10px">
+        <Button bg="#9C4FFF" textColor="white" marginLeft="10px">
           Result
         </Button>
       </PopoverTrigger>
-      <PopoverContent textColor={colors.text}>
-        <PopoverHeader fontWeight="semibold">
+      <PopoverContent textColor="white" textAlign="center" bgColor="#9C4FFF">
+        <PopoverHeader fontWeight="semibold" textAlign="center">
           Update Prediction Result
         </PopoverHeader>
         <PopoverBody>
           <form onSubmit={submit}>
             <FormControl>
-              <FormLabel htmlFor={pred.id + '_status'}>Options</FormLabel>
+              <FormLabel htmlFor={pred.id + '_status'} textAlign="center">
+                Options
+              </FormLabel>
               <RadioGroup name="option">
                 <Stack direction="column">
                   {pred.predictionOptions.map((option, i) => {
@@ -69,8 +79,10 @@ const AddPredRes = ({ pred }) => {
                         <Box
                           borderWidth="1px"
                           borderColor="purple.400"
-                          p="2"
+                          py="2"
+                          px="3"
                           borderRadius="2xl"
+                          color="white"
                         >
                           {option}
                         </Box>
@@ -80,7 +92,11 @@ const AddPredRes = ({ pred }) => {
                 </Stack>
               </RadioGroup>
             </FormControl>
-            <Button type="submit">Submit</Button>
+            <Center marginTop="2vh">
+              <Button type="submit" bgColor="#180F2Bed">
+                Submit
+              </Button>
+            </Center>
           </form>
         </PopoverBody>
       </PopoverContent>
@@ -108,18 +124,30 @@ const UpdatePredStatus = ({ pred }) => {
   return (
     <Popover returnFocusOnClose={false} placement="right" closeOnBlur={false}>
       <PopoverTrigger>
-        <Button bg={colors.bg} textColor={colors.text}>
+        <Button textColor="white" bgColor="#9C4FFF">
           Update
         </Button>
       </PopoverTrigger>
-      <PopoverContent textColor={colors.text}>
-        <PopoverHeader fontWeight="semibold">
+      <PopoverContent
+        textColor="white"
+        bgColor="#9C4FFF"
+        className="statDiv"
+        left={{ base: '-68%', md: '0', lg: '0' }}
+      >
+        <PopoverHeader
+          fontWeight="semibold"
+          textAlign="center"
+          marginLeft="-100px"
+        >
           Update Prediction Status
         </PopoverHeader>
+
         <PopoverBody>
           <form onSubmit={submit}>
             <FormControl>
-              <FormLabel htmlFor={pred.id + '_status'}>Status</FormLabel>
+              <FormLabel htmlFor={pred.id + '_status'} textAlign="center">
+                Status
+              </FormLabel>
               <RadioGroup name="status">
                 <Stack direction="column">
                   {[
@@ -144,7 +172,11 @@ const UpdatePredStatus = ({ pred }) => {
                 </Stack>
               </RadioGroup>
             </FormControl>
-            <Button type="submit">Submit</Button>
+            <Center marginTop="2vh">
+              <Button type="submit" bgColor="#180F2B">
+                Submit
+              </Button>
+            </Center>
           </form>
         </PopoverBody>
       </PopoverContent>
@@ -178,62 +210,79 @@ const AddNewPrediction = () => {
     alert('Prediction Created!');
   };
   return (
-    <Popover>
-      <PopoverTrigger>
-        <Button>Add New Prediction</Button>
-      </PopoverTrigger>
-      <PopoverContent padding="4">
-        <form onSubmit={submit}>
-          <FormControl>
-            <FormLabel htmlFor="prediction">Prediction</FormLabel>
-            <Input name="prediction" id="prediction"></Input>
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="resultRef">Result Reference</FormLabel>
-            <Input name="resultRef" id="resultRef"></Input>
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="start">Start</FormLabel>
-            <Input type="datetime-local" name="start" id="start"></Input>
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="end">End</FormLabel>
-            <Input type="datetime-local" name="end" id="end"></Input>
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="number_options">Number of Options</FormLabel>
-            <Input
-              onChange={(e) => {
-                console.log(e);
-                setNum(parseInt(e.target.value) || 0);
-              }}
-              name="number_options"
-              id="number_options"
-              type="number"
-            ></Input>
-          </FormControl>
-          {[...Array(num).keys()].map((i) => {
-            return (
-              <FormControl>
-                <FormLabel htmlFor={'option_' + i}>Option {i}</FormLabel>
-                <Input
-                  onChange={(e) =>
-                    setOptions((options) => {
-                      var opt = options;
-                      opt[`option_${i}`] = e.target.value;
-                      return opt;
-                    })
-                  }
-                  name={`option_${i}`}
-                  id={`option_${i}`}
-                ></Input>
-              </FormControl>
-            );
-          })}
-          <Button type="submit">Submit</Button>
-        </form>
-      </PopoverContent>
-    </Popover>
+    <div className="parent">
+      <div className="wrapper">
+        <Box height="50vh" bgColor="green" display="flex" flexWrap="wrap">
+          <Popover>
+            <PopoverTrigger>
+              <Button>Add New Prediction</Button>
+            </PopoverTrigger>
+            <PopoverContent
+              padding="4"
+              bgColor="pink"
+              height="auto"
+              position="relative"
+            >
+              <form onSubmit={submit}>
+                <FormControl>
+                  <FormLabel htmlFor="prediction">Prediction</FormLabel>
+                  <Input name="prediction" id="prediction"></Input>
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="resultRef">Result Reference</FormLabel>
+                  <Input name="resultRef" id="resultRef"></Input>
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="start">Start</FormLabel>
+                  <Input type="datetime-local" name="start" id="start"></Input>
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="end">End</FormLabel>
+                  <Input type="datetime-local" name="end" id="end"></Input>
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="number_options">
+                    Number of Options
+                  </FormLabel>
+                  <Input
+                    onChange={(e) => {
+                      console.log(e);
+                      setNum(parseInt(e.target.value) || 0);
+                    }}
+                    name="number_options"
+                    id="number_options"
+                    type="number"
+                  ></Input>
+                </FormControl>
+                {[...Array(num).keys()].map((i) => {
+                  return (
+                    <FormControl
+                      bgColor="red"
+                      height="auto"
+                      position="relative"
+                    >
+                      <FormLabel htmlFor={'option_' + i}>Option {i}</FormLabel>
+                      <Input
+                        onChange={(e) =>
+                          setOptions((options) => {
+                            var opt = options;
+                            opt[`option_${i}`] = e.target.value;
+                            return opt;
+                          })
+                        }
+                        name={`option_${i}`}
+                        id={`option_${i}`}
+                      ></Input>
+                    </FormControl>
+                  );
+                })}
+                <Button type="submit">Submit</Button>
+              </form>
+            </PopoverContent>
+          </Popover>
+        </Box>
+      </div>
+    </div>
   );
 };
 
@@ -246,43 +295,117 @@ export default function MyPreds() {
     text: useColorModeValue('blue', 'white'),
   };
 
-  React.useEffect(() => {
+  const [buttonPopup, setButtonPopup] = useState(false);
+  useEffect(() => {
     (async function () {
-      if (!connected) {
-        await connect();
-      }
-      const contract = await wallet.at(CONTRACT_ADDRESS);
-      const storage = await contract.storage();
-      const admin = storage.admin;
-      console.log(admin);
-      if (activeAccount) {
-        const _ = [];
-        for (let x = 0; x < predictionsArray.length; x++) {
-          let item = predictionsArray[x].value;
-          if (
-            item.proposer === activeAccount.address ||
-            admin === activeAccount.address
-          ) {
-            _.push(item);
-          }
+      if (activeAccount && predictionsArray) {
+        if (!connected) {
+          await connect();
         }
-        console.log(_);
-        setMyPreds(_);
+        const contract = await wallet.at(CONTRACT_ADDRESS);
+        const storage = await contract.storage();
+        const admin = storage.admin;
+        console.log(admin);
+        if (activeAccount) {
+          const _ = [];
+          for (let x = 0; x < predictionsArray.length; x++) {
+            let item = predictionsArray[x].value;
+            if (
+              item.proposer === activeAccount.address ||
+              admin === activeAccount.address
+            ) {
+              _.push(item);
+            }
+          }
+          console.log(_);
+          setMyPreds(_);
+        }
       }
     })();
-  }, [activeAccount]);
+  }, [activeAccount, predictionsArray]);
 
   return myPreds ? (
     <Container
-      width="auto"
-      maxWidth="100vw"
-      bg={colors.bg}
+      px={{ base: '8', md: '20', lg: '20' }}
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
       height="auto"
-      maxHeight="100vh"
-      padding="10vh"
+      bgImage={portfolioBG}
+      bgPosition="center"
+      bgSize="cover"
+      w="100%"
+      maxWidth="100%"
+      className="main-container"
+      flexDirection="column"
+      gap="10"
+      py="20vh"
     >
-      <AddNewPrediction />
-      <Box display="flex" flexDirection="row" flexWrap="wrap">
+      <Flex w="100%">
+        <Heading
+          className="mainfont"
+          as="h2"
+          fontWeight="semibold"
+          fontSize={{ base: '4xl', md: '4xl', lg: '7xl' }}
+          textAlign={{ base: 'center', md: 'left', lg: 'left' }}
+        >
+          Predictions
+        </Heading>
+      </Flex>
+      {/* <AddNewPrediction /> */}
+
+      {!connected ? (
+        <Box
+          padding="20"
+          bgColor="#180F2Bed"
+          borderRadius="10"
+          w="40%"
+          flexWrap="wrap"
+          display="flex"
+          justifyContent="center"
+        >
+          <Button
+            onClick={connect}
+            color="black"
+            px="20"
+            borderRadius="20"
+            bgColor="white"
+          >
+            Connect Wallet
+          </Button>
+        </Box>
+      ) : (
+        <Flex
+          justifyContent="center"
+          bgColor="#180F2Bed"
+          px={{ base: '15%', md: '5%', lg: '5%' }}
+          py={{ base: '13%', md: '3%', lg: '3%' }}
+          borderRadius="15"
+        >
+          <Button
+            color="white"
+            bgColor="#9C4FFF"
+            onClick={() => setButtonPopup(true)}
+          >
+            Add New Predictions
+          </Button>
+          <AddNewPrediction2
+            trigger={buttonPopup}
+            setTrigger={setButtonPopup}
+          ></AddNewPrediction2>
+        </Flex>
+      )}
+
+      <Box
+        display="flex"
+        flexDirection="row"
+        flexWrap="wrap"
+        // bgColor="pink"
+        height="auto"
+        marginTop="4vh"
+        justifyContent="center"
+        // alignItems="center"
+      >
         {myPreds.map((pred, i) => {
           return (
             <Box
@@ -290,12 +413,13 @@ export default function MyPreds() {
               // onClick={}
               display="flex"
               maxWidth="300px"
-              border="1px solid"
+              // border="1px solid"
               borderRadius="15px"
-              padding="20px"
+              padding="30px"
               margin="10px"
+              bgColor="#180F2B"
             >
-              <Text color={colors.text}>{pred.predictionName}</Text>
+              <Text color="white">{pred.predictionName}</Text>
               <UpdatePredStatus pred={pred} />
               <AddPredRes pred={pred} />
             </Box>
@@ -384,5 +508,152 @@ const Portfolio = () => {
     </Container>
   ) : (
     <Loading />
+  );
+};
+
+const AddNewPrediction2 = (props) => {
+  const [num, setNum] = React.useState(0);
+  // const { connected, connect, activeAccount } = useWallet();
+  const [options, setOptions] = React.useState({});
+
+  const submit = async (e) => {
+    e.preventDefault();
+    const { prediction, resultRef, start, end } = e.target.elements;
+
+    const contract = await wallet.at(CONTRACT_ADDRESS);
+    const endValue = new Date(end.value).toISOString();
+    const startValue = new Date(start.value).toISOString();
+
+    const op = await contract.methods
+      .addprediction(
+        endValue,
+        resultRef.value,
+        prediction.value,
+        Object.keys(options).map((key) => options[key]),
+        startValue
+      )
+      .send({ amount: 2 });
+    await op.confirmation(1);
+    alert('Prediction Created!');
+  };
+
+  return props.trigger ? (
+    <Box className="popup">
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        className="popup-inner"
+        flexDirection="column"
+      >
+        <Flex
+          // bgColor="green"
+          justifyContent="end"
+          w="100%"
+        >
+          <CloseButton
+            bgColor="#383838"
+            className="close-btn"
+            color="red"
+            onClick={() => props.setTrigger(false)}
+            textAlign="right"
+            fontSize="xl"
+          ></CloseButton>
+        </Flex>
+
+        <Box
+          w="100%"
+          height="100%"
+          display="flex"
+          justifyContent="center"
+          // bgColor="yellow"
+          paddingTop="12vh"
+        >
+          <Popover bgColor="red">
+            <PopoverTrigger>
+              <Flex
+                bgColor="#180F2B"
+                height="20vh"
+                alignItems="center"
+                w={{ base: '100%', md: '30%', lg: '30%' }}
+                justifyContent="center"
+                borderRadius="15"
+                px={{ base: '15%', md: '5%', lg: '5%' }}
+                py={{ base: '13%', md: '3%', lg: '3%' }}
+              >
+                <Button bgColor="#9C4FFF" color="white">
+                  Add New Predictions
+                </Button>
+              </Flex>
+            </PopoverTrigger>
+            <PopoverContent
+              padding="4"
+              bgColor="#9C4FFF"
+              height="auto"
+              position="relative"
+              marginTop="-6vh"
+            >
+              <form onSubmit={submit}>
+                <FormControl>
+                  <FormLabel htmlFor="prediction">Prediction</FormLabel>
+                  <Input name="prediction" id="prediction"></Input>
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="resultRef">Result Reference</FormLabel>
+                  <Input name="resultRef" id="resultRef"></Input>
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="start">Start</FormLabel>
+                  <Input type="datetime-local" name="start" id="start"></Input>
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="end">End</FormLabel>
+                  <Input type="datetime-local" name="end" id="end"></Input>
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="number_options">
+                    Number of Options
+                  </FormLabel>
+                  <Input
+                    onChange={(e) => {
+                      console.log(e);
+                      setNum(parseInt(e.target.value) || 0);
+                    }}
+                    name="number_options"
+                    id="number_options"
+                    type="number"
+                  ></Input>
+                </FormControl>
+                {[...Array(num).keys()].map((i) => {
+                  return (
+                    <FormControl height="auto" position="relative">
+                      <FormLabel htmlFor={'option_' + i}>Option {i}</FormLabel>
+                      <Input
+                        onChange={(e) =>
+                          setOptions((options) => {
+                            var opt = options;
+                            opt[`option_${i}`] = e.target.value;
+                            return opt;
+                          })
+                        }
+                        name={`option_${i}`}
+                        id={`option_${i}`}
+                      ></Input>
+                    </FormControl>
+                  );
+                })}
+                <Center marginTop="2vh">
+                  <Button type="submit" bgColor="#180F2B" marginTop="10px">
+                    Submit
+                  </Button>
+                </Center>
+              </form>
+            </PopoverContent>
+          </Popover>
+        </Box>
+      </Box>
+    </Box>
+  ) : (
+    ''
   );
 };
