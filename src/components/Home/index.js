@@ -203,7 +203,7 @@ export default function Home() {
                 width={{ base: '100%', md: '70%', lg: '70%' }}
                 marginTop="10"
               >
-                <Box display="flex" flexDirection="column" alignItems="start">
+                {/* <Box display="flex" flexDirection="column" alignItems="start">
                   <Heading
                     as="h3"
                     fontWeight="semibold"
@@ -235,7 +235,7 @@ export default function Home() {
                     10M+
                   </Heading>
                   <p>Transactions</p>
-                </Box>
+                </Box> */}
               </Box>
             </Box>
             <Box

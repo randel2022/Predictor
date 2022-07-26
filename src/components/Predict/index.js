@@ -237,13 +237,17 @@ export default function Predict() {
           borderRadius="lg"
           overflow="hidden"
           display="flex"
-          flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+          flexDirection={{ base: 'column', md: 'column', lg: 'column' }}
           flexWrap="wrap"
           w="100%"
           gap="5"
         >
           <Flex w={{ base: '100%', md: '30%', lg: '30%' }}>
             <Text fontSize="lg">Prediction id: {data.ref} </Text>
+          </Flex>
+
+          <Flex w={{ base: '100%', md: '30%', lg: '30%' }}>
+            <Text fontSize="lg">Reference: </Text>
           </Flex>
 
           <Flex
