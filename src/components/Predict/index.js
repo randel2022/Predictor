@@ -63,7 +63,10 @@ const BuySellWindow = ({ id, options }) => {
               flexDirection="column"
               padding="0"
               margin="0"
-              gap="3"
+              // borderColor="green"
+              class="options"
+              w="100%"
+              bgColor="red"
             >
               <Box padding="0" margin="0">
                 <Text fontWeight="bold" fontSize="md" py="2">
@@ -80,20 +83,28 @@ const BuySellWindow = ({ id, options }) => {
                   }
                   value={request.option}
                   name="option"
+                  display="flex"
+                  // bgColor="red"
+                  flexDirection="column"
                 >
                   <Stack
                     display="flex"
-                    direction="row"
+                    direction={{ base: 'column', md: 'row', lg: 'row' }}
                     justifyContent="space-between"
+                    // bgColor="pink"
+                    marginTop="2vh"
+                    w="500px"
                   >
                     {options.map((option, i) => {
                       return (
-                        <Radio key={i} value={option}>
+                        <Radio key={i} value={option} w="100%">
                           <Box
                             borderWidth="1px"
                             borderColor="gray.400"
                             py="2"
-                            px="7"
+                            px="5"
+                            bgColor="#9C4FFF"
+                            w="100%"
                             borderRadius="2xl"
                           >
                             {option}
@@ -289,7 +300,11 @@ export default function Predict() {
           <Box className="mid" py="5">
             <Text fontSize="lg">Volume :</Text>
 
-            <Flex>
+            <Flex
+              flexDirection={{ base: 'column', md: 'row', lg: 'row' }}
+              marginTop="2vh"
+              gap="3"
+            >
               <Flex>
                 <Text color="white">Total :</Text>
                 <Text color="white">{data.Volume} Tez</Text>
@@ -297,7 +312,10 @@ export default function Predict() {
 
               {data.snap.map((pred, i) => {
                 return (
-                  <Flex flexDirection="row" px="7">
+                  <Flex
+                    flexDirection="row"
+                    px={{ base: '0', md: '7', lg: '7' }}
+                  >
                     <Box display="flex">
                       <Text>{pred.id} : </Text>
                     </Box>

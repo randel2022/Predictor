@@ -13,3 +13,14 @@
   outline: none !important;
   box-shadow: none !important;
 }
+
+.options {
+  border: none !important;
+  display: flex;
+  flex-direction: column;
+  gap: 30px !important;
+}
+
+form {
+  border: none !important;
+}
