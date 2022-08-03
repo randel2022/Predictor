@@ -36,7 +36,10 @@ import {
 
 import { useState } from 'react';
 
+import Modal from 'react-modal';
+
 const AddPredRes = ({ pred }) => {
+  const [modalIsOpen, setIsOpen] = React.useState(false);
   const colors = {
     bg: useColorModeValue('blue.200', 'blue.700'),
     text: useColorModeValue('blue', 'white'),
@@ -57,14 +60,49 @@ const AddPredRes = ({ pred }) => {
   return (
     <Popover returnFocusOnClose={false} placement="right" closeOnBlur={false}>
       <PopoverTrigger>
-        <Button bg="#9C4FFF" textColor="white" marginLeft="10px">
+        <Button
+          onClick={() => setIsOpen(true)}
+          bg="#9C4FFF"
+          textColor="white"
+          marginLeft="10px"
+        >
           Result
         </Button>
       </PopoverTrigger>
-      <PopoverContent textColor="white" textAlign="center" bgColor="#9C4FFF">
-        <PopoverHeader fontWeight="semibold" textAlign="center">
-          Update Prediction Result
-        </PopoverHeader>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setIsOpen(false)}
+        textColor="white"
+        textAlign="center"
+        bgColor="#9C4FFF"
+        className="statDiv"
+        left={{ base: '-68%', md: '0', lg: '0' }}
+      >
+        <Flex px="1vh">
+          <Flex w={{ base: '10%', md: '10%', lg: '25%' }}></Flex>
+          <Flex
+            w={{ base: '80%', md: '80%', lg: '50%' }}
+            justifyContent="center"
+          >
+            <PopoverHeader
+              fontWeight="semibold"
+              textAlign="center"
+              // marginLeft="-100px"
+            >
+              Update Prediction Result
+            </PopoverHeader>
+          </Flex>
+          <Flex w={{ base: '10%', md: '10%', lg: '25%' }} justifyContent="end">
+            <CloseButton
+              onClick={() => setIsOpen(false)}
+              color="red"
+              left="60%"
+              marginTop="4px"
+              marginLeft="4vh"
+            ></CloseButton>
+          </Flex>
+        </Flex>
+
         <PopoverBody>
           <form onSubmit={submit}>
             <FormControl>
@@ -83,6 +121,7 @@ const AddPredRes = ({ pred }) => {
                           px="3"
                           borderRadius="2xl"
                           color="white"
+                          bgColor="purple.400"
                         >
                           {option}
                         </Box>
@@ -93,18 +132,20 @@ const AddPredRes = ({ pred }) => {
               </RadioGroup>
             </FormControl>
             <Center marginTop="2vh">
-              <Button type="submit" bgColor="#180F2Bed">
+              <Button type="submit" bgColor="#9C4FFF">
                 Submit
               </Button>
             </Center>
           </form>
         </PopoverBody>
-      </PopoverContent>
+      </Modal>
     </Popover>
   );
 };
 
 const UpdatePredStatus = ({ pred }) => {
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
   const colors = {
     bg: useColorModeValue('blue.200', 'blue.700'),
     text: useColorModeValue('blue', 'white'),
@@ -124,23 +165,49 @@ const UpdatePredStatus = ({ pred }) => {
   return (
     <Popover returnFocusOnClose={false} placement="right" closeOnBlur={false}>
       <PopoverTrigger>
-        <Button textColor="white" bgColor="#9C4FFF">
+        <Button
+          onClick={() => setIsOpen(true)}
+          textColor="white"
+          bgColor="#9C4FFF"
+          px="5"
+          marginLeft="5px"
+        >
           Update
         </Button>
       </PopoverTrigger>
-      <PopoverContent
+      <Modal
         textColor="white"
-        bgColor="#9C4FFF"
+        // bgColor="#9C4FFF"
         className="statDiv"
         left={{ base: '-68%', md: '0', lg: '0' }}
+        isOpen={modalIsOpen}
+        onRequestClose={() => setIsOpen(false)}
+        position="relative"
       >
-        <PopoverHeader
-          fontWeight="semibold"
-          textAlign="center"
-          marginLeft="-100px"
-        >
-          Update Prediction Status
-        </PopoverHeader>
+        <Flex px="1vh">
+          <Flex w={{ base: '10%', md: '10%', lg: '25%' }}></Flex>
+          <Flex
+            w={{ base: '80%', md: '80%', lg: '50%' }}
+            justifyContent="center"
+          >
+            <PopoverHeader
+              fontWeight="semibold"
+              textAlign="center"
+              // marginLeft="-100px"
+            >
+              Update Prediction Status
+            </PopoverHeader>
+          </Flex>
+          <Flex w={{ base: '10%', md: '10%', lg: '25%' }} justifyContent="end">
+            <CloseButton
+              onClick={() => setIsOpen(false)}
+              color="red"
+              left="60%"
+              marginTop="4px"
+              marginLeft="4vh"
+            ></CloseButton>
+          </Flex>
+        </Flex>
 
         <PopoverBody>
           <form onSubmit={submit}>
@@ -160,7 +227,7 @@ const UpdatePredStatus = ({ pred }) => {
                       <Radio key={i} value={option}>
                         <Box
                           borderWidth="1px"
-                          borderColor="purple.400"
+                          bgColor="purple.400"
                           p="2"
                           borderRadius="2xl"
                         >
@@ -173,13 +240,13 @@ const UpdatePredStatus = ({ pred }) => {
               </RadioGroup>
             </FormControl>
             <Center marginTop="2vh">
-              <Button type="submit" bgColor="#180F2B">
+              <Button type="submit" bgColor="#9C4FFF">
                 Submit
               </Button>
             </Center>
           </form>
         </PopoverBody>
-      </PopoverContent>
+      </Modal>
     </Popover>
   );
 };
@@ -287,6 +354,7 @@ const AddNewPrediction = () => {
 };
 
 export default function MyPreds() {
+  const [modalIsOpen, setIsOpen] = React.useState(false);
   const { predictionsArray } = React.useContext(PredictionContext);
   const { connected, connect, activeAccount } = useWallet();
   const [myPreds, setMyPreds] = React.useState([]);
@@ -387,7 +455,7 @@ export default function MyPreds() {
             bgColor="#9C4FFF"
             onClick={() => setButtonPopup(true)}
           >
-            Add New Predictions
+            Add New Prediction
           </Button>
           <AddNewPrediction2
             trigger={buttonPopup}
@@ -406,6 +474,24 @@ export default function MyPreds() {
         justifyContent="center"
         // alignItems="center"
       >
+        <Box className="App">
+          {/* <button onClick={() => setIsOpen(true)}>Open Modal</button> */}
+          <Modal
+            bgColor="red"
+            isOpen={modalIsOpen}
+            onRequestClose={() => setIsOpen(false)}
+            w="50%"
+          >
+            <Button
+              onClick={() => setIsOpen(false)}
+              color="red"
+              _focus={{ boxShadow: 'none' }}
+            >
+              Close Modal
+            </Button>
+          </Modal>
+        </Box>
+
         {myPreds.map((pred, i) => {
           return (
             <Box
@@ -549,6 +635,7 @@ const AddNewPrediction2 = (props) => {
         <Flex
           // bgColor="green"
           justifyContent="end"
+          // bgColor="pink"
           w="100%"
         >
           <CloseButton
@@ -558,6 +645,8 @@ const AddNewPrediction2 = (props) => {
             onClick={() => props.setTrigger(false)}
             textAlign="right"
             fontSize="xl"
+            _focus={{ boxShadow: 'none', outline: 'none' }}
+            // marginLeft="-10px"
           ></CloseButton>
         </Flex>
 
